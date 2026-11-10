@@ -1,0 +1,92 @@
+name: Weekly Micro-Enterprise Cybersecurity Newsletter
+
+on:
+  schedule:
+    # Runs automatically every Monday at 6:00 AM
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+    inputs:
+      days_lookback:
+        description: 'Number of days to look back when scraping RSS feeds'
+        required: false
+        default: '7'
+      force_new_week:
+        description: 'Create a new weekly entry even if the current ISO week already exists'
+        required: false
+        default: 'false'
+        type: boolean
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "weekly-cybersec-newsletter"
+  cancel-in-progress: false
+
+jobs:
+  curate-and-build:
+    name: Scrape RSS, Filter with Gemini 4 Argon & Build Static Site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Scrape CISA, Krebs & BleepingComputer and curate with Gemini 4 Argon
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-4-argon
+        run: |
+          DAYS="${{ github.event.inputs.days_lookback || '7' }}"
+          EXTRA_ARGS=""
+          if [ "${{ github.event.inputs.force_new_week }}" = "true" ]; then
+            EXTRA_ARGS="--force-new-week"
+          fi
+          if [ -n "$GEMINI_API_KEY" ]; then
+            python scripts/generate_newsletter.py --days "$DAYS" $EXTRA_ARGS
+          else
+            echo "::warning::GEMINI_API_KEY secret is not configured. Running in --render-only mode from existing data/weeks.json."
+            python scripts/generate_newsletter.py --render-only
+          fi
+
+      - name: Commit and push updated newsletter archive & index.html
+        run: |
+          git config user.name "SmallTeam Shield Bot"
+          git config user.email "bot@smallteamshield.local"
+          git add data/ index.html
+          if git diff --staged --quiet; then
+            echo "No changes to newsletter data or index.html."
+          else
+            ISSUE_ID=$(python -c "import json; d=json.load(open('data/weeks.json')); print(d['weeks'][0]['week_id'])")
+            git commit -m "chore(newsletter): publish weekly edition ${ISSUE_ID} via Gemini 4 Argon"
+            git push
+          fi
+
+      - name: Upload static site artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+  deploy-pages:
+    name: Deploy to GitHub Pages
+    needs: curate-and-build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

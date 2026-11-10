@@ -1,0 +1,347 @@
+{
+  "metadata": {
+    "site_title": "Gaga Security Intel",
+    "tagline": "Zero-Jargon Weekly Cybersecurity Brief for 1–5 Person Businesses",
+    "model": "gemini-4-argon",
+    "last_updated": "2026-11-09T06:00:00Z",
+    "sources": [
+      {
+        "id": "cisa",
+        "name": "CISA Advisories",
+        "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml",
+        "badge_color": "emerald"
+      },
+      {
+        "id": "krebs",
+        "name": "Krebs on Security",
+        "url": "https://krebsonsecurity.com/feed/",
+        "badge_color": "amber"
+      },
+      {
+        "id": "bleeping",
+        "name": "BleepingComputer",
+        "url": "https://www.bleepingcomputer.com/feed/",
+        "badge_color": "cyan"
+      }
+    ]
+  },
+  "weeks": [
+    {
+      "issue_number": 45,
+      "week_id": "2026-W46",
+      "date_label": "Monday, November 9, 2026",
+      "date_range": "Nov 2 – Nov 9, 2026",
+      "is_current": true,
+      "threat_level": "Elevated",
+      "headline": "Fake QuickBooks Invoices, Chrome Zero-Day Patch & Small Office Wi-Fi Router Attacks",
+      "executive_brief": "This week, scammers are targeting 1–5 person shops with convincing QuickBooks and Stripe payment failed emails while attackers actively exploit outdated Chrome browsers and home-office routers. We filtered out 38 enterprise data-center alerts so your team can focus on three 5-minute fixes.",
+      "priority_action": "Update Google Chrome on all team laptops today and verify any unexpected invoice or banking change via a quick phone call before clicking.",
+      "stats": {
+        "raw_articles_scanned": 44,
+        "enterprise_noise_filtered": 38,
+        "micro_business_stories": 6,
+        "estimated_read_time": "2 min"
+      },
+      "filtered_noise_examples": [
+        "CISA ICS-CERT advisory for Siemens SCADA water treatment PLCs",
+        "BGP route-leak vulnerability in carrier-grade Juniper MX routers",
+        "Kubernetes multi-cluster RBAC privilege escalation in AWS EKS"
+      ],
+      "items": [
+        {
+          "id": "2026-w46-1",
+          "source_id": "cisa",
+          "source_name": "CISA",
+          "category": "Browser & Workstations",
+          "severity": "Critical",
+          "time_to_fix": "2 mins",
+          "title": "Urgent Google Chrome & Edge Update Fixes Active Web Exploit",
+          "summary": "CISA ordered federal agencies to patch a critical flaw in Google Chrome and Microsoft Edge after hackers began using booby-trapped websites to steal login cookies. If anyone on your team visits a compromised webpage without this update, attackers can hijack active email or banking sessions without needing your password. Restart your browser right now so the automatic security patch finishes installing.",
+          "action_step": "Click the three dots in the top-right corner of Chrome or Edge, select 'Help > About', and click 'Relaunch' to complete the update.",
+          "affected_tools": ["Google Chrome", "Microsoft Edge", "Brave"],
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "published_at": "2026-11-08"
+        },
+        {
+          "id": "2026-w46-2",
+          "source_id": "krebs",
+          "source_name": "Krebs on Security",
+          "category": "Email & Phishing",
+          "severity": "High",
+          "time_to_fix": "Zero cost / Awareness",
+          "title": "Tax & Bookkeeping Phishing Wave Spoofs Intuit QuickBooks Reminders",
+          "summary": "Cybercriminals are sending realistic 'Account Suspended' and 'Unpaid Invoice' alerts that appear to come directly from QuickBooks and Stripe. Clicking the link opens a lookalike login page that captures both your password and your six-digit text message security code in real time. Never log in through an email button—always open your browser bookmark to check billing alerts.",
+          "action_step": "Warn whoever handles bookkeeping this week to ignore 'urgent billing' email links and log into QuickBooks or Stripe directly from a saved bookmark.",
+          "affected_tools": ["QuickBooks Online", "Stripe", "Business Email"],
+          "url": "https://krebsonsecurity.com/",
+          "published_at": "2026-11-07"
+        },
+        {
+          "id": "2026-w46-3",
+          "source_id": "bleeping",
+          "source_name": "BleepingComputer",
+          "category": "Home & Small Office Wi-Fi",
+          "severity": "High",
+          "time_to_fix": "5 mins",
+          "title": "Botnet Targets Unpatched Asus, TP-Link, and Netgear Small-Office Routers",
+          "summary": "A newly discovered wave of automated attacks is hijacking small-office and home Wi-Fi routers that still have 'Remote Management' turned on or run outdated firmware. Once inside a router, criminals can quietly slow down your internet and intercept unencrypted office traffic. Rebooting your router alone does not fix the issue unless you install the latest firmware update in the router app.",
+          "action_step": "Open your Wi-Fi router's mobile app (TP-Link Tether, Asus Router, or Netgear Nighthawk), install any pending firmware update, and disable 'Remote Web Management'.",
+          "affected_tools": ["TP-Link", "Asus Routers", "Netgear SOHO"],
+          "url": "https://www.bleepingcomputer.com/news/security/",
+          "published_at": "2026-11-06"
+        },
+        {
+          "id": "2026-w46-4",
+          "source_id": "bleeping",
+          "source_name": "BleepingComputer",
+          "category": "Cloud & File Sharing",
+          "severity": "Medium",
+          "time_to_fix": "3 mins",
+          "title": "Fake Google Drive & DocuSign Collaboration Invites Spread Info-Stealers",
+          "summary": "Attackers are abusing legitimate Google Drive and DocuSign notification emails to send small business owners links to fake PDF contract previews. Instead of opening a contract, the page asks you to download a '.zip' or '.msi' file that quietly steals saved passwords from your computer. Real Google Docs and DocuSign agreements view directly in your browser and never ask you to install software to read a document.",
+          "action_step": "Remind your team that legitimate DocuSign or Google Drive links never require downloading an `.exe`, `.msi`, or password-protected `.zip` file.",
+          "affected_tools": ["Google Workspace", "DocuSign", "Windows PCs"],
+          "url": "https://www.bleepingcomputer.com/news/security/",
+          "published_at": "2026-11-05"
+        },
+        {
+          "id": "2026-w46-5",
+          "source_id": "cisa",
+          "source_name": "CISA",
+          "category": "Apple Devices",
+          "severity": "High",
+          "time_to_fix": "5 mins",
+          "title": "Apple Security Update Protects iPhones and Macs From Malicious Image Files",
+          "summary": "CISA added a recent Apple macOS and iOS security flaw to its must-patch list after attackers used specially crafted image files to compromise Apple devices. Because so many small teams handle customer texts, iMessages, and email attachments on personal iPhones and MacBooks, unpatched devices are easy targets. Updating to the latest iOS and macOS release completely blocks this attack.",
+          "action_step": "On all work iPhones and Macs, open 'Settings > General > Software Update' and turn on Automatic Updates.",
+          "affected_tools": ["iPhone (iOS)", "MacBook (macOS)", "iPad"],
+          "url": "https://www.cisa.gov/cybersecurity-advisories/all",
+          "published_at": "2026-11-04"
+        },
+        {
+          "id": "2026-w46-6",
+          "source_id": "krebs",
+          "source_name": "Krebs on Security",
+          "category": "Banking & Payroll",
+          "severity": "Medium",
+          "time_to_fix": "3 mins",
+          "title": "Fake 'Sponsored' Google Search Ads Impersonate Small Business Banks",
+          "summary": "Scammers are buying top Google Search ad slots for regional banks and payroll platforms like Gusto and ADP to trick busy owners into logging into fake websites. These spoofed portals look identical to your real bank login and immediately trigger a wire transfer while you think your page is loading. Never use a search engine to visit your bank or payroll login page.",
+          "action_step": "Save your business bank and payroll login pages to your browser bookmarks bar today and install an ad-blocker like uBlock Origin Lite.",
+          "affected_tools": ["Business Banking", "Gusto / ADP", "Google Search"],
+          "url": "https://krebsonsecurity.com/",
+          "published_at": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "issue_number": 44,
+      "week_id": "2026-W45",
+      "date_label": "Monday, November 2, 2026",
+      "date_range": "Oct 26 – Nov 2, 2026",
+      "is_current": false,
+      "threat_level": "Moderate",
+      "headline": "WordPress Booking Plugin Flaw, Fake USPS Delivery Texts & Microsoft 365 MFA Tricks",
+      "executive_brief": "Small business WordPress websites and Microsoft 365 accounts were the primary targets last week. We stripped out 41 enterprise software advisories to bring you the 4 threats that actually impact a 1–5 person company.",
+      "priority_action": "Enable auto-updates on all WordPress plugins and audit who has admin access to your company website.",
+      "stats": {
+        "raw_articles_scanned": 45,
+        "enterprise_noise_filtered": 41,
+        "micro_business_stories": 4,
+        "estimated_read_time": "90 sec"
+      },
+      "filtered_noise_examples": [
+        "Oracle WebLogic Server remote code execution in Solaris clusters",
+        "F5 BIG-IP enterprise load balancer management plane vulnerability"
+      ],
+      "items": [
+        {
+          "id": "2026-w45-1",
+          "source_id": "bleeping",
+          "source_name": "BleepingComputer",
+          "category": "Company Website",
+          "severity": "Critical",
+          "time_to_fix": "3 mins",
+          "title": "Popular WordPress Contact & Booking Plugins Patched Against Site Takeover",
+          "summary": "Hackers are scanning small business WordPress websites for an unpatched flaw in popular appointment booking and contact form plugins. If your site runs an outdated version, attackers can create a hidden administrator account and redirect your customers to scam pages. Turning on automatic plugin updates in your WordPress dashboard prevents hackers from exploiting old plugins.",
+          "action_step": "Log into your WordPress admin panel, click 'Plugins', update all flagged plugins immediately, and click 'Enable auto-updates' on each one.",
+          "affected_tools": ["WordPress", "WooCommerce", "Booking Plugins"],
+          "url": "https://www.bleepingcomputer.com/news/security/",
+          "published_at": "2026-10-31"
+        },
+        {
+          "id": "2026-w45-2",
+          "source_id": "krebs",
+          "source_name": "Krebs on Security",
+          "category": "Mobile & SMS",
+          "severity": "Medium",
+          "time_to_fix": "1 min",
+          "title": "Holiday Shipping Smishing Texts Target Small Retailers & Solo Founders",
+          "summary": "A massive wave of fake USPS, UPS, and FedEx text messages claims a business supply shipment is held up due to an incomplete street address. The link leads to a credit card harvesting form that charges a tiny $0.30 'redelivery fee' before draining the business debit card days later. Shipping carriers never ask for a credit card number via a text message link to fix a delivery address.",
+          "action_step": "Delete any shipping text messages coming from strange phone numbers or international email addresses and track packages only inside the carrier's official app.",
+          "affected_tools": ["iPhone / Android SMS", "Company Debit Cards"],
+          "url": "https://krebsonsecurity.com/",
+          "published_at": "2026-10-29"
+        },
+        {
+          "id": "2026-w45-3",
+          "source_id": "cisa",
+          "source_name": "CISA",
+          "category": "Account Security",
+          "severity": "High",
+          "time_to_fix": "5 mins",
+          "title": "CISA Warns of 'Push Bombing' Attacks on Microsoft 365 & Google Accounts",
+          "summary": "CISA issued guidance warning that criminals with stolen passwords are spamming employees with dozens of 'Approve Sign-In' phone notifications late at night until someone taps 'Approve' to make it stop. Small teams using simple one-tap push notifications are especially vulnerable when an owner is busy or distracted. Switching to number-matching or a hardware passkey stops this trick cold.",
+          "action_step": "Never approve a login prompt on your phone that you did not just trigger yourself, and immediately change your password if you receive unexpected prompts.",
+          "affected_tools": ["Microsoft 365", "Google Workspace", "Authenticator Apps"],
+          "url": "https://www.cisa.gov/cybersecurity-advisories/all",
+          "published_at": "2026-10-28"
+        },
+        {
+          "id": "2026-w45-4",
+          "source_id": "bleeping",
+          "source_name": "BleepingComputer",
+          "category": "Browser Extensions",
+          "severity": "Medium",
+          "time_to_fix": "3 mins",
+          "title": "Malicious PDF Converter & Ad-Blocker Chrome Extensions Removed From Store",
+          "summary": "Security researchers uncovered several free Chrome extensions claiming to convert PDFs or find coupon codes that were secretly reading users' active browser tabs. Over 200,000 people installed these extensions, giving scammers access to webmail and store dashboards. Small teams should keep browser extensions to an absolute minimum.",
+          "action_step": "Type `chrome://extensions` into your browser address bar and remove any extension your team does not recognize or actively need for work.",
+          "affected_tools": ["Google Chrome", "Brave", "Microsoft Edge"],
+          "url": "https://www.bleepingcomputer.com/news/security/",
+          "published_at": "2026-10-27"
+        }
+      ]
+    },
+    {
+      "issue_number": 43,
+      "week_id": "2026-W44",
+      "date_label": "Monday, October 26, 2026",
+      "date_range": "Oct 19 – Oct 26, 2026",
+      "is_current": false,
+      "threat_level": "Elevated",
+      "headline": "Vendor ACH Bank Change Scams, WinRAR/7-Zip Flaws & Fake Geek Squad Invoices",
+      "executive_brief": "Business Email Compromise (BEC) targeting small contractors and agencies surged last week alongside a file-archiver security update. We filtered 36 corporate IT stories down to 3 essential items.",
+      "priority_action": "Establish a strict rule: never update a vendor or contractor's ACH bank routing details based solely on an email request.",
+      "stats": {
+        "raw_articles_scanned": 39,
+        "enterprise_noise_filtered": 36,
+        "micro_business_stories": 3,
+        "estimated_read_time": "1 min"
+      },
+      "filtered_noise_examples": [
+        "Citrix Virtual Apps and Desktops enterprise VDI session hijacking",
+        "SAP NetWeaver AS JAVA unauthenticated directory traversal"
+      ],
+      "items": [
+        {
+          "id": "2026-w44-1",
+          "source_id": "krebs",
+          "source_name": "Krebs on Security",
+          "category": "Wire & ACH Fraud",
+          "severity": "Critical",
+          "time_to_fix": "2 mins",
+          "title": "Scammers Hijack Contractor Email Threads to Reroute ACH Payments",
+          "summary": "Attackers who break into a supplier or freelancer's email account wait quietly until an invoice is due, then reply inside the real email thread asking you to send payment to a 'new bank account.' Because the message comes from the vendor's actual email address and quotes your real project details, spam filters cannot catch it. Once an ACH or wire payment leaves your business checking account, banks rarely recover the funds.",
+          "action_step": "Adopt a firm rule with your team: any email asking to change bank routing numbers or payment methods must be verified by calling the vendor on a phone number you already had on file.",
+          "affected_tools": ["ACH / Wire Transfers", "Bill.com", "Business Email"],
+          "url": "https://krebsonsecurity.com/",
+          "published_at": "2026-10-24"
+        },
+        {
+          "id": "2026-w44-2",
+          "source_id": "cisa",
+          "source_name": "CISA",
+          "category": "Windows Software",
+          "severity": "High",
+          "time_to_fix": "4 mins",
+          "title": "Outdated 7-Zip and WinRAR File Extraction Tools Exploited via Email Attachments",
+          "summary": "CISA alerted organizations that hackers are hiding malware inside compressed `.zip` and `.rar` archives that trigger automatically on computers running old versions of WinRAR or 7-Zip. Because Windows 11 now opens `.zip` and `.rar` files natively, most small teams no longer even need third-party archive tools installed. Removing or updating these old utilities closes an easy door for attackers.",
+          "action_step": "Open Windows 'Installed Apps', uninstall old versions of WinRAR or 7-Zip if you don't need them, or download the latest release from their official site.",
+          "affected_tools": ["Windows 10/11", "7-Zip", "WinRAR"],
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "published_at": "2026-10-22"
+        },
+        {
+          "id": "2026-w44-3",
+          "source_id": "bleeping",
+          "source_name": "BleepingComputer",
+          "category": "Phone Scams",
+          "severity": "Medium",
+          "time_to_fix": "1 min",
+          "title": "Fake 'Norton / Geek Squad' $499 Renewal Emails Trick Staff Into Installing Remote Control Tools",
+          "summary": "Scammers are blasting small business inboxes with fake receipts claiming your company card was just billed $499 for an annual computer support plan. When a worried employee calls the phone number on the receipt to cancel the charge, the scammer asks them to install remote-desktop software like AnyDesk or ScreenConnect to 'process the refund' and steals bank logins. There is no charge on your card—the email is pure bait to get you on the phone.",
+          "action_step": "Tell your team to delete fake $400+ renewal receipts without calling the phone number printed on the PDF; check actual credit card statements instead.",
+          "affected_tools": ["Business Email", "AnyDesk / TeamViewer"],
+          "url": "https://www.bleepingcomputer.com/news/security/",
+          "published_at": "2026-10-20"
+        }
+      ]
+    },
+    {
+      "issue_number": 42,
+      "week_id": "2026-W43",
+      "date_label": "Monday, October 19, 2026",
+      "date_range": "Oct 12 – Oct 19, 2026",
+      "is_current": false,
+      "threat_level": "Moderate",
+      "headline": "NAS Backup Drives Under Ransomware Attack & Fake Facebook Page Copyright Warnings",
+      "executive_brief": "Small agencies and retail shops that use Synology/QNAP office backup drives or manage Meta Business Suite pages were heavily targeted this week. 34 enterprise advisories were filtered out.",
+      "priority_action": "Make sure your office backup drive is not accessible from the public internet and turn on Two-Factor Authentication for social media accounts.",
+      "stats": {
+        "raw_articles_scanned": 37,
+        "enterprise_noise_filtered": 34,
+        "micro_business_stories": 3,
+        "estimated_read_time": "1 min"
+      },
+      "filtered_noise_examples": [
+        "VMware vCenter Server enterprise hypervisor heap-overflow flaw",
+        "Palo Alto Networks PAN-OS Panorama management interface exploit"
+      ],
+      "items": [
+        {
+          "id": "2026-w43-1",
+          "source_id": "bleeping",
+          "source_name": "BleepingComputer",
+          "category": "Backups & Storage",
+          "severity": "Critical",
+          "time_to_fix": "5 mins",
+          "title": "Ransomware Gang Targets Internet-Exposed QNAP & Synology Office Backup Boxes",
+          "summary": "Creative studios and small offices that use network storage boxes (NAS) to share files are being hit by automated ransomware that locks every file on the drive. The attackers scan the internet for backup drives that have UPnP or public web access turned on and exploit unpatched firmware. Keeping your backup drive limited to your local office Wi-Fi prevents automated bots from reaching it.",
+          "action_step": "Log into your Synology or QNAP drive settings, install the latest system update, and disable public port-forwarding or UPnP router exposure.",
+          "affected_tools": ["Synology NAS", "QNAP NAS", "Office Backups"],
+          "url": "https://www.bleepingcomputer.com/news/security/",
+          "published_at": "2026-10-17"
+        },
+        {
+          "id": "2026-w43-2",
+          "source_id": "krebs",
+          "source_name": "Krebs on Security",
+          "category": "Social Media & Ads",
+          "severity": "High",
+          "time_to_fix": "3 mins",
+          "title": "Fake 'Page Violation & Copyright' Messages Hijack Small Business Facebook & Instagram Ads",
+          "summary": "Scammers are tagging small business Facebook and Instagram pages in fake posts claiming your business account will be deleted in 24 hours for a copyright violation. Owners who click the appeal link have their Meta Business Suite hijacked, and criminals immediately run thousands of dollars in scam ads on the company's linked credit card. Meta never sends account takedown warnings via tagged customer posts or random direct messages.",
+          "action_step": "Ignore and block any DM or page tag threatening account deletion, and set a low daily spending limit inside your Meta Ads Manager billing settings.",
+          "affected_tools": ["Meta Business Suite", "Facebook Pages", "Instagram"],
+          "url": "https://krebsonsecurity.com/",
+          "published_at": "2026-10-15"
+        },
+        {
+          "id": "2026-w43-3",
+          "source_id": "cisa",
+          "source_name": "CISA",
+          "category": "Windows & Office",
+          "severity": "High",
+          "time_to_fix": "3 mins",
+          "title": "Monthly Windows Patch Tuesday Fixes Critical Remote Desktop & Word Flaws",
+          "summary": "CISA highlighted two actively exploited flaws in Microsoft's monthly security update that allow attackers to infect Windows PCs through malicious Office documents. Small businesses without an IT department often have laptops where Windows updates have been paused for weeks. Taking three minutes to reboot every team PC ensures this month's protection is active.",
+          "action_step": "Open 'Settings > Windows Update' on each work PC, click 'Check for updates', and restart the computer before the end of the day.",
+          "affected_tools": ["Windows 11", "Windows 10", "Microsoft Office"],
+          "url": "https://www.cisa.gov/cybersecurity-advisories/all",
+          "published_at": "2026-10-14"
+        }
+      ]
+    }
+  ]
+}
