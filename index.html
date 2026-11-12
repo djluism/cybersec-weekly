@@ -1,0 +1,2057 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaga Security Intel — Zero-Jargon Weekly Cybersecurity Brief for 1–5 Person Businesses</title>
+  <meta name="description" content="Automated weekly cybersecurity newsletter tailored for micro-enterprises (1–5 employees). Curated by Gemini 4 Argon from CISA, Krebs on Security, and BleepingComputer every Monday at 6:00 AM." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            obsidian: {
+              950: '#050811',
+              900: '#090E1A',
+              800: '#0F172A',
+              700: '#1E293B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #050811;
+      background-image:
+        radial-gradient(circle at 15% 0%, rgba(16, 185, 129, 0.10), transparent 38%),
+        radial-gradient(circle at 85% 8%, rgba(6, 182, 212, 0.09), transparent 35%),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.35) 1px, transparent 1px),
+        linear-gradient(to right, rgba(15, 23, 42, 0.35) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    }
+    .hero-glow {
+      box-shadow: 0 0 60px -15px rgba(16, 185, 129, 0.16), 0 0 30px -10px rgba(6, 182, 212, 0.12);
+    }
+    .action-checked {
+      border-color: rgba(16, 185, 129, 0.5) !important;
+      background-color: rgba(6, 78, 59, 0.22) !important;
+    }
+  </style>
+</head>
+<body class="text-slate-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200 min-h-screen flex flex-col">
+
+  <!-- Top GAGA.COM Network Global Navigation & Header -->
+  <div class="border-b border-slate-800/80 bg-obsidian-950/95 backdrop-blur-md sticky top-0 z-50">
+    <!-- Top Telemetry & RSS Bar -->
+    <div class="border-b border-slate-800/60 bg-obsidian-950/90">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-2 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div class="flex items-center gap-2.5">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono font-medium">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            GEMINI 4 ARGON • AUTO-RUNS MONDAYS 06:00 AM
+          </span>
+          <span class="hidden md:inline-flex items-center gap-1.5 text-slate-400 font-mono">
+            <span>GAGA.COM MICRO-ENTERPRISE NETWORK</span>
+            <span class="text-slate-600">•</span>
+            <span>ZERO CORPORATE NOISE</span>
+          </span>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span class="text-slate-400 hidden sm:inline">Live RSS Sources:</span>
+          <a href="https://www.cisa.gov/cybersecurity-advisories/all" target="_blank" rel="noopener" class="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 font-mono hover:bg-emerald-500/20 transition">CISA</a>
+          <a href="https://krebsonsecurity.com/" target="_blank" rel="noopener" class="px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/25 text-amber-300 font-mono hover:bg-amber-500/20 transition">Krebs on Security</a>
+          <a href="https://www.bleepingcomputer.com/" target="_blank" rel="noopener" class="px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/25 text-cyan-300 font-mono hover:bg-cyan-500/20 transition">BleepingComputer</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Primary Gaga.com Extension Brand Header -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <!-- Brand Logo Block: Gaga Security Intel -->
+      <a href="https://gaga.com" class="group flex items-center gap-3.5 focus:outline-none">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-cyan-500 p-[1px] shadow-lg shadow-emerald-500/15">
+          <div class="w-full h-full bg-obsidian-950 rounded-[11px] flex items-center justify-center">
+            <svg class="w-5 h-5 text-emerald-400 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-lg sm:text-xl font-extrabold tracking-tight text-white">
+              Gaga <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Security Intel</span>
+            </span>
+            <span class="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded bg-slate-800/90 border border-slate-700 text-slate-300">
+              www.gaga.com
+            </span>
+          </div>
+          <p class="text-xs text-slate-400 font-medium">
+            Official Cybersecurity Intelligence Division • 1–5 Person Micro-Enterprises
+          </p>
+        </div>
+      </a>
+
+      <!-- Navigation Links & Prominent "Return to Home" CTA -->
+      <nav aria-label="Gaga Global Navigation" class="flex items-center gap-2.5 sm:gap-4">
+        <a href="#current-week-hero" class="hidden md:inline-block text-xs sm:text-sm font-medium text-slate-300 hover:text-emerald-400 transition">
+          Current Brief
+        </a>
+        <a href="#older-weeks-archive" class="hidden md:inline-block text-xs sm:text-sm font-medium text-slate-300 hover:text-emerald-400 transition">
+          Weekly Archive
+        </a>
+        <a
+          href="https://www.gaga.com"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold text-xs sm:text-sm shadow-lg shadow-emerald-500/20 transition"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span>Return to Home</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Header, AdSense Slot & Controls -->
+  <header class="max-w-6xl mx-auto w-full px-4 sm:px-6 pt-8 pb-6">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-slate-800/80">
+      <div>
+        <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-400 mb-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          Gaga.com Micro-Enterprise Security Digest (1–5 Employees)
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+          Gaga <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Security Intel</span>
+        </h1>
+        <p class="mt-2 text-slate-300 max-w-2xl text-sm sm:text-base leading-relaxed">
+          Every Monday at 6:00 AM, <span class="text-emerald-300 font-medium">Gemini 4 Argon</span> reads every advisory from CISA, Krebs on Security, and BleepingComputer, throws out the corporate enterprise noise, and translates what actually matters to a 1–5 person business into <span class="text-white font-medium">plain 2–3 sentence summaries</span>.
+        </p>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="flex flex-wrap items-center gap-2.5 shrink-0">
+        <button id="copyTeamBriefBtn" type="button" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-xs sm:text-sm transition shadow-lg shadow-emerald-500/15 cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+          </svg>
+          <span id="copyTeamBriefLabel">Copy This Week's Brief for Team</span>
+        </button>
+        <a href="#older-weeks-archive" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80 text-xs sm:text-sm font-medium transition">
+          <span>Past Weeks Archive (4)</span>
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Designated Google AdSense Leaderboard Container (Header Slot) -->
+    <aside aria-label="Sponsored Advertisement" class="mt-5 rounded-xl bg-obsidian-900/80 border border-slate-800/90 p-3 flex flex-col items-center justify-center">
+      <div class="w-full max-w-[728px] min-h-[90px] rounded-lg border border-dashed border-slate-800 bg-obsidian-950/70 flex flex-col items-center justify-center px-4 py-2 text-center relative overflow-hidden">
+        <span class="text-[10px] font-mono uppercase tracking-widest text-slate-500 mb-1">
+          Advertisement • Gaga Security Intel Sponsor Slot (Google AdSense Ready)
+        </span>
+        <!-- Standard Google AdSense Unit Container -->
+        <ins
+          class="adsbygoogle"
+          style="display:block; width:100%; min-height:70px;"
+          data-ad-client="ca-pub-0000000000000000"
+          data-ad-slot="1234567890"
+          data-ad-format="horizontal"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          try {
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+          } catch (e) {}
+        </script>
+      </div>
+    </aside>
+
+    <!-- Search & Filter Bar -->
+    <div class="mt-5 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 bg-slate-900/70 border border-slate-800/90 rounded-xl p-3">
+      <div class="flex flex-wrap items-center gap-1.5" role="group" aria-label="Filter by RSS feed source">
+        <span class="text-xs font-mono text-slate-400 mr-1.5 px-1">SOURCE:</span>
+        <button type="button" data-source-filter="all" class="source-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 transition cursor-pointer">All Feeds</button>
+        <button type="button" data-source-filter="cisa" class="source-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/70 text-slate-300 border border-slate-700/60 hover:text-white transition cursor-pointer">CISA</button>
+        <button type="button" data-source-filter="krebs" class="source-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/70 text-slate-300 border border-slate-700/60 hover:text-white transition cursor-pointer">Krebs on Security</button>
+        <button type="button" data-source-filter="bleeping" class="source-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/70 text-slate-300 border border-slate-700/60 hover:text-white transition cursor-pointer">BleepingComputer</button>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <div class="relative flex-1 md:w-72">
+          <svg class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <input id="searchInput" type="search" placeholder="Filter by Chrome, QuickBooks, Wi-Fi, ACH..." class="w-full pl-9 pr-3 py-1.5 bg-obsidian-950/90 border border-slate-700/80 rounded-lg text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500/70 font-sans" />
+        </div>
+        <select id="severityFilter" aria-label="Filter by threat severity" class="bg-obsidian-950/90 border border-slate-700/80 rounded-lg px-2.5 py-1.5 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-emerald-500/70">
+          <option value="all">All Severities</option>
+          <option value="Critical">Critical Only</option>
+          <option value="High">High &amp; Critical</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto w-full px-4 sm:px-6 pb-20 flex-1 space-y-14">
+
+    <!-- ===================================================================== -->
+    <!-- TOP HERO BLOCK: CURRENT WEEK FEATURED EDITION                         -->
+    <!-- ===================================================================== -->
+    <section id="current-week-hero" aria-labelledby="hero-week-heading" class="relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-500/50 via-cyan-500/30 to-slate-800 hero-glow">
+      <div class="rounded-2xl bg-obsidian-900/95 backdrop-blur-xl p-5 sm:p-8">
+
+        <!-- Hero Top Metadata Row -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-800">
+          <div class="flex flex-wrap items-center gap-2.5">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 font-mono text-xs font-semibold tracking-wide">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              FEATURED CURRENT WEEK • ISSUE #46
+            </span>
+            <span class="font-mono text-xs text-slate-300 bg-slate-800/90 border border-slate-700 px-2.5 py-1 rounded-md">
+              Monday, November 12, 2026 (Nov 5 – Nov 12, 2026)
+            </span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono">
+              <span>SMALL-TEAM THREAT LEVEL:</span>
+              <strong class="uppercase">High</strong>
+            </div>
+            <div class="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-slate-300 text-xs font-mono">
+              <span id="heroProgressCount">0/5</span>
+              <span>Actions Done</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Headline & Executive Brief -->
+        <div class="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-8 space-y-3">
+            <h2 id="hero-week-heading" class="text-2xl sm:text-3xl font-bold text-white leading-tight">
+              Zero-Day Flaws Strike Outlook and Chrome While Notion Discloses AI Data Leak
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              This week's updates demand immediate attention as active exploits target everyday business tools including Outlook, Google Chrome, and Notion. We filtered out 17 complex enterprise notices regarding industrial refrigeration controllers, Linux rootkits, and telecom server vulnerabilities to focus on your day-to-day office tools.
+            </p>
+
+            <!-- Priority 5-Minute Action Banner -->
+            <div class="mt-4 p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/35 flex items-start gap-3.5">
+              <div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 shrink-0 mt-0.5">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-xs font-mono uppercase tracking-wider text-emerald-300 font-semibold">
+                  #1 Priority 5-Minute Team Action This Week
+                </div>
+                <p class="text-sm text-slate-100 mt-1 font-medium">
+                  Restart your computer and open both Windows Update and your web browser to install this month's critical security patches immediately.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gemini 4 Argon Corporate Noise Filter Telemetry Box -->
+          <div class="lg:col-span-4 rounded-xl bg-obsidian-950/90 border border-slate-800 p-4 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-semibold">Noise Filter Telemetry</span>
+              <span class="text-[11px] font-mono text-slate-400">2 min read</span>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2 text-center">
+              <div class="p-2 rounded-lg bg-slate-900/90 border border-slate-800">
+                <div class="text-lg font-bold font-mono text-slate-200">22</div>
+                <div class="text-[11px] text-slate-400">RSS Scanned</div>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-900/90 border border-slate-800">
+                <div class="text-lg font-bold font-mono text-rose-400">-17</div>
+                <div class="text-[11px] text-slate-400">Corp Noise Cut</div>
+              </div>
+              <div class="p-2 rounded-lg bg-emerald-950/40 border border-emerald-500/30">
+                <div class="text-lg font-bold font-mono text-emerald-400">5</div>
+                <div class="text-[11px] text-emerald-300">Kept for You</div>
+              </div>
+            </div>
+
+            <div class="pt-1 border-t border-slate-800/80">
+              <div class="text-[11px] font-mono text-slate-400 mb-1.5">Examples of Enterprise Noise Filtered Out:</div>
+              <ul class="space-y-1 text-xs text-slate-400">
+                
+                <li class="flex items-start gap-1.5 line-through decoration-slate-600 text-slate-500">
+                  <span class="text-rose-400/80 font-mono text-[10px] mt-0.5">✕</span>
+                  <span>CISA advisory on industrial refrigeration and cold chain monitoring controllers</span>
+                </li>
+                
+                <li class="flex items-start gap-1.5 line-through decoration-slate-600 text-slate-500">
+                  <span class="text-rose-400/80 font-mono text-[10px] mt-0.5">✕</span>
+                  <span>Underground threat actor discussions regarding Linux kernel eBPF rootkits</span>
+                </li>
+                
+                <li class="flex items-start gap-1.5 line-through decoration-slate-600 text-slate-500">
+                  <span class="text-rose-400/80 font-mono text-[10px] mt-0.5">✕</span>
+                  <span>Cisco BroadWorks and SignalWire FreeSwitch telecom server injection flaws</span>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Current Week Curated Story Cards (2-3 Sentence Summaries) -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5" id="heroItemsGrid">
+          
+          <article
+            class="newsletter-card group rounded-xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 p-5 flex flex-col justify-between transition duration-200"
+            data-source="krebs"
+            data-severity="Critical"
+            data-search="microsoft issues massive update addressing active outlook flaws microsoft has released its monthly security update fixing over a thousand vulnerabilities across windows, including an actively exploited email bug in outlook. attackers can trigger this outlook flaw without requiring the victim to open an attachment or click a malicious link. running windows update now protects your workstation from unauthorized background access. click the start button, go to settings, select windows update, and click check for updates to install all pending fixes. operating system updates windows 10 windows 11 microsoft outlook"
+            data-card-id="2026-w46-1"
+          >
+            <div>
+              <!-- Card Top Metadata -->
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <div class="flex items-center gap-2">
+                  
+                  <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">Krebs on Security</span>
+                  
+                  <span class="text-xs text-slate-400 font-medium">Operating System Updates</span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <span class="text-[11px] font-mono text-slate-400 bg-obsidian-950 px-2 py-0.5 rounded border border-slate-800">
+                    ⏱ 5 mins
+                  </span>
+                  
+                  <span class="px-2 py-0.5 rounded text-xs font-mono font-semibold bg-rose-500/15 text-rose-300 border border-rose-500/30">Critical</span>
+                  
+                </div>
+              </div>
+
+              <!-- Story Title -->
+              <h3 class="text-lg font-bold text-white group-hover:text-emerald-300 transition leading-snug">
+                Microsoft Issues Massive Update Addressing Active Outlook Flaws
+              </h3>
+
+              <!-- 2-3 Sentence Plain-English Summary -->
+              <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">
+                Microsoft has released its monthly security update fixing over a thousand vulnerabilities across Windows, including an actively exploited email bug in Outlook. Attackers can trigger this Outlook flaw without requiring the victim to open an attachment or click a malicious link. Running Windows Update now protects your workstation from unauthorized background access.
+              </p>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+              <!-- Interactive 1-Step Micro-Business Action Box -->
+              <label for="check-2026-w46-1" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+                <input
+                  id="check-2026-w46-1"
+                  type="checkbox"
+                  data-action-id="2026-w46-1"
+                  data-hero-action="true"
+                  class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 focus:ring-emerald-500/40 cursor-pointer"
+                />
+                <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                  <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                  Click the Start button, go to Settings, select Windows Update, and click Check for updates to install all pending fixes.
+                </span>
+              </label>
+
+              <!-- Affected Tools & Original Advisory Link -->
+              <div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+                <div class="flex flex-wrap items-center gap-1.5">
+                  
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800/90 text-slate-300 border border-slate-700/70">
+                    Windows 10
+                  </span>
+                  
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800/90 text-slate-300 border border-slate-700/70">
+                    Windows 11
+                  </span>
+                  
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800/90 text-slate-300 border border-slate-700/70">
+                    Microsoft Outlook
+                  </span>
+                  
+                </div>
+
+                <a href="https://krebsonsecurity.com/2026/11/microsoft-fixes-nearly-1100-security-vulnerabilities/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-mono text-emerald-400 hover:text-emerald-300 font-medium">
+                  <span>Source Advisory</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+          
+          <article
+            class="newsletter-card group rounded-xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 p-5 flex flex-col justify-between transition duration-200"
+            data-source="cisa"
+            data-severity="Critical"
+            data-search="federal warning issued for actively exploited web browser flaw cybersecurity authorities have officially added a high-priority web browser vulnerability to their emergency catalog due to confirmed real-world attacks. criminals exploit this memory flaw through deceptive websites to execute harmful code directly on your computer. keeping your browser software current shuts down the access route attackers use. open your browser menu, navigate to help, select about, and let the browser download and restart with the latest update. browser security google chrome microsoft edge brave"
+            data-card-id="2026-w46-2"
+          >
+            <div>
+              <!-- Card Top Metadata -->
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <div class="flex items-center gap-2">
+                  
+                  <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">CISA</span>
+                  
+                  <span class="text-xs text-slate-400 font-medium">Browser Security</span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <span class="text-[11px] font-mono text-slate-400 bg-obsidian-950 px-2 py-0.5 rounded border border-slate-800">
+                    ⏱ 2 mins
+                  </span>
+                  
+                  <span class="px-2 py-0.5 rounded text-xs font-mono font-semibold bg-rose-500/15 text-rose-300 border border-rose-500/30">Critical</span>
+                  
+                </div>
+              </div>
+
+              <!-- Story Title -->
+              <h3 class="text-lg font-bold text-white group-hover:text-emerald-300 transition leading-snug">
+                Federal Warning Issued for Actively Exploited Web Browser Flaw
+              </h3>
+
+              <!-- 2-3 Sentence Plain-English Summary -->
+              <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">
+                Cybersecurity authorities have officially added a high-priority web browser vulnerability to their emergency catalog due to confirmed real-world attacks. Criminals exploit this memory flaw through deceptive websites to execute harmful code directly on your computer. Keeping your browser software current shuts down the access route attackers use.
+              </p>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+              <!-- Interactive 1-Step Micro-Business Action Box -->
+              <label for="check-2026-w46-2" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+                <input
+                  id="check-2026-w46-2"
+                  type="checkbox"
+                  data-action-id="2026-w46-2"
+                  data-hero-action="true"
+                  class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 focus:ring-emerald-500/40 cursor-pointer"
+                />
+                <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                  <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                  Open your browser menu, navigate to Help, select About, and let the browser download and restart with the latest update.
+                </span>
+              </label>
+
+              <!-- Affected Tools & Original Advisory Link -->
+              <div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+                <div class="flex flex-wrap items-center gap-1.5">
+                  
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800/90 text-slate-300 border border-slate-700/70">
+                    Google Chrome
+                  </span>
+                  
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800/90 text-slate-300 border border-slate-700/70">
+                    Microsoft Edge
+                  </span>
+                  
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800/90 text-slate-300 border border-slate-700/70">
+                    Brave
+                  </span>
+                  
+                </div>
+
+                <a href="https://www.cisa.gov/news-events/alerts/2026/11/10/cisa-adds-six-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-mono text-emerald-400 hover:text-emerald-300 font-medium">
+                  <span>Source Advisory</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+          
+          <article
+            class="newsletter-card group rounded-xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 p-5 flex flex-col justify-between transition duration-200"
+            data-source="bleeping"
+            data-severity="Medium"
+            data-search="notion ai chat logs exposed following third-party vendor breach notion disclosed that a cybersecurity intrusion at one of its artificial intelligence partners exposed customer conversation transcripts. if your small team used notion ai to draft sensitive business proposals, client notes, or internal policies, those prompts may have been visible to unauthorized parties. the incident serves as a reminder to avoid pasting sensitive customer records or banking details into ai assistants. remind your team never to enter client passwords, financial records, or confidential trade secrets into ai chat prompts or workspace assistants. cloud work suites notion notion ai"
+            data-card-id="2026-w46-3"
+          >
+            <div>
+              <!-- Card Top Metadata -->
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <div class="flex items-center gap-2">
+                  
+                  <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">BleepingComputer</span>
+                  
+                  <span class="text-xs text-slate-400 font-medium">Cloud Work Suites</span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <span class="text-[11px] font-mono text-slate-400 bg-obsidian-950 px-2 py-0.5 rounded border border-slate-800">
+                    ⏱ 5 mins
+                  </span>
+                  
+                  <span class="px-2 py-0.5 rounded text-xs font-mono font-semibold bg-sky-500/15 text-sky-300 border border-sky-500/30">Medium</span>
+                  
+                </div>
+              </div>
+
+              <!-- Story Title -->
+              <h3 class="text-lg font-bold text-white group-hover:text-emerald-300 transition leading-snug">
+                Notion AI Chat Logs Exposed Following Third-Party Vendor Breach
+              </h3>
+
+              <!-- 2-3 Sentence Plain-English Summary -->
+              <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">
+                Notion disclosed that a cybersecurity intrusion at one of its artificial intelligence partners exposed customer conversation transcripts. If your small team used Notion AI to draft sensitive business proposals, client notes, or internal policies, those prompts may have been visible to unauthorized parties. The incident serves as a reminder to avoid pasting sensitive customer records or banking details into AI assistants.
+              </p>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+              <!-- Interactive 1-Step Micro-Business Action Box -->
+              <label for="check-2026-w46-3" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+                <input
+                  id="check-2026-w46-3"
+                  type="checkbox"
+                  data-action-id="2026-w46-3"
+                  data-hero-action="true"
+                  class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 focus:ring-emerald-500/40 cursor-pointer"
+                />
+                <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                  <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                  Remind your team never to enter client passwords, financial records, or confidential trade secrets into AI chat prompts or workspace assistants.
+                </span>
+              </label>
+
+              <!-- Affected Tools & Original Advisory Link -->
+              <div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+                <div class="flex flex-wrap items-center gap-1.5">
+                  
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800/90 text-slate-300 border border-slate-700/70">
+                    Notion
+                  </span>
+                  
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800/90 text-slate-300 border border-slate-700/70">
+                    Notion AI
+                  </span>
+                  
+                </div>
+
+                <a href="https://www.bleepingcomputer.com/news/security/notion-says-fireworks-breach-exposed-customer-ai-chat-transcripts/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-mono text-emerald-400 hover:text-emerald-300 font-medium">
+                  <span>Source Advisory</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+          
+          <article
+            class="newsletter-card group rounded-xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 p-5 flex flex-col justify-between transition duration-200"
+            data-source="bleeping"
+            data-severity="High"
+            data-search="windows 11 security updates failing to install on some computers microsoft confirmed that this month's crucial security update is failing to install on select windows 11 pcs, returning error messages instead. this glitch leaves affected business laptops without protection against newly disclosed zero-day security threats. verifying that your update actually completed successfully ensures your devices are not quietly left exposed. open windows update history on your pc to confirm that the november update shows as successfully installed rather than failed. operating system updates windows 11"
+            data-card-id="2026-w46-4"
+          >
+            <div>
+              <!-- Card Top Metadata -->
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <div class="flex items-center gap-2">
+                  
+                  <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">BleepingComputer</span>
+                  
+                  <span class="text-xs text-slate-400 font-medium">Operating System Updates</span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <span class="text-[11px] font-mono text-slate-400 bg-obsidian-950 px-2 py-0.5 rounded border border-slate-800">
+                    ⏱ 5 mins
+                  </span>
+                  
+                  <span class="px-2 py-0.5 rounded text-xs font-mono font-semibold bg-orange-500/15 text-orange-300 border border-orange-500/30">High</span>
+                  
+                </div>
+              </div>
+
+              <!-- Story Title -->
+              <h3 class="text-lg font-bold text-white group-hover:text-emerald-300 transition leading-snug">
+                Windows 11 Security Updates Failing to Install on Some Computers
+              </h3>
+
+              <!-- 2-3 Sentence Plain-English Summary -->
+              <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">
+                Microsoft confirmed that this month's crucial security update is failing to install on select Windows 11 PCs, returning error messages instead. This glitch leaves affected business laptops without protection against newly disclosed zero-day security threats. Verifying that your update actually completed successfully ensures your devices are not quietly left exposed.
+              </p>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+              <!-- Interactive 1-Step Micro-Business Action Box -->
+              <label for="check-2026-w46-4" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+                <input
+                  id="check-2026-w46-4"
+                  type="checkbox"
+                  data-action-id="2026-w46-4"
+                  data-hero-action="true"
+                  class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 focus:ring-emerald-500/40 cursor-pointer"
+                />
+                <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                  <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                  Open Windows Update history on your PC to confirm that the November update shows as Successfully installed rather than Failed.
+                </span>
+              </label>
+
+              <!-- Affected Tools & Original Advisory Link -->
+              <div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+                <div class="flex flex-wrap items-center gap-1.5">
+                  
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800/90 text-slate-300 border border-slate-700/70">
+                    Windows 11
+                  </span>
+                  
+                </div>
+
+                <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-kb5132061-installation-issues-0x80070306-0x800f0989-0x800f0993-errors/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-mono text-emerald-400 hover:text-emerald-300 font-medium">
+                  <span>Source Advisory</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+          
+          <article
+            class="newsletter-card group rounded-xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 p-5 flex flex-col justify-between transition duration-200"
+            data-source="bleeping"
+            data-severity="High"
+            data-search="hackers hijacking remote support software to access client computers attackers are actively compromising outsourced it support providers and abusing remote access tools to push malicious software onto client computers. if your business works with an external computer technician who uses remote desktop software, an intruder who breaches their firm could gain instant entry to your office pcs. reviewing and removing old remote-access software keeps your machines shielded from third-party break-ins. check your computer's installed applications list and uninstall any unused remote support apps like screenconnect or anydesk. remote access & it support connectwise screenconnect windows remote management"
+            data-card-id="2026-w46-5"
+          >
+            <div>
+              <!-- Card Top Metadata -->
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <div class="flex items-center gap-2">
+                  
+                  <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">BleepingComputer</span>
+                  
+                  <span class="text-xs text-slate-400 font-medium">Remote Access & IT Support</span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <span class="text-[11px] font-mono text-slate-400 bg-obsidian-950 px-2 py-0.5 rounded border border-slate-800">
+                    ⏱ 5 mins
+                  </span>
+                  
+                  <span class="px-2 py-0.5 rounded text-xs font-mono font-semibold bg-orange-500/15 text-orange-300 border border-orange-500/30">High</span>
+                  
+                </div>
+              </div>
+
+              <!-- Story Title -->
+              <h3 class="text-lg font-bold text-white group-hover:text-emerald-300 transition leading-snug">
+                Hackers Hijacking Remote Support Software to Access Client Computers
+              </h3>
+
+              <!-- 2-3 Sentence Plain-English Summary -->
+              <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">
+                Attackers are actively compromising outsourced IT support providers and abusing remote access tools to push malicious software onto client computers. If your business works with an external computer technician who uses remote desktop software, an intruder who breaches their firm could gain instant entry to your office PCs. Reviewing and removing old remote-access software keeps your machines shielded from third-party break-ins.
+              </p>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+              <!-- Interactive 1-Step Micro-Business Action Box -->
+              <label for="check-2026-w46-5" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+                <input
+                  id="check-2026-w46-5"
+                  type="checkbox"
+                  data-action-id="2026-w46-5"
+                  data-hero-action="true"
+                  class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 focus:ring-emerald-500/40 cursor-pointer"
+                />
+                <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                  <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                  Check your computer's installed applications list and uninstall any unused remote support apps like ScreenConnect or AnyDesk.
+                </span>
+              </label>
+
+              <!-- Affected Tools & Original Advisory Link -->
+              <div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+                <div class="flex flex-wrap items-center gap-1.5">
+                  
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800/90 text-slate-300 border border-slate-700/70">
+                    ConnectWise ScreenConnect
+                  </span>
+                  
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800/90 text-slate-300 border border-slate-700/70">
+                    Windows Remote Management
+                  </span>
+                  
+                </div>
+
+                <a href="https://www.bleepingcomputer.com/news/security/active-screenconnect-attacks-breach-msps-impact-dozens-of-organizations/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-mono text-emerald-400 hover:text-emerald-300 font-medium">
+                  <span>Source Advisory</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+          
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- OLDER WEEKS CHRONOLOGICAL ARCHIVE STACK                               -->
+    <!-- ===================================================================== -->
+    <section id="older-weeks-archive" aria-labelledby="archive-heading" class="space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-800 pb-4">
+        <div>
+          <div class="text-xs font-mono uppercase tracking-widest text-cyan-400">
+            Chronological Weekly Stack
+          </div>
+          <h2 id="archive-heading" class="text-2xl font-bold text-white mt-1">
+            Previous Weekly Editions
+          </h2>
+          <p class="text-sm text-slate-400 mt-1">
+            Older weeks stack chronologically below the current Hero Week so new hires or busy founders can catch up in minutes.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button id="expandAllWeeksBtn" type="button" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 cursor-pointer transition">
+            Expand All Weeks
+          </button>
+          <button id="collapseAllWeeksBtn" type="button" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 cursor-pointer transition">
+            Collapse All
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Issue Jump Pills -->
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs font-mono text-slate-400 mr-1">Jump to edition:</span>
+        
+        <a href="#issue-45" class="px-3 py-1 rounded-full bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-xs font-mono text-slate-300 transition">
+          Issue #45 • Nov 2 – Nov 9, 2026
+        </a>
+        
+        <a href="#issue-44" class="px-3 py-1 rounded-full bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-xs font-mono text-slate-300 transition">
+          Issue #44 • Oct 26 – Nov 2, 2026
+        </a>
+        
+        <a href="#issue-43" class="px-3 py-1 rounded-full bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-xs font-mono text-slate-300 transition">
+          Issue #43 • Oct 19 – Oct 26, 2026
+        </a>
+        
+        <a href="#issue-42" class="px-3 py-1 rounded-full bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-xs font-mono text-slate-300 transition">
+          Issue #42 • Oct 12 – Oct 19, 2026
+        </a>
+        
+      </div>
+
+      <!-- Stacked Chronological Container -->
+      <div class="relative pl-4 sm:pl-8 border-l-2 border-slate-800 space-y-8">
+        
+        <div id="week-2026-W46" data-issue-anchor="issue-45" data-week-id="2026-W46" class="archive-week-block relative rounded-2xl bg-obsidian-900/90 border border-slate-800/90 p-5 sm:p-6 transition">
+          <span id="issue-45" class="absolute -top-24"></span>
+          <!-- Timeline Node Dot -->
+          <span class="absolute -left-[25px] sm:-left-[41px] top-7 w-4 h-4 rounded-full bg-obsidian-950 border-2 border-cyan-400"></span>
+
+          <!-- Week Header (Clickable Toggle) -->
+          <div class="flex flex-wrap items-start justify-between gap-4">
+            <div class="space-y-1.5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-200 font-mono text-xs font-semibold">
+                  ISSUE #45 • 2026-W46
+                </span>
+                <span class="text-xs font-mono text-slate-400">
+                  Monday, November 9, 2026 (Nov 2 – Nov 9, 2026)
+                </span>
+                <span class="px-2 py-0.5 rounded bg-slate-800/70 text-slate-300 font-mono text-xs">
+                  38 enterprise alerts filtered out
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-white">
+                Fake QuickBooks Invoices, Chrome Zero-Day Patch & Small Office Wi-Fi Router Attacks
+              </h3>
+              <p class="text-sm text-slate-300 max-w-3xl">
+                This week, scammers are targeting 1–5 person shops with convincing QuickBooks and Stripe payment failed emails while attackers actively exploit outdated Chrome browsers and home-office routers. We filtered out 38 enterprise data-center alerts so your team can focus on three 5-minute fixes.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              data-toggle-week="45"
+              data-week-id="2026-W46"
+              aria-expanded="true"
+              class="week-toggle-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-200 shrink-0 cursor-pointer"
+            >
+              <span class="toggle-label">Hide 6 Stories</span>
+              <svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Week Priority Action Callout -->
+          <div class="mt-4 px-3.5 py-2.5 rounded-lg bg-slate-950/80 border border-slate-800/90 flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
+            <span class="font-mono text-cyan-400 font-semibold uppercase shrink-0">Week #45 Key Fix:</span>
+            <span>Update Google Chrome on all team laptops today and verify any unexpected invoice or banking change via a quick phone call before clicking.</span>
+          </div>
+
+          <!-- Stacked Week Story Cards -->
+          <div id="week-body-45" data-week-body="2026-W46" class="week-stories-container mt-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+            
+            <article
+              class="newsletter-card rounded-xl bg-slate-900/70 border border-slate-800/90 p-4 flex flex-col justify-between"
+              data-source="cisa"
+              data-severity="Critical"
+              data-search="urgent google chrome & edge update fixes active web exploit cisa ordered federal agencies to patch a critical flaw in google chrome and microsoft edge after hackers began using booby-trapped websites to steal login cookies. if anyone on your team visits a compromised webpage without this update, attackers can hijack active email or banking sessions without needing your password. restart your browser right now so the automatic security patch finishes installing. click the three dots in the top-right corner of chrome or edge, select 'help > about', and click 'relaunch' to complete the update. browser & workstations google chrome microsoft edge brave"
+              data-card-id="2026-w46-1"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">CISA</span>
+                  
+
+                  <span class="text-[11px] font-mono text-slate-400">Critical • 2 mins</span>
+                </div>
+
+                <h4 class="text-base font-bold text-white leading-snug">
+                  Urgent Google Chrome & Edge Update Fixes Active Web Exploit
+                </h4>
+
+                <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  CISA ordered federal agencies to patch a critical flaw in Google Chrome and Microsoft Edge after hackers began using booby-trapped websites to steal login cookies. If anyone on your team visits a compromised webpage without this update, attackers can hijack active email or banking sessions without needing your password. Restart your browser right now so the automatic security patch finishes installing.
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2.5">
+                <label for="check-2026-w46-1" class="action-box flex items-start gap-2.5 p-2.5 rounded-lg bg-obsidian-950/80 border border-slate-800/90 cursor-pointer">
+                  <input
+                    id="check-2026-w46-1"
+                    type="checkbox"
+                    data-action-id="2026-w46-1"
+                    class="action-checkbox mt-0.5 h-3.5 w-3.5 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer"
+                  />
+                  <span class="text-xs text-slate-200 leading-snug">
+                    <strong class="text-cyan-400 font-mono uppercase text-[10px] block">Action:</strong>
+                    Click the three dots in the top-right corner of Chrome or Edge, select 'Help > About', and click 'Relaunch' to complete the update.
+                  </span>
+                </label>
+
+                <div class="flex items-center justify-between text-[11px] font-mono pt-0.5">
+                  <span class="text-slate-400 truncate max-w-[65%]">Google Chrome, Microsoft Edge, Brave</span>
+                  <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">
+                    Read Source →
+                  </a>
+                </div>
+              </div>
+            </article>
+            
+            <article
+              class="newsletter-card rounded-xl bg-slate-900/70 border border-slate-800/90 p-4 flex flex-col justify-between"
+              data-source="krebs"
+              data-severity="High"
+              data-search="tax & bookkeeping phishing wave spoofs intuit quickbooks reminders cybercriminals are sending realistic 'account suspended' and 'unpaid invoice' alerts that appear to come directly from quickbooks and stripe. clicking the link opens a lookalike login page that captures both your password and your six-digit text message security code in real time. never log in through an email button—always open your browser bookmark to check billing alerts. warn whoever handles bookkeeping this week to ignore 'urgent billing' email links and log into quickbooks or stripe directly from a saved bookmark. email & phishing quickbooks online stripe business email"
+              data-card-id="2026-w46-2"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">Krebs on Security</span>
+                  
+
+                  <span class="text-[11px] font-mono text-slate-400">High • Zero cost / Awareness</span>
+                </div>
+
+                <h4 class="text-base font-bold text-white leading-snug">
+                  Tax & Bookkeeping Phishing Wave Spoofs Intuit QuickBooks Reminders
+                </h4>
+
+                <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Cybercriminals are sending realistic 'Account Suspended' and 'Unpaid Invoice' alerts that appear to come directly from QuickBooks and Stripe. Clicking the link opens a lookalike login page that captures both your password and your six-digit text message security code in real time. Never log in through an email button—always open your browser bookmark to check billing alerts.
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2.5">
+                <label for="check-2026-w46-2" class="action-box flex items-start gap-2.5 p-2.5 rounded-lg bg-obsidian-950/80 border border-slate-800/90 cursor-pointer">
+                  <input
+                    id="check-2026-w46-2"
+                    type="checkbox"
+                    data-action-id="2026-w46-2"
+                    class="action-checkbox mt-0.5 h-3.5 w-3.5 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer"
+                  />
+                  <span class="text-xs text-slate-200 leading-snug">
+                    <strong class="text-cyan-400 font-mono uppercase text-[10px] block">Action:</strong>
+                    Warn whoever handles bookkeeping this week to ignore 'urgent billing' email links and log into QuickBooks or Stripe directly from a saved bookmark.
+                  </span>
+                </label>
+
+                <div class="flex items-center justify-between text-[11px] font-mono pt-0.5">
+                  <span class="text-slate-400 truncate max-w-[65%]">QuickBooks Online, Stripe, Business Email</span>
+                  <a href="https://krebsonsecurity.com/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">
+                    Read Source →
+                  </a>
+                </div>
+              </div>
+            </article>
+            
+            <article
+              class="newsletter-card rounded-xl bg-slate-900/70 border border-slate-800/90 p-4 flex flex-col justify-between"
+              data-source="bleeping"
+              data-severity="High"
+              data-search="botnet targets unpatched asus, tp-link, and netgear small-office routers a newly discovered wave of automated attacks is hijacking small-office and home wi-fi routers that still have 'remote management' turned on or run outdated firmware. once inside a router, criminals can quietly slow down your internet and intercept unencrypted office traffic. rebooting your router alone does not fix the issue unless you install the latest firmware update in the router app. open your wi-fi router's mobile app (tp-link tether, asus router, or netgear nighthawk), install any pending firmware update, and disable 'remote web management'. home & small office wi-fi tp-link asus routers netgear soho"
+              data-card-id="2026-w46-3"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">BleepingComputer</span>
+                  
+
+                  <span class="text-[11px] font-mono text-slate-400">High • 5 mins</span>
+                </div>
+
+                <h4 class="text-base font-bold text-white leading-snug">
+                  Botnet Targets Unpatched Asus, TP-Link, and Netgear Small-Office Routers
+                </h4>
+
+                <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  A newly discovered wave of automated attacks is hijacking small-office and home Wi-Fi routers that still have 'Remote Management' turned on or run outdated firmware. Once inside a router, criminals can quietly slow down your internet and intercept unencrypted office traffic. Rebooting your router alone does not fix the issue unless you install the latest firmware update in the router app.
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2.5">
+                <label for="check-2026-w46-3" class="action-box flex items-start gap-2.5 p-2.5 rounded-lg bg-obsidian-950/80 border border-slate-800/90 cursor-pointer">
+                  <input
+                    id="check-2026-w46-3"
+                    type="checkbox"
+                    data-action-id="2026-w46-3"
+                    class="action-checkbox mt-0.5 h-3.5 w-3.5 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer"
+                  />
+                  <span class="text-xs text-slate-200 leading-snug">
+                    <strong class="text-cyan-400 font-mono uppercase text-[10px] block">Action:</strong>
+                    Open your Wi-Fi router's mobile app (TP-Link Tether, Asus Router, or Netgear Nighthawk), install any pending firmware update, and disable 'Remote Web Management'.
+                  </span>
+                </label>
+
+                <div class="flex items-center justify-between text-[11px] font-mono pt-0.5">
+                  <span class="text-slate-400 truncate max-w-[65%]">TP-Link, Asus Routers, Netgear SOHO</span>
+                  <a href="https://www.bleepingcomputer.com/news/security/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">
+                    Read Source →
+                  </a>
+                </div>
+              </div>
+            </article>
+            
+            <article
+              class="newsletter-card rounded-xl bg-slate-900/70 border border-slate-800/90 p-4 flex flex-col justify-between"
+              data-source="bleeping"
+              data-severity="Medium"
+              data-search="fake google drive & docusign collaboration invites spread info-stealers attackers are abusing legitimate google drive and docusign notification emails to send small business owners links to fake pdf contract previews. instead of opening a contract, the page asks you to download a '.zip' or '.msi' file that quietly steals saved passwords from your computer. real google docs and docusign agreements view directly in your browser and never ask you to install software to read a document. remind your team that legitimate docusign or google drive links never require downloading an `.exe`, `.msi`, or password-protected `.zip` file. cloud & file sharing google workspace docusign windows pcs"
+              data-card-id="2026-w46-4"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">BleepingComputer</span>
+                  
+
+                  <span class="text-[11px] font-mono text-slate-400">Medium • 3 mins</span>
+                </div>
+
+                <h4 class="text-base font-bold text-white leading-snug">
+                  Fake Google Drive & DocuSign Collaboration Invites Spread Info-Stealers
+                </h4>
+
+                <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Attackers are abusing legitimate Google Drive and DocuSign notification emails to send small business owners links to fake PDF contract previews. Instead of opening a contract, the page asks you to download a '.zip' or '.msi' file that quietly steals saved passwords from your computer. Real Google Docs and DocuSign agreements view directly in your browser and never ask you to install software to read a document.
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2.5">
+                <label for="check-2026-w46-4" class="action-box flex items-start gap-2.5 p-2.5 rounded-lg bg-obsidian-950/80 border border-slate-800/90 cursor-pointer">
+                  <input
+                    id="check-2026-w46-4"
+                    type="checkbox"
+                    data-action-id="2026-w46-4"
+                    class="action-checkbox mt-0.5 h-3.5 w-3.5 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer"
+                  />
+                  <span class="text-xs text-slate-200 leading-snug">
+                    <strong class="text-cyan-400 font-mono uppercase text-[10px] block">Action:</strong>
+                    Remind your team that legitimate DocuSign or Google Drive links never require downloading an `.exe`, `.msi`, or password-protected `.zip` file.
+                  </span>
+                </label>
+
+                <div class="flex items-center justify-between text-[11px] font-mono pt-0.5">
+                  <span class="text-slate-400 truncate max-w-[65%]">Google Workspace, DocuSign, Windows PCs</span>
+                  <a href="https://www.bleepingcomputer.com/news/security/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">
+                    Read Source →
+                  </a>
+                </div>
+              </div>
+            </article>
+            
+            <article
+              class="newsletter-card rounded-xl bg-slate-900/70 border border-slate-800/90 p-4 flex flex-col justify-between"
+              data-source="cisa"
+              data-severity="High"
+              data-search="apple security update protects iphones and macs from malicious image files cisa added a recent apple macos and ios security flaw to its must-patch list after attackers used specially crafted image files to compromise apple devices. because so many small teams handle customer texts, imessages, and email attachments on personal iphones and macbooks, unpatched devices are easy targets. updating to the latest ios and macos release completely blocks this attack. on all work iphones and macs, open 'settings > general > software update' and turn on automatic updates. apple devices iphone (ios) macbook (macos) ipad"
+              data-card-id="2026-w46-5"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">CISA</span>
+                  
+
+                  <span class="text-[11px] font-mono text-slate-400">High • 5 mins</span>
+                </div>
+
+                <h4 class="text-base font-bold text-white leading-snug">
+                  Apple Security Update Protects iPhones and Macs From Malicious Image Files
+                </h4>
+
+                <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  CISA added a recent Apple macOS and iOS security flaw to its must-patch list after attackers used specially crafted image files to compromise Apple devices. Because so many small teams handle customer texts, iMessages, and email attachments on personal iPhones and MacBooks, unpatched devices are easy targets. Updating to the latest iOS and macOS release completely blocks this attack.
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2.5">
+                <label for="check-2026-w46-5" class="action-box flex items-start gap-2.5 p-2.5 rounded-lg bg-obsidian-950/80 border border-slate-800/90 cursor-pointer">
+                  <input
+                    id="check-2026-w46-5"
+                    type="checkbox"
+                    data-action-id="2026-w46-5"
+                    class="action-checkbox mt-0.5 h-3.5 w-3.5 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer"
+                  />
+                  <span class="text-xs text-slate-200 leading-snug">
+                    <strong class="text-cyan-400 font-mono uppercase text-[10px] block">Action:</strong>
+                    On all work iPhones and Macs, open 'Settings > General > Software Update' and turn on Automatic Updates.
+                  </span>
+                </label>
+
+                <div class="flex items-center justify-between text-[11px] font-mono pt-0.5">
+                  <span class="text-slate-400 truncate max-w-[65%]">iPhone (iOS), MacBook (macOS), iPad</span>
+                  <a href="https://www.cisa.gov/cybersecurity-advisories/all" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">
+                    Read Source →
+                  </a>
+                </div>
+              </div>
+            </article>
+            
+            <article
+              class="newsletter-card rounded-xl bg-slate-900/70 border border-slate-800/90 p-4 flex flex-col justify-between"
+              data-source="krebs"
+              data-severity="Medium"
+              data-search="fake 'sponsored' google search ads impersonate small business banks scammers are buying top google search ad slots for regional banks and payroll platforms like gusto and adp to trick busy owners into logging into fake websites. these spoofed portals look identical to your real bank login and immediately trigger a wire transfer while you think your page is loading. never use a search engine to visit your bank or payroll login page. save your business bank and payroll login pages to your browser bookmarks bar today and install an ad-blocker like ublock origin lite. banking & payroll business banking gusto / adp google search"
+              data-card-id="2026-w46-6"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">Krebs on Security</span>
+                  
+
+                  <span class="text-[11px] font-mono text-slate-400">Medium • 3 mins</span>
+                </div>
+
+                <h4 class="text-base font-bold text-white leading-snug">
+                  Fake 'Sponsored' Google Search Ads Impersonate Small Business Banks
+                </h4>
+
+                <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Scammers are buying top Google Search ad slots for regional banks and payroll platforms like Gusto and ADP to trick busy owners into logging into fake websites. These spoofed portals look identical to your real bank login and immediately trigger a wire transfer while you think your page is loading. Never use a search engine to visit your bank or payroll login page.
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2.5">
+                <label for="check-2026-w46-6" class="action-box flex items-start gap-2.5 p-2.5 rounded-lg bg-obsidian-950/80 border border-slate-800/90 cursor-pointer">
+                  <input
+                    id="check-2026-w46-6"
+                    type="checkbox"
+                    data-action-id="2026-w46-6"
+                    class="action-checkbox mt-0.5 h-3.5 w-3.5 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer"
+                  />
+                  <span class="text-xs text-slate-200 leading-snug">
+                    <strong class="text-cyan-400 font-mono uppercase text-[10px] block">Action:</strong>
+                    Save your business bank and payroll login pages to your browser bookmarks bar today and install an ad-blocker like uBlock Origin Lite.
+                  </span>
+                </label>
+
+                <div class="flex items-center justify-between text-[11px] font-mono pt-0.5">
+                  <span class="text-slate-400 truncate max-w-[65%]">Business Banking, Gusto / ADP, Google Search</span>
+                  <a href="https://krebsonsecurity.com/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">
+                    Read Source →
+                  </a>
+                </div>
+              </div>
+            </article>
+            
+          </div>
+        </div>
+        
+        <div id="week-2026-W45" data-issue-anchor="issue-44" data-week-id="2026-W45" class="archive-week-block relative rounded-2xl bg-obsidian-900/90 border border-slate-800/90 p-5 sm:p-6 transition">
+          <span id="issue-44" class="absolute -top-24"></span>
+          <!-- Timeline Node Dot -->
+          <span class="absolute -left-[25px] sm:-left-[41px] top-7 w-4 h-4 rounded-full bg-obsidian-950 border-2 border-cyan-400"></span>
+
+          <!-- Week Header (Clickable Toggle) -->
+          <div class="flex flex-wrap items-start justify-between gap-4">
+            <div class="space-y-1.5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-200 font-mono text-xs font-semibold">
+                  ISSUE #44 • 2026-W45
+                </span>
+                <span class="text-xs font-mono text-slate-400">
+                  Monday, November 2, 2026 (Oct 26 – Nov 2, 2026)
+                </span>
+                <span class="px-2 py-0.5 rounded bg-slate-800/70 text-slate-300 font-mono text-xs">
+                  41 enterprise alerts filtered out
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-white">
+                WordPress Booking Plugin Flaw, Fake USPS Delivery Texts & Microsoft 365 MFA Tricks
+              </h3>
+              <p class="text-sm text-slate-300 max-w-3xl">
+                Small business WordPress websites and Microsoft 365 accounts were the primary targets last week. We stripped out 41 enterprise software advisories to bring you the 4 threats that actually impact a 1–5 person company.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              data-toggle-week="44"
+              data-week-id="2026-W45"
+              aria-expanded="true"
+              class="week-toggle-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-200 shrink-0 cursor-pointer"
+            >
+              <span class="toggle-label">Hide 4 Stories</span>
+              <svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Week Priority Action Callout -->
+          <div class="mt-4 px-3.5 py-2.5 rounded-lg bg-slate-950/80 border border-slate-800/90 flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
+            <span class="font-mono text-cyan-400 font-semibold uppercase shrink-0">Week #44 Key Fix:</span>
+            <span>Enable auto-updates on all WordPress plugins and audit who has admin access to your company website.</span>
+          </div>
+
+          <!-- Stacked Week Story Cards -->
+          <div id="week-body-44" data-week-body="2026-W45" class="week-stories-container mt-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+            
+            <article
+              class="newsletter-card rounded-xl bg-slate-900/70 border border-slate-800/90 p-4 flex flex-col justify-between"
+              data-source="bleeping"
+              data-severity="Critical"
+              data-search="popular wordpress contact & booking plugins patched against site takeover hackers are scanning small business wordpress websites for an unpatched flaw in popular appointment booking and contact form plugins. if your site runs an outdated version, attackers can create a hidden administrator account and redirect your customers to scam pages. turning on automatic plugin updates in your wordpress dashboard prevents hackers from exploiting old plugins. log into your wordpress admin panel, click 'plugins', update all flagged plugins immediately, and click 'enable auto-updates' on each one. company website wordpress woocommerce booking plugins"
+              data-card-id="2026-w45-1"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">BleepingComputer</span>
+                  
+
+                  <span class="text-[11px] font-mono text-slate-400">Critical • 3 mins</span>
+                </div>
+
+                <h4 class="text-base font-bold text-white leading-snug">
+                  Popular WordPress Contact & Booking Plugins Patched Against Site Takeover
+                </h4>
+
+                <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Hackers are scanning small business WordPress websites for an unpatched flaw in popular appointment booking and contact form plugins. If your site runs an outdated version, attackers can create a hidden administrator account and redirect your customers to scam pages. Turning on automatic plugin updates in your WordPress dashboard prevents hackers from exploiting old plugins.
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2.5">
+                <label for="check-2026-w45-1" class="action-box flex items-start gap-2.5 p-2.5 rounded-lg bg-obsidian-950/80 border border-slate-800/90 cursor-pointer">
+                  <input
+                    id="check-2026-w45-1"
+                    type="checkbox"
+                    data-action-id="2026-w45-1"
+                    class="action-checkbox mt-0.5 h-3.5 w-3.5 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer"
+                  />
+                  <span class="text-xs text-slate-200 leading-snug">
+                    <strong class="text-cyan-400 font-mono uppercase text-[10px] block">Action:</strong>
+                    Log into your WordPress admin panel, click 'Plugins', update all flagged plugins immediately, and click 'Enable auto-updates' on each one.
+                  </span>
+                </label>
+
+                <div class="flex items-center justify-between text-[11px] font-mono pt-0.5">
+                  <span class="text-slate-400 truncate max-w-[65%]">WordPress, WooCommerce, Booking Plugins</span>
+                  <a href="https://www.bleepingcomputer.com/news/security/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">
+                    Read Source →
+                  </a>
+                </div>
+              </div>
+            </article>
+            
+            <article
+              class="newsletter-card rounded-xl bg-slate-900/70 border border-slate-800/90 p-4 flex flex-col justify-between"
+              data-source="krebs"
+              data-severity="Medium"
+              data-search="holiday shipping smishing texts target small retailers & solo founders a massive wave of fake usps, ups, and fedex text messages claims a business supply shipment is held up due to an incomplete street address. the link leads to a credit card harvesting form that charges a tiny $0.30 'redelivery fee' before draining the business debit card days later. shipping carriers never ask for a credit card number via a text message link to fix a delivery address. delete any shipping text messages coming from strange phone numbers or international email addresses and track packages only inside the carrier's official app. mobile & sms iphone / android sms company debit cards"
+              data-card-id="2026-w45-2"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">Krebs on Security</span>
+                  
+
+                  <span class="text-[11px] font-mono text-slate-400">Medium • 1 min</span>
+                </div>
+
+                <h4 class="text-base font-bold text-white leading-snug">
+                  Holiday Shipping Smishing Texts Target Small Retailers & Solo Founders
+                </h4>
+
+                <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  A massive wave of fake USPS, UPS, and FedEx text messages claims a business supply shipment is held up due to an incomplete street address. The link leads to a credit card harvesting form that charges a tiny $0.30 'redelivery fee' before draining the business debit card days later. Shipping carriers never ask for a credit card number via a text message link to fix a delivery address.
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2.5">
+                <label for="check-2026-w45-2" class="action-box flex items-start gap-2.5 p-2.5 rounded-lg bg-obsidian-950/80 border border-slate-800/90 cursor-pointer">
+                  <input
+                    id="check-2026-w45-2"
+                    type="checkbox"
+                    data-action-id="2026-w45-2"
+                    class="action-checkbox mt-0.5 h-3.5 w-3.5 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer"
+                  />
+                  <span class="text-xs text-slate-200 leading-snug">
+                    <strong class="text-cyan-400 font-mono uppercase text-[10px] block">Action:</strong>
+                    Delete any shipping text messages coming from strange phone numbers or international email addresses and track packages only inside the carrier's official app.
+                  </span>
+                </label>
+
+                <div class="flex items-center justify-between text-[11px] font-mono pt-0.5">
+                  <span class="text-slate-400 truncate max-w-[65%]">iPhone / Android SMS, Company Debit Cards</span>
+                  <a href="https://krebsonsecurity.com/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">
+                    Read Source →
+                  </a>
+                </div>
+              </div>
+            </article>
+            
+            <article
+              class="newsletter-card rounded-xl bg-slate-900/70 border border-slate-800/90 p-4 flex flex-col justify-between"
+              data-source="cisa"
+              data-severity="High"
+              data-search="cisa warns of 'push bombing' attacks on microsoft 365 & google accounts cisa issued guidance warning that criminals with stolen passwords are spamming employees with dozens of 'approve sign-in' phone notifications late at night until someone taps 'approve' to make it stop. small teams using simple one-tap push notifications are especially vulnerable when an owner is busy or distracted. switching to number-matching or a hardware passkey stops this trick cold. never approve a login prompt on your phone that you did not just trigger yourself, and immediately change your password if you receive unexpected prompts. account security microsoft 365 google workspace authenticator apps"
+              data-card-id="2026-w45-3"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">CISA</span>
+                  
+
+                  <span class="text-[11px] font-mono text-slate-400">High • 5 mins</span>
+                </div>
+
+                <h4 class="text-base font-bold text-white leading-snug">
+                  CISA Warns of 'Push Bombing' Attacks on Microsoft 365 & Google Accounts
+                </h4>
+
+                <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  CISA issued guidance warning that criminals with stolen passwords are spamming employees with dozens of 'Approve Sign-In' phone notifications late at night until someone taps 'Approve' to make it stop. Small teams using simple one-tap push notifications are especially vulnerable when an owner is busy or distracted. Switching to number-matching or a hardware passkey stops this trick cold.
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2.5">
+                <label for="check-2026-w45-3" class="action-box flex items-start gap-2.5 p-2.5 rounded-lg bg-obsidian-950/80 border border-slate-800/90 cursor-pointer">
+                  <input
+                    id="check-2026-w45-3"
+                    type="checkbox"
+                    data-action-id="2026-w45-3"
+                    class="action-checkbox mt-0.5 h-3.5 w-3.5 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer"
+                  />
+                  <span class="text-xs text-slate-200 leading-snug">
+                    <strong class="text-cyan-400 font-mono uppercase text-[10px] block">Action:</strong>
+                    Never approve a login prompt on your phone that you did not just trigger yourself, and immediately change your password if you receive unexpected prompts.
+                  </span>
+                </label>
+
+                <div class="flex items-center justify-between text-[11px] font-mono pt-0.5">
+                  <span class="text-slate-400 truncate max-w-[65%]">Microsoft 365, Google Workspace, Authenticator Apps</span>
+                  <a href="https://www.cisa.gov/cybersecurity-advisories/all" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">
+                    Read Source →
+                  </a>
+                </div>
+              </div>
+            </article>
+            
+            <article
+              class="newsletter-card rounded-xl bg-slate-900/70 border border-slate-800/90 p-4 flex flex-col justify-between"
+              data-source="bleeping"
+              data-severity="Medium"
+              data-search="malicious pdf converter & ad-blocker chrome extensions removed from store security researchers uncovered several free chrome extensions claiming to convert pdfs or find coupon codes that were secretly reading users' active browser tabs. over 200,000 people installed these extensions, giving scammers access to webmail and store dashboards. small teams should keep browser extensions to an absolute minimum. type `chrome://extensions` into your browser address bar and remove any extension your team does not recognize or actively need for work. browser extensions google chrome brave microsoft edge"
+              data-card-id="2026-w45-4"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">BleepingComputer</span>
+                  
+
+                  <span class="text-[11px] font-mono text-slate-400">Medium • 3 mins</span>
+                </div>
+
+                <h4 class="text-base font-bold text-white leading-snug">
+                  Malicious PDF Converter & Ad-Blocker Chrome Extensions Removed From Store
+                </h4>
+
+                <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Security researchers uncovered several free Chrome extensions claiming to convert PDFs or find coupon codes that were secretly reading users' active browser tabs. Over 200,000 people installed these extensions, giving scammers access to webmail and store dashboards. Small teams should keep browser extensions to an absolute minimum.
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2.5">
+                <label for="check-2026-w45-4" class="action-box flex items-start gap-2.5 p-2.5 rounded-lg bg-obsidian-950/80 border border-slate-800/90 cursor-pointer">
+                  <input
+                    id="check-2026-w45-4"
+                    type="checkbox"
+                    data-action-id="2026-w45-4"
+                    class="action-checkbox mt-0.5 h-3.5 w-3.5 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer"
+                  />
+                  <span class="text-xs text-slate-200 leading-snug">
+                    <strong class="text-cyan-400 font-mono uppercase text-[10px] block">Action:</strong>
+                    Type `chrome://extensions` into your browser address bar and remove any extension your team does not recognize or actively need for work.
+                  </span>
+                </label>
+
+                <div class="flex items-center justify-between text-[11px] font-mono pt-0.5">
+                  <span class="text-slate-400 truncate max-w-[65%]">Google Chrome, Brave, Microsoft Edge</span>
+                  <a href="https://www.bleepingcomputer.com/news/security/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">
+                    Read Source →
+                  </a>
+                </div>
+              </div>
+            </article>
+            
+          </div>
+        </div>
+        
+        <div id="week-2026-W44" data-issue-anchor="issue-43" data-week-id="2026-W44" class="archive-week-block relative rounded-2xl bg-obsidian-900/90 border border-slate-800/90 p-5 sm:p-6 transition">
+          <span id="issue-43" class="absolute -top-24"></span>
+          <!-- Timeline Node Dot -->
+          <span class="absolute -left-[25px] sm:-left-[41px] top-7 w-4 h-4 rounded-full bg-obsidian-950 border-2 border-cyan-400"></span>
+
+          <!-- Week Header (Clickable Toggle) -->
+          <div class="flex flex-wrap items-start justify-between gap-4">
+            <div class="space-y-1.5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-200 font-mono text-xs font-semibold">
+                  ISSUE #43 • 2026-W44
+                </span>
+                <span class="text-xs font-mono text-slate-400">
+                  Monday, October 26, 2026 (Oct 19 – Oct 26, 2026)
+                </span>
+                <span class="px-2 py-0.5 rounded bg-slate-800/70 text-slate-300 font-mono text-xs">
+                  36 enterprise alerts filtered out
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-white">
+                Vendor ACH Bank Change Scams, WinRAR/7-Zip Flaws & Fake Geek Squad Invoices
+              </h3>
+              <p class="text-sm text-slate-300 max-w-3xl">
+                Business Email Compromise (BEC) targeting small contractors and agencies surged last week alongside a file-archiver security update. We filtered 36 corporate IT stories down to 3 essential items.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              data-toggle-week="43"
+              data-week-id="2026-W44"
+              aria-expanded="true"
+              class="week-toggle-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-200 shrink-0 cursor-pointer"
+            >
+              <span class="toggle-label">Hide 3 Stories</span>
+              <svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Week Priority Action Callout -->
+          <div class="mt-4 px-3.5 py-2.5 rounded-lg bg-slate-950/80 border border-slate-800/90 flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
+            <span class="font-mono text-cyan-400 font-semibold uppercase shrink-0">Week #43 Key Fix:</span>
+            <span>Establish a strict rule: never update a vendor or contractor's ACH bank routing details based solely on an email request.</span>
+          </div>
+
+          <!-- Stacked Week Story Cards -->
+          <div id="week-body-43" data-week-body="2026-W44" class="week-stories-container mt-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+            
+            <article
+              class="newsletter-card rounded-xl bg-slate-900/70 border border-slate-800/90 p-4 flex flex-col justify-between"
+              data-source="krebs"
+              data-severity="Critical"
+              data-search="scammers hijack contractor email threads to reroute ach payments attackers who break into a supplier or freelancer's email account wait quietly until an invoice is due, then reply inside the real email thread asking you to send payment to a 'new bank account.' because the message comes from the vendor's actual email address and quotes your real project details, spam filters cannot catch it. once an ach or wire payment leaves your business checking account, banks rarely recover the funds. adopt a firm rule with your team: any email asking to change bank routing numbers or payment methods must be verified by calling the vendor on a phone number you already had on file. wire & ach fraud ach / wire transfers bill.com business email"
+              data-card-id="2026-w44-1"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">Krebs on Security</span>
+                  
+
+                  <span class="text-[11px] font-mono text-slate-400">Critical • 2 mins</span>
+                </div>
+
+                <h4 class="text-base font-bold text-white leading-snug">
+                  Scammers Hijack Contractor Email Threads to Reroute ACH Payments
+                </h4>
+
+                <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Attackers who break into a supplier or freelancer's email account wait quietly until an invoice is due, then reply inside the real email thread asking you to send payment to a 'new bank account.' Because the message comes from the vendor's actual email address and quotes your real project details, spam filters cannot catch it. Once an ACH or wire payment leaves your business checking account, banks rarely recover the funds.
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2.5">
+                <label for="check-2026-w44-1" class="action-box flex items-start gap-2.5 p-2.5 rounded-lg bg-obsidian-950/80 border border-slate-800/90 cursor-pointer">
+                  <input
+                    id="check-2026-w44-1"
+                    type="checkbox"
+                    data-action-id="2026-w44-1"
+                    class="action-checkbox mt-0.5 h-3.5 w-3.5 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer"
+                  />
+                  <span class="text-xs text-slate-200 leading-snug">
+                    <strong class="text-cyan-400 font-mono uppercase text-[10px] block">Action:</strong>
+                    Adopt a firm rule with your team: any email asking to change bank routing numbers or payment methods must be verified by calling the vendor on a phone number you already had on file.
+                  </span>
+                </label>
+
+                <div class="flex items-center justify-between text-[11px] font-mono pt-0.5">
+                  <span class="text-slate-400 truncate max-w-[65%]">ACH / Wire Transfers, Bill.com, Business Email</span>
+                  <a href="https://krebsonsecurity.com/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">
+                    Read Source →
+                  </a>
+                </div>
+              </div>
+            </article>
+            
+            <article
+              class="newsletter-card rounded-xl bg-slate-900/70 border border-slate-800/90 p-4 flex flex-col justify-between"
+              data-source="cisa"
+              data-severity="High"
+              data-search="outdated 7-zip and winrar file extraction tools exploited via email attachments cisa alerted organizations that hackers are hiding malware inside compressed `.zip` and `.rar` archives that trigger automatically on computers running old versions of winrar or 7-zip. because windows 11 now opens `.zip` and `.rar` files natively, most small teams no longer even need third-party archive tools installed. removing or updating these old utilities closes an easy door for attackers. open windows 'installed apps', uninstall old versions of winrar or 7-zip if you don't need them, or download the latest release from their official site. windows software windows 10/11 7-zip winrar"
+              data-card-id="2026-w44-2"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">CISA</span>
+                  
+
+                  <span class="text-[11px] font-mono text-slate-400">High • 4 mins</span>
+                </div>
+
+                <h4 class="text-base font-bold text-white leading-snug">
+                  Outdated 7-Zip and WinRAR File Extraction Tools Exploited via Email Attachments
+                </h4>
+
+                <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  CISA alerted organizations that hackers are hiding malware inside compressed `.zip` and `.rar` archives that trigger automatically on computers running old versions of WinRAR or 7-Zip. Because Windows 11 now opens `.zip` and `.rar` files natively, most small teams no longer even need third-party archive tools installed. Removing or updating these old utilities closes an easy door for attackers.
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2.5">
+                <label for="check-2026-w44-2" class="action-box flex items-start gap-2.5 p-2.5 rounded-lg bg-obsidian-950/80 border border-slate-800/90 cursor-pointer">
+                  <input
+                    id="check-2026-w44-2"
+                    type="checkbox"
+                    data-action-id="2026-w44-2"
+                    class="action-checkbox mt-0.5 h-3.5 w-3.5 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer"
+                  />
+                  <span class="text-xs text-slate-200 leading-snug">
+                    <strong class="text-cyan-400 font-mono uppercase text-[10px] block">Action:</strong>
+                    Open Windows 'Installed Apps', uninstall old versions of WinRAR or 7-Zip if you don't need them, or download the latest release from their official site.
+                  </span>
+                </label>
+
+                <div class="flex items-center justify-between text-[11px] font-mono pt-0.5">
+                  <span class="text-slate-400 truncate max-w-[65%]">Windows 10/11, 7-Zip, WinRAR</span>
+                  <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">
+                    Read Source →
+                  </a>
+                </div>
+              </div>
+            </article>
+            
+            <article
+              class="newsletter-card rounded-xl bg-slate-900/70 border border-slate-800/90 p-4 flex flex-col justify-between"
+              data-source="bleeping"
+              data-severity="Medium"
+              data-search="fake 'norton / geek squad' $499 renewal emails trick staff into installing remote control tools scammers are blasting small business inboxes with fake receipts claiming your company card was just billed $499 for an annual computer support plan. when a worried employee calls the phone number on the receipt to cancel the charge, the scammer asks them to install remote-desktop software like anydesk or screenconnect to 'process the refund' and steals bank logins. there is no charge on your card—the email is pure bait to get you on the phone. tell your team to delete fake $400+ renewal receipts without calling the phone number printed on the pdf; check actual credit card statements instead. phone scams business email anydesk / teamviewer"
+              data-card-id="2026-w44-3"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">BleepingComputer</span>
+                  
+
+                  <span class="text-[11px] font-mono text-slate-400">Medium • 1 min</span>
+                </div>
+
+                <h4 class="text-base font-bold text-white leading-snug">
+                  Fake 'Norton / Geek Squad' $499 Renewal Emails Trick Staff Into Installing Remote Control Tools
+                </h4>
+
+                <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Scammers are blasting small business inboxes with fake receipts claiming your company card was just billed $499 for an annual computer support plan. When a worried employee calls the phone number on the receipt to cancel the charge, the scammer asks them to install remote-desktop software like AnyDesk or ScreenConnect to 'process the refund' and steals bank logins. There is no charge on your card—the email is pure bait to get you on the phone.
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2.5">
+                <label for="check-2026-w44-3" class="action-box flex items-start gap-2.5 p-2.5 rounded-lg bg-obsidian-950/80 border border-slate-800/90 cursor-pointer">
+                  <input
+                    id="check-2026-w44-3"
+                    type="checkbox"
+                    data-action-id="2026-w44-3"
+                    class="action-checkbox mt-0.5 h-3.5 w-3.5 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer"
+                  />
+                  <span class="text-xs text-slate-200 leading-snug">
+                    <strong class="text-cyan-400 font-mono uppercase text-[10px] block">Action:</strong>
+                    Tell your team to delete fake $400+ renewal receipts without calling the phone number printed on the PDF; check actual credit card statements instead.
+                  </span>
+                </label>
+
+                <div class="flex items-center justify-between text-[11px] font-mono pt-0.5">
+                  <span class="text-slate-400 truncate max-w-[65%]">Business Email, AnyDesk / TeamViewer</span>
+                  <a href="https://www.bleepingcomputer.com/news/security/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">
+                    Read Source →
+                  </a>
+                </div>
+              </div>
+            </article>
+            
+          </div>
+        </div>
+        
+        <div id="week-2026-W43" data-issue-anchor="issue-42" data-week-id="2026-W43" class="archive-week-block relative rounded-2xl bg-obsidian-900/90 border border-slate-800/90 p-5 sm:p-6 transition">
+          <span id="issue-42" class="absolute -top-24"></span>
+          <!-- Timeline Node Dot -->
+          <span class="absolute -left-[25px] sm:-left-[41px] top-7 w-4 h-4 rounded-full bg-obsidian-950 border-2 border-cyan-400"></span>
+
+          <!-- Week Header (Clickable Toggle) -->
+          <div class="flex flex-wrap items-start justify-between gap-4">
+            <div class="space-y-1.5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-200 font-mono text-xs font-semibold">
+                  ISSUE #42 • 2026-W43
+                </span>
+                <span class="text-xs font-mono text-slate-400">
+                  Monday, October 19, 2026 (Oct 12 – Oct 19, 2026)
+                </span>
+                <span class="px-2 py-0.5 rounded bg-slate-800/70 text-slate-300 font-mono text-xs">
+                  34 enterprise alerts filtered out
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-white">
+                NAS Backup Drives Under Ransomware Attack & Fake Facebook Page Copyright Warnings
+              </h3>
+              <p class="text-sm text-slate-300 max-w-3xl">
+                Small agencies and retail shops that use Synology/QNAP office backup drives or manage Meta Business Suite pages were heavily targeted this week. 34 enterprise advisories were filtered out.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              data-toggle-week="42"
+              data-week-id="2026-W43"
+              aria-expanded="true"
+              class="week-toggle-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-200 shrink-0 cursor-pointer"
+            >
+              <span class="toggle-label">Hide 3 Stories</span>
+              <svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Week Priority Action Callout -->
+          <div class="mt-4 px-3.5 py-2.5 rounded-lg bg-slate-950/80 border border-slate-800/90 flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
+            <span class="font-mono text-cyan-400 font-semibold uppercase shrink-0">Week #42 Key Fix:</span>
+            <span>Make sure your office backup drive is not accessible from the public internet and turn on Two-Factor Authentication for social media accounts.</span>
+          </div>
+
+          <!-- Stacked Week Story Cards -->
+          <div id="week-body-42" data-week-body="2026-W43" class="week-stories-container mt-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+            
+            <article
+              class="newsletter-card rounded-xl bg-slate-900/70 border border-slate-800/90 p-4 flex flex-col justify-between"
+              data-source="bleeping"
+              data-severity="Critical"
+              data-search="ransomware gang targets internet-exposed qnap & synology office backup boxes creative studios and small offices that use network storage boxes (nas) to share files are being hit by automated ransomware that locks every file on the drive. the attackers scan the internet for backup drives that have upnp or public web access turned on and exploit unpatched firmware. keeping your backup drive limited to your local office wi-fi prevents automated bots from reaching it. log into your synology or qnap drive settings, install the latest system update, and disable public port-forwarding or upnp router exposure. backups & storage synology nas qnap nas office backups"
+              data-card-id="2026-w43-1"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">BleepingComputer</span>
+                  
+
+                  <span class="text-[11px] font-mono text-slate-400">Critical • 5 mins</span>
+                </div>
+
+                <h4 class="text-base font-bold text-white leading-snug">
+                  Ransomware Gang Targets Internet-Exposed QNAP & Synology Office Backup Boxes
+                </h4>
+
+                <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Creative studios and small offices that use network storage boxes (NAS) to share files are being hit by automated ransomware that locks every file on the drive. The attackers scan the internet for backup drives that have UPnP or public web access turned on and exploit unpatched firmware. Keeping your backup drive limited to your local office Wi-Fi prevents automated bots from reaching it.
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2.5">
+                <label for="check-2026-w43-1" class="action-box flex items-start gap-2.5 p-2.5 rounded-lg bg-obsidian-950/80 border border-slate-800/90 cursor-pointer">
+                  <input
+                    id="check-2026-w43-1"
+                    type="checkbox"
+                    data-action-id="2026-w43-1"
+                    class="action-checkbox mt-0.5 h-3.5 w-3.5 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer"
+                  />
+                  <span class="text-xs text-slate-200 leading-snug">
+                    <strong class="text-cyan-400 font-mono uppercase text-[10px] block">Action:</strong>
+                    Log into your Synology or QNAP drive settings, install the latest system update, and disable public port-forwarding or UPnP router exposure.
+                  </span>
+                </label>
+
+                <div class="flex items-center justify-between text-[11px] font-mono pt-0.5">
+                  <span class="text-slate-400 truncate max-w-[65%]">Synology NAS, QNAP NAS, Office Backups</span>
+                  <a href="https://www.bleepingcomputer.com/news/security/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">
+                    Read Source →
+                  </a>
+                </div>
+              </div>
+            </article>
+            
+            <article
+              class="newsletter-card rounded-xl bg-slate-900/70 border border-slate-800/90 p-4 flex flex-col justify-between"
+              data-source="krebs"
+              data-severity="High"
+              data-search="fake 'page violation & copyright' messages hijack small business facebook & instagram ads scammers are tagging small business facebook and instagram pages in fake posts claiming your business account will be deleted in 24 hours for a copyright violation. owners who click the appeal link have their meta business suite hijacked, and criminals immediately run thousands of dollars in scam ads on the company's linked credit card. meta never sends account takedown warnings via tagged customer posts or random direct messages. ignore and block any dm or page tag threatening account deletion, and set a low daily spending limit inside your meta ads manager billing settings. social media & ads meta business suite facebook pages instagram"
+              data-card-id="2026-w43-2"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">Krebs on Security</span>
+                  
+
+                  <span class="text-[11px] font-mono text-slate-400">High • 3 mins</span>
+                </div>
+
+                <h4 class="text-base font-bold text-white leading-snug">
+                  Fake 'Page Violation & Copyright' Messages Hijack Small Business Facebook & Instagram Ads
+                </h4>
+
+                <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Scammers are tagging small business Facebook and Instagram pages in fake posts claiming your business account will be deleted in 24 hours for a copyright violation. Owners who click the appeal link have their Meta Business Suite hijacked, and criminals immediately run thousands of dollars in scam ads on the company's linked credit card. Meta never sends account takedown warnings via tagged customer posts or random direct messages.
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2.5">
+                <label for="check-2026-w43-2" class="action-box flex items-start gap-2.5 p-2.5 rounded-lg bg-obsidian-950/80 border border-slate-800/90 cursor-pointer">
+                  <input
+                    id="check-2026-w43-2"
+                    type="checkbox"
+                    data-action-id="2026-w43-2"
+                    class="action-checkbox mt-0.5 h-3.5 w-3.5 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer"
+                  />
+                  <span class="text-xs text-slate-200 leading-snug">
+                    <strong class="text-cyan-400 font-mono uppercase text-[10px] block">Action:</strong>
+                    Ignore and block any DM or page tag threatening account deletion, and set a low daily spending limit inside your Meta Ads Manager billing settings.
+                  </span>
+                </label>
+
+                <div class="flex items-center justify-between text-[11px] font-mono pt-0.5">
+                  <span class="text-slate-400 truncate max-w-[65%]">Meta Business Suite, Facebook Pages, Instagram</span>
+                  <a href="https://krebsonsecurity.com/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">
+                    Read Source →
+                  </a>
+                </div>
+              </div>
+            </article>
+            
+            <article
+              class="newsletter-card rounded-xl bg-slate-900/70 border border-slate-800/90 p-4 flex flex-col justify-between"
+              data-source="cisa"
+              data-severity="High"
+              data-search="monthly windows patch tuesday fixes critical remote desktop & word flaws cisa highlighted two actively exploited flaws in microsoft's monthly security update that allow attackers to infect windows pcs through malicious office documents. small businesses without an it department often have laptops where windows updates have been paused for weeks. taking three minutes to reboot every team pc ensures this month's protection is active. open 'settings > windows update' on each work pc, click 'check for updates', and restart the computer before the end of the day. windows & office windows 11 windows 10 microsoft office"
+              data-card-id="2026-w43-3"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">CISA</span>
+                  
+
+                  <span class="text-[11px] font-mono text-slate-400">High • 3 mins</span>
+                </div>
+
+                <h4 class="text-base font-bold text-white leading-snug">
+                  Monthly Windows Patch Tuesday Fixes Critical Remote Desktop & Word Flaws
+                </h4>
+
+                <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  CISA highlighted two actively exploited flaws in Microsoft's monthly security update that allow attackers to infect Windows PCs through malicious Office documents. Small businesses without an IT department often have laptops where Windows updates have been paused for weeks. Taking three minutes to reboot every team PC ensures this month's protection is active.
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2.5">
+                <label for="check-2026-w43-3" class="action-box flex items-start gap-2.5 p-2.5 rounded-lg bg-obsidian-950/80 border border-slate-800/90 cursor-pointer">
+                  <input
+                    id="check-2026-w43-3"
+                    type="checkbox"
+                    data-action-id="2026-w43-3"
+                    class="action-checkbox mt-0.5 h-3.5 w-3.5 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer"
+                  />
+                  <span class="text-xs text-slate-200 leading-snug">
+                    <strong class="text-cyan-400 font-mono uppercase text-[10px] block">Action:</strong>
+                    Open 'Settings > Windows Update' on each work PC, click 'Check for updates', and restart the computer before the end of the day.
+                  </span>
+                </label>
+
+                <div class="flex items-center justify-between text-[11px] font-mono pt-0.5">
+                  <span class="text-slate-400 truncate max-w-[65%]">Windows 11, Windows 10, Microsoft Office</span>
+                  <a href="https://www.cisa.gov/cybersecurity-advisories/all" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">
+                    Read Source →
+                  </a>
+                </div>
+              </div>
+            </article>
+            
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- AUTOMATION PIPELINE ARCHITECTURE & GITHUB ACTIONS INFO                -->
+    <!-- ===================================================================== -->
+    <section class="rounded-2xl bg-slate-900/60 border border-slate-800 p-6 sm:p-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">Zero-Touch Weekly Pipeline</span>
+          <h2 class="text-xl font-bold text-white mt-1">How This Automated Agent Works Every Monday at 6:00 AM</h2>
+        </div>
+        <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian-950 border border-slate-800 text-slate-300">
+          Schedule: <code class="text-emerald-400">cron: '0 6 * * 1'</code> (.github/workflows/weekly-newsletter.yml)
+        </span>
+      </div>
+
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-4 gap-4 text-sm">
+        <div class="p-4 rounded-xl bg-obsidian-950/80 border border-slate-800/90">
+          <div class="font-mono text-xs text-emerald-400 mb-1">STEP 01 • 06:00 AM MON</div>
+          <div class="font-bold text-white">RSS Feed Ingestion</div>
+          <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+            GitHub Actions triggers <code class="text-slate-200">scripts/generate_newsletter.py</code> to pull the past 7 days of advisories from CISA, Krebs on Security, and BleepingComputer.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl bg-obsidian-950/80 border border-slate-800/90">
+          <div class="font-mono text-xs text-cyan-400 mb-1">STEP 02 • NOISE FILTER</div>
+          <div class="font-bold text-white">Gemini 4 Argon Triage</div>
+          <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+            Gemini 4 Argon strips out enterprise-only noise (SCADA, Kubernetes, BGP, data-center appliances) and isolates threats that hit 1–5 person businesses.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl bg-obsidian-950/80 border border-slate-800/90">
+          <div class="font-mono text-xs text-amber-400 mb-1">STEP 03 • PLAIN ENGLISH</div>
+          <div class="font-bold text-white">2–3 Sentence Summaries</div>
+          <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+            Each story is distilled into a strict 2–3 sentence non-technical explanation plus a single 5-minute action item your team can check off.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl bg-obsidian-950/80 border border-slate-800/90">
+          <div class="font-mono text-xs text-purple-400 mb-1">STEP 04 • STATIC DEPLOY</div>
+          <div class="font-bold text-white">Hero Promotion &amp; Stack</div>
+          <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+            The new issue becomes the top Hero Block, last week's issue moves into the chronological archive stack below, and GitHub Pages auto-publishes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Premium Gaga.com Extension Footer -->
+  <footer class="border-t border-slate-800/90 bg-obsidian-950 pt-12 pb-10 text-xs text-slate-400">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-slate-800/80">
+        <!-- Brand Column -->
+        <div class="md:col-span-5 space-y-3">
+          <a href="https://gaga.com" class="inline-flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-cyan-500 p-[1px]">
+              <div class="w-full h-full bg-obsidian-950 rounded-[7px] flex items-center justify-center">
+                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+            </div>
+            <span class="text-base font-extrabold tracking-tight text-white">
+              Gaga <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Security Intel</span>
+            </span>
+          </a>
+          <p class="text-slate-400 leading-relaxed max-w-sm">
+            An official <a href="https://gaga.com" class="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">www.gaga.com</a> intelligence publication. Automated weekly cybersecurity protection tailored for micro-enterprises (1–5 employees).
+          </p>
+        </div>
+
+        <!-- Gaga.com Network Links -->
+        <div class="md:col-span-4 space-y-2.5">
+          <div class="font-mono uppercase tracking-wider text-slate-200 font-semibold">Gaga.com Ecosystem</div>
+          <ul class="space-y-2 text-slate-400">
+            <li>
+              <a href="https://gaga.com" class="hover:text-emerald-400 transition inline-flex items-center gap-1.5">
+                <span>Return to Home (www.gaga.com)</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              </a>
+            </li>
+            <li><a href="#current-week-hero" class="hover:text-emerald-400 transition">Current Week Featured Brief</a></li>
+            <li><a href="#older-weeks-archive" class="hover:text-emerald-400 transition">Chronological Weekly Archive</a></li>
+          </ul>
+        </div>
+
+        <!-- Intelligence Feeds & Schedule -->
+        <div class="md:col-span-3 space-y-2.5">
+          <div class="font-mono uppercase tracking-wider text-slate-200 font-semibold">Automated Telemetry</div>
+          <ul class="space-y-1.5 font-mono text-[11px] text-slate-400">
+            <li>Engine: <span class="text-emerald-300">gemini-3.8-flash</span></li>
+            <li>Schedule: <span class="text-slate-200">Mondays @ 06:00 AM</span></li>
+            <li>Updated: <span class="text-slate-200">2026-11-12T11:04:56Z</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500">
+        <div>
+          © 2026 <a href="https://gaga.com" class="text-slate-300 hover:text-emerald-400 transition font-semibold">Gaga.com</a> • <strong class="text-slate-300">Gaga Security Intel</strong>. All rights reserved.
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="https://gaga.com" class="hover:text-slate-300 transition">www.gaga.com</a>
+          <span>•</span>
+          <span>1–5 Employee Micro-Enterprise Edition</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Embedded Newsletter JSON Data for Client-Side Copy & Interactive Filtering -->
+  <script id="newsletter-data" type="application/json">{"metadata": {"site_title": "Gaga Security Intel", "tagline": "Zero-Jargon Weekly Cybersecurity Brief for 1–5 Person Businesses", "model": "gemini-3.8-flash", "last_updated": "2026-11-12T11:04:56Z", "sources": [{"id": "cisa", "name": "CISA Advisories", "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml", "badge_color": "emerald"}, {"id": "krebs", "name": "Krebs on Security", "url": "https://krebsonsecurity.com/feed/", "badge_color": "amber"}, {"id": "bleeping", "name": "BleepingComputer", "url": "https://www.bleepingcomputer.com/feed/", "badge_color": "cyan"}]}, "weeks": [{"issue_number": 46, "week_id": "2026-W46", "date_label": "Monday, November 12, 2026", "date_range": "Nov 5 – Nov 12, 2026", "is_current": true, "threat_level": "High", "headline": "Zero-Day Flaws Strike Outlook and Chrome While Notion Discloses AI Data Leak", "executive_brief": "This week's updates demand immediate attention as active exploits target everyday business tools including Outlook, Google Chrome, and Notion. We filtered out 17 complex enterprise notices regarding industrial refrigeration controllers, Linux rootkits, and telecom server vulnerabilities to focus on your day-to-day office tools.", "priority_action": "Restart your computer and open both Windows Update and your web browser to install this month's critical security patches immediately.", "stats": {"raw_articles_scanned": 22, "enterprise_noise_filtered": 17, "micro_business_stories": 5, "estimated_read_time": "2 min"}, "filtered_noise_examples": ["CISA advisory on industrial refrigeration and cold chain monitoring controllers", "Underground threat actor discussions regarding Linux kernel eBPF rootkits", "Cisco BroadWorks and SignalWire FreeSwitch telecom server injection flaws"], "items": [{"id": "2026-w46-1", "source_id": "krebs", "source_name": "Krebs on Security", "category": "Operating System Updates", "severity": "Critical", "time_to_fix": "5 mins", "title": "Microsoft Issues Massive Update Addressing Active Outlook Flaws", "summary": "Microsoft has released its monthly security update fixing over a thousand vulnerabilities across Windows, including an actively exploited email bug in Outlook. Attackers can trigger this Outlook flaw without requiring the victim to open an attachment or click a malicious link. Running Windows Update now protects your workstation from unauthorized background access.", "action_step": "Click the Start button, go to Settings, select Windows Update, and click Check for updates to install all pending fixes.", "affected_tools": ["Windows 10", "Windows 11", "Microsoft Outlook"], "url": "https://krebsonsecurity.com/2026/11/microsoft-fixes-nearly-1100-security-vulnerabilities/", "published_at": "2026-11-10"}, {"id": "2026-w46-2", "source_id": "cisa", "source_name": "CISA", "category": "Browser Security", "severity": "Critical", "time_to_fix": "2 mins", "title": "Federal Warning Issued for Actively Exploited Web Browser Flaw", "summary": "Cybersecurity authorities have officially added a high-priority web browser vulnerability to their emergency catalog due to confirmed real-world attacks. Criminals exploit this memory flaw through deceptive websites to execute harmful code directly on your computer. Keeping your browser software current shuts down the access route attackers use.", "action_step": "Open your browser menu, navigate to Help, select About, and let the browser download and restart with the latest update.", "affected_tools": ["Google Chrome", "Microsoft Edge", "Brave"], "url": "https://www.cisa.gov/news-events/alerts/2026/11/10/cisa-adds-six-known-exploited-vulnerabilities-catalog", "published_at": "2026-11-10"}, {"id": "2026-w46-3", "source_id": "bleeping", "source_name": "BleepingComputer", "category": "Cloud Work Suites", "severity": "Medium", "time_to_fix": "5 mins", "title": "Notion AI Chat Logs Exposed Following Third-Party Vendor Breach", "summary": "Notion disclosed that a cybersecurity intrusion at one of its artificial intelligence partners exposed customer conversation transcripts. If your small team used Notion AI to draft sensitive business proposals, client notes, or internal policies, those prompts may have been visible to unauthorized parties. The incident serves as a reminder to avoid pasting sensitive customer records or banking details into AI assistants.", "action_step": "Remind your team never to enter client passwords, financial records, or confidential trade secrets into AI chat prompts or workspace assistants.", "affected_tools": ["Notion", "Notion AI"], "url": "https://www.bleepingcomputer.com/news/security/notion-says-fireworks-breach-exposed-customer-ai-chat-transcripts/", "published_at": "2026-11-11"}, {"id": "2026-w46-4", "source_id": "bleeping", "source_name": "BleepingComputer", "category": "Operating System Updates", "severity": "High", "time_to_fix": "5 mins", "title": "Windows 11 Security Updates Failing to Install on Some Computers", "summary": "Microsoft confirmed that this month's crucial security update is failing to install on select Windows 11 PCs, returning error messages instead. This glitch leaves affected business laptops without protection against newly disclosed zero-day security threats. Verifying that your update actually completed successfully ensures your devices are not quietly left exposed.", "action_step": "Open Windows Update history on your PC to confirm that the November update shows as Successfully installed rather than Failed.", "affected_tools": ["Windows 11"], "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-kb5132061-installation-issues-0x80070306-0x800f0989-0x800f0993-errors/", "published_at": "2026-11-12"}, {"id": "2026-w46-5", "source_id": "bleeping", "source_name": "BleepingComputer", "category": "Remote Access & IT Support", "severity": "High", "time_to_fix": "5 mins", "title": "Hackers Hijacking Remote Support Software to Access Client Computers", "summary": "Attackers are actively compromising outsourced IT support providers and abusing remote access tools to push malicious software onto client computers. If your business works with an external computer technician who uses remote desktop software, an intruder who breaches their firm could gain instant entry to your office PCs. Reviewing and removing old remote-access software keeps your machines shielded from third-party break-ins.", "action_step": "Check your computer's installed applications list and uninstall any unused remote support apps like ScreenConnect or AnyDesk.", "affected_tools": ["ConnectWise ScreenConnect", "Windows Remote Management"], "url": "https://www.bleepingcomputer.com/news/security/active-screenconnect-attacks-breach-msps-impact-dozens-of-organizations/", "published_at": "2026-11-11"}], "generated_by_model": "gemini-3.8-flash"}, {"issue_number": 45, "week_id": "2026-W46", "date_label": "Monday, November 9, 2026", "date_range": "Nov 2 – Nov 9, 2026", "is_current": false, "threat_level": "Elevated", "headline": "Fake QuickBooks Invoices, Chrome Zero-Day Patch & Small Office Wi-Fi Router Attacks", "executive_brief": "This week, scammers are targeting 1–5 person shops with convincing QuickBooks and Stripe payment failed emails while attackers actively exploit outdated Chrome browsers and home-office routers. We filtered out 38 enterprise data-center alerts so your team can focus on three 5-minute fixes.", "priority_action": "Update Google Chrome on all team laptops today and verify any unexpected invoice or banking change via a quick phone call before clicking.", "stats": {"raw_articles_scanned": 44, "enterprise_noise_filtered": 38, "micro_business_stories": 6, "estimated_read_time": "2 min"}, "filtered_noise_examples": ["CISA ICS-CERT advisory for Siemens SCADA water treatment PLCs", "BGP route-leak vulnerability in carrier-grade Juniper MX routers", "Kubernetes multi-cluster RBAC privilege escalation in AWS EKS"], "items": [{"id": "2026-w46-1", "source_id": "cisa", "source_name": "CISA", "category": "Browser & Workstations", "severity": "Critical", "time_to_fix": "2 mins", "title": "Urgent Google Chrome & Edge Update Fixes Active Web Exploit", "summary": "CISA ordered federal agencies to patch a critical flaw in Google Chrome and Microsoft Edge after hackers began using booby-trapped websites to steal login cookies. If anyone on your team visits a compromised webpage without this update, attackers can hijack active email or banking sessions without needing your password. Restart your browser right now so the automatic security patch finishes installing.", "action_step": "Click the three dots in the top-right corner of Chrome or Edge, select 'Help > About', and click 'Relaunch' to complete the update.", "affected_tools": ["Google Chrome", "Microsoft Edge", "Brave"], "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog", "published_at": "2026-11-08"}, {"id": "2026-w46-2", "source_id": "krebs", "source_name": "Krebs on Security", "category": "Email & Phishing", "severity": "High", "time_to_fix": "Zero cost / Awareness", "title": "Tax & Bookkeeping Phishing Wave Spoofs Intuit QuickBooks Reminders", "summary": "Cybercriminals are sending realistic 'Account Suspended' and 'Unpaid Invoice' alerts that appear to come directly from QuickBooks and Stripe. Clicking the link opens a lookalike login page that captures both your password and your six-digit text message security code in real time. Never log in through an email button—always open your browser bookmark to check billing alerts.", "action_step": "Warn whoever handles bookkeeping this week to ignore 'urgent billing' email links and log into QuickBooks or Stripe directly from a saved bookmark.", "affected_tools": ["QuickBooks Online", "Stripe", "Business Email"], "url": "https://krebsonsecurity.com/", "published_at": "2026-11-07"}, {"id": "2026-w46-3", "source_id": "bleeping", "source_name": "BleepingComputer", "category": "Home & Small Office Wi-Fi", "severity": "High", "time_to_fix": "5 mins", "title": "Botnet Targets Unpatched Asus, TP-Link, and Netgear Small-Office Routers", "summary": "A newly discovered wave of automated attacks is hijacking small-office and home Wi-Fi routers that still have 'Remote Management' turned on or run outdated firmware. Once inside a router, criminals can quietly slow down your internet and intercept unencrypted office traffic. Rebooting your router alone does not fix the issue unless you install the latest firmware update in the router app.", "action_step": "Open your Wi-Fi router's mobile app (TP-Link Tether, Asus Router, or Netgear Nighthawk), install any pending firmware update, and disable 'Remote Web Management'.", "affected_tools": ["TP-Link", "Asus Routers", "Netgear SOHO"], "url": "https://www.bleepingcomputer.com/news/security/", "published_at": "2026-11-06"}, {"id": "2026-w46-4", "source_id": "bleeping", "source_name": "BleepingComputer", "category": "Cloud & File Sharing", "severity": "Medium", "time_to_fix": "3 mins", "title": "Fake Google Drive & DocuSign Collaboration Invites Spread Info-Stealers", "summary": "Attackers are abusing legitimate Google Drive and DocuSign notification emails to send small business owners links to fake PDF contract previews. Instead of opening a contract, the page asks you to download a '.zip' or '.msi' file that quietly steals saved passwords from your computer. Real Google Docs and DocuSign agreements view directly in your browser and never ask you to install software to read a document.", "action_step": "Remind your team that legitimate DocuSign or Google Drive links never require downloading an `.exe`, `.msi`, or password-protected `.zip` file.", "affected_tools": ["Google Workspace", "DocuSign", "Windows PCs"], "url": "https://www.bleepingcomputer.com/news/security/", "published_at": "2026-11-05"}, {"id": "2026-w46-5", "source_id": "cisa", "source_name": "CISA", "category": "Apple Devices", "severity": "High", "time_to_fix": "5 mins", "title": "Apple Security Update Protects iPhones and Macs From Malicious Image Files", "summary": "CISA added a recent Apple macOS and iOS security flaw to its must-patch list after attackers used specially crafted image files to compromise Apple devices. Because so many small teams handle customer texts, iMessages, and email attachments on personal iPhones and MacBooks, unpatched devices are easy targets. Updating to the latest iOS and macOS release completely blocks this attack.", "action_step": "On all work iPhones and Macs, open 'Settings > General > Software Update' and turn on Automatic Updates.", "affected_tools": ["iPhone (iOS)", "MacBook (macOS)", "iPad"], "url": "https://www.cisa.gov/cybersecurity-advisories/all", "published_at": "2026-11-04"}, {"id": "2026-w46-6", "source_id": "krebs", "source_name": "Krebs on Security", "category": "Banking & Payroll", "severity": "Medium", "time_to_fix": "3 mins", "title": "Fake 'Sponsored' Google Search Ads Impersonate Small Business Banks", "summary": "Scammers are buying top Google Search ad slots for regional banks and payroll platforms like Gusto and ADP to trick busy owners into logging into fake websites. These spoofed portals look identical to your real bank login and immediately trigger a wire transfer while you think your page is loading. Never use a search engine to visit your bank or payroll login page.", "action_step": "Save your business bank and payroll login pages to your browser bookmarks bar today and install an ad-blocker like uBlock Origin Lite.", "affected_tools": ["Business Banking", "Gusto / ADP", "Google Search"], "url": "https://krebsonsecurity.com/", "published_at": "2026-11-03"}]}, {"issue_number": 44, "week_id": "2026-W45", "date_label": "Monday, November 2, 2026", "date_range": "Oct 26 – Nov 2, 2026", "is_current": false, "threat_level": "Moderate", "headline": "WordPress Booking Plugin Flaw, Fake USPS Delivery Texts & Microsoft 365 MFA Tricks", "executive_brief": "Small business WordPress websites and Microsoft 365 accounts were the primary targets last week. We stripped out 41 enterprise software advisories to bring you the 4 threats that actually impact a 1–5 person company.", "priority_action": "Enable auto-updates on all WordPress plugins and audit who has admin access to your company website.", "stats": {"raw_articles_scanned": 45, "enterprise_noise_filtered": 41, "micro_business_stories": 4, "estimated_read_time": "90 sec"}, "filtered_noise_examples": ["Oracle WebLogic Server remote code execution in Solaris clusters", "F5 BIG-IP enterprise load balancer management plane vulnerability"], "items": [{"id": "2026-w45-1", "source_id": "bleeping", "source_name": "BleepingComputer", "category": "Company Website", "severity": "Critical", "time_to_fix": "3 mins", "title": "Popular WordPress Contact & Booking Plugins Patched Against Site Takeover", "summary": "Hackers are scanning small business WordPress websites for an unpatched flaw in popular appointment booking and contact form plugins. If your site runs an outdated version, attackers can create a hidden administrator account and redirect your customers to scam pages. Turning on automatic plugin updates in your WordPress dashboard prevents hackers from exploiting old plugins.", "action_step": "Log into your WordPress admin panel, click 'Plugins', update all flagged plugins immediately, and click 'Enable auto-updates' on each one.", "affected_tools": ["WordPress", "WooCommerce", "Booking Plugins"], "url": "https://www.bleepingcomputer.com/news/security/", "published_at": "2026-10-31"}, {"id": "2026-w45-2", "source_id": "krebs", "source_name": "Krebs on Security", "category": "Mobile & SMS", "severity": "Medium", "time_to_fix": "1 min", "title": "Holiday Shipping Smishing Texts Target Small Retailers & Solo Founders", "summary": "A massive wave of fake USPS, UPS, and FedEx text messages claims a business supply shipment is held up due to an incomplete street address. The link leads to a credit card harvesting form that charges a tiny $0.30 'redelivery fee' before draining the business debit card days later. Shipping carriers never ask for a credit card number via a text message link to fix a delivery address.", "action_step": "Delete any shipping text messages coming from strange phone numbers or international email addresses and track packages only inside the carrier's official app.", "affected_tools": ["iPhone / Android SMS", "Company Debit Cards"], "url": "https://krebsonsecurity.com/", "published_at": "2026-10-29"}, {"id": "2026-w45-3", "source_id": "cisa", "source_name": "CISA", "category": "Account Security", "severity": "High", "time_to_fix": "5 mins", "title": "CISA Warns of 'Push Bombing' Attacks on Microsoft 365 & Google Accounts", "summary": "CISA issued guidance warning that criminals with stolen passwords are spamming employees with dozens of 'Approve Sign-In' phone notifications late at night until someone taps 'Approve' to make it stop. Small teams using simple one-tap push notifications are especially vulnerable when an owner is busy or distracted. Switching to number-matching or a hardware passkey stops this trick cold.", "action_step": "Never approve a login prompt on your phone that you did not just trigger yourself, and immediately change your password if you receive unexpected prompts.", "affected_tools": ["Microsoft 365", "Google Workspace", "Authenticator Apps"], "url": "https://www.cisa.gov/cybersecurity-advisories/all", "published_at": "2026-10-28"}, {"id": "2026-w45-4", "source_id": "bleeping", "source_name": "BleepingComputer", "category": "Browser Extensions", "severity": "Medium", "time_to_fix": "3 mins", "title": "Malicious PDF Converter & Ad-Blocker Chrome Extensions Removed From Store", "summary": "Security researchers uncovered several free Chrome extensions claiming to convert PDFs or find coupon codes that were secretly reading users' active browser tabs. Over 200,000 people installed these extensions, giving scammers access to webmail and store dashboards. Small teams should keep browser extensions to an absolute minimum.", "action_step": "Type `chrome://extensions` into your browser address bar and remove any extension your team does not recognize or actively need for work.", "affected_tools": ["Google Chrome", "Brave", "Microsoft Edge"], "url": "https://www.bleepingcomputer.com/news/security/", "published_at": "2026-10-27"}]}, {"issue_number": 43, "week_id": "2026-W44", "date_label": "Monday, October 26, 2026", "date_range": "Oct 19 – Oct 26, 2026", "is_current": false, "threat_level": "Elevated", "headline": "Vendor ACH Bank Change Scams, WinRAR/7-Zip Flaws & Fake Geek Squad Invoices", "executive_brief": "Business Email Compromise (BEC) targeting small contractors and agencies surged last week alongside a file-archiver security update. We filtered 36 corporate IT stories down to 3 essential items.", "priority_action": "Establish a strict rule: never update a vendor or contractor's ACH bank routing details based solely on an email request.", "stats": {"raw_articles_scanned": 39, "enterprise_noise_filtered": 36, "micro_business_stories": 3, "estimated_read_time": "1 min"}, "filtered_noise_examples": ["Citrix Virtual Apps and Desktops enterprise VDI session hijacking", "SAP NetWeaver AS JAVA unauthenticated directory traversal"], "items": [{"id": "2026-w44-1", "source_id": "krebs", "source_name": "Krebs on Security", "category": "Wire & ACH Fraud", "severity": "Critical", "time_to_fix": "2 mins", "title": "Scammers Hijack Contractor Email Threads to Reroute ACH Payments", "summary": "Attackers who break into a supplier or freelancer's email account wait quietly until an invoice is due, then reply inside the real email thread asking you to send payment to a 'new bank account.' Because the message comes from the vendor's actual email address and quotes your real project details, spam filters cannot catch it. Once an ACH or wire payment leaves your business checking account, banks rarely recover the funds.", "action_step": "Adopt a firm rule with your team: any email asking to change bank routing numbers or payment methods must be verified by calling the vendor on a phone number you already had on file.", "affected_tools": ["ACH / Wire Transfers", "Bill.com", "Business Email"], "url": "https://krebsonsecurity.com/", "published_at": "2026-10-24"}, {"id": "2026-w44-2", "source_id": "cisa", "source_name": "CISA", "category": "Windows Software", "severity": "High", "time_to_fix": "4 mins", "title": "Outdated 7-Zip and WinRAR File Extraction Tools Exploited via Email Attachments", "summary": "CISA alerted organizations that hackers are hiding malware inside compressed `.zip` and `.rar` archives that trigger automatically on computers running old versions of WinRAR or 7-Zip. Because Windows 11 now opens `.zip` and `.rar` files natively, most small teams no longer even need third-party archive tools installed. Removing or updating these old utilities closes an easy door for attackers.", "action_step": "Open Windows 'Installed Apps', uninstall old versions of WinRAR or 7-Zip if you don't need them, or download the latest release from their official site.", "affected_tools": ["Windows 10/11", "7-Zip", "WinRAR"], "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog", "published_at": "2026-10-22"}, {"id": "2026-w44-3", "source_id": "bleeping", "source_name": "BleepingComputer", "category": "Phone Scams", "severity": "Medium", "time_to_fix": "1 min", "title": "Fake 'Norton / Geek Squad' $499 Renewal Emails Trick Staff Into Installing Remote Control Tools", "summary": "Scammers are blasting small business inboxes with fake receipts claiming your company card was just billed $499 for an annual computer support plan. When a worried employee calls the phone number on the receipt to cancel the charge, the scammer asks them to install remote-desktop software like AnyDesk or ScreenConnect to 'process the refund' and steals bank logins. There is no charge on your card—the email is pure bait to get you on the phone.", "action_step": "Tell your team to delete fake $400+ renewal receipts without calling the phone number printed on the PDF; check actual credit card statements instead.", "affected_tools": ["Business Email", "AnyDesk / TeamViewer"], "url": "https://www.bleepingcomputer.com/news/security/", "published_at": "2026-10-20"}]}, {"issue_number": 42, "week_id": "2026-W43", "date_label": "Monday, October 19, 2026", "date_range": "Oct 12 – Oct 19, 2026", "is_current": false, "threat_level": "Moderate", "headline": "NAS Backup Drives Under Ransomware Attack & Fake Facebook Page Copyright Warnings", "executive_brief": "Small agencies and retail shops that use Synology/QNAP office backup drives or manage Meta Business Suite pages were heavily targeted this week. 34 enterprise advisories were filtered out.", "priority_action": "Make sure your office backup drive is not accessible from the public internet and turn on Two-Factor Authentication for social media accounts.", "stats": {"raw_articles_scanned": 37, "enterprise_noise_filtered": 34, "micro_business_stories": 3, "estimated_read_time": "1 min"}, "filtered_noise_examples": ["VMware vCenter Server enterprise hypervisor heap-overflow flaw", "Palo Alto Networks PAN-OS Panorama management interface exploit"], "items": [{"id": "2026-w43-1", "source_id": "bleeping", "source_name": "BleepingComputer", "category": "Backups & Storage", "severity": "Critical", "time_to_fix": "5 mins", "title": "Ransomware Gang Targets Internet-Exposed QNAP & Synology Office Backup Boxes", "summary": "Creative studios and small offices that use network storage boxes (NAS) to share files are being hit by automated ransomware that locks every file on the drive. The attackers scan the internet for backup drives that have UPnP or public web access turned on and exploit unpatched firmware. Keeping your backup drive limited to your local office Wi-Fi prevents automated bots from reaching it.", "action_step": "Log into your Synology or QNAP drive settings, install the latest system update, and disable public port-forwarding or UPnP router exposure.", "affected_tools": ["Synology NAS", "QNAP NAS", "Office Backups"], "url": "https://www.bleepingcomputer.com/news/security/", "published_at": "2026-10-17"}, {"id": "2026-w43-2", "source_id": "krebs", "source_name": "Krebs on Security", "category": "Social Media & Ads", "severity": "High", "time_to_fix": "3 mins", "title": "Fake 'Page Violation & Copyright' Messages Hijack Small Business Facebook & Instagram Ads", "summary": "Scammers are tagging small business Facebook and Instagram pages in fake posts claiming your business account will be deleted in 24 hours for a copyright violation. Owners who click the appeal link have their Meta Business Suite hijacked, and criminals immediately run thousands of dollars in scam ads on the company's linked credit card. Meta never sends account takedown warnings via tagged customer posts or random direct messages.", "action_step": "Ignore and block any DM or page tag threatening account deletion, and set a low daily spending limit inside your Meta Ads Manager billing settings.", "affected_tools": ["Meta Business Suite", "Facebook Pages", "Instagram"], "url": "https://krebsonsecurity.com/", "published_at": "2026-10-15"}, {"id": "2026-w43-3", "source_id": "cisa", "source_name": "CISA", "category": "Windows & Office", "severity": "High", "time_to_fix": "3 mins", "title": "Monthly Windows Patch Tuesday Fixes Critical Remote Desktop & Word Flaws", "summary": "CISA highlighted two actively exploited flaws in Microsoft's monthly security update that allow attackers to infect Windows PCs through malicious Office documents. Small businesses without an IT department often have laptops where Windows updates have been paused for weeks. Taking three minutes to reboot every team PC ensures this month's protection is active.", "action_step": "Open 'Settings > Windows Update' on each work PC, click 'Check for updates', and restart the computer before the end of the day.", "affected_tools": ["Windows 11", "Windows 10", "Microsoft Office"], "url": "https://www.cisa.gov/cybersecurity-advisories/all", "published_at": "2026-10-14"}]}]}</script>
+
+  <script>
+    (function () {
+      const STORAGE_KEY = 'smallteam_shield_checked_actions_v1';
+      let checkedState = {};
+      try {
+        checkedState = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      } catch (e) {
+        checkedState = {};
+      }
+
+      const checkboxes = document.querySelectorAll('.action-checkbox');
+      const heroProgressCount = document.getElementById('heroProgressCount');
+
+      function updateProgressUI() {
+        let heroTotal = 0;
+        let heroDone = 0;
+        checkboxes.forEach((cb) => {
+          const id = cb.getAttribute('data-action-id');
+          const isChecked = Boolean(checkedState[id]);
+          cb.checked = isChecked;
+          const labelBox = cb.closest('.action-box');
+          if (labelBox) {
+            labelBox.classList.toggle('action-checked', isChecked);
+          }
+          if (cb.getAttribute('data-hero-action') === 'true') {
+            heroTotal += 1;
+            if (isChecked) heroDone += 1;
+          }
+        });
+        if (heroProgressCount) {
+          heroProgressCount.textContent = `${heroDone}/${heroTotal}`;
+        }
+      }
+
+      checkboxes.forEach((cb) => {
+        cb.addEventListener('change', (e) => {
+          const id = e.target.getAttribute('data-action-id');
+          if (e.target.checked) {
+            checkedState[id] = true;
+          } else {
+            delete checkedState[id];
+          }
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedState));
+          } catch (err) {}
+          updateProgressUI();
+        });
+      });
+
+      updateProgressUI();
+
+      // Filtering by Source, Severity, and Search Query
+      let activeSource = 'all';
+      const sourceBtns = document.querySelectorAll('.source-filter-btn');
+      const searchInput = document.getElementById('searchInput');
+      const severityFilter = document.getElementById('severityFilter');
+      const cards = document.querySelectorAll('.newsletter-card');
+
+      function applyFilters() {
+        const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
+        const sev = severityFilter ? severityFilter.value : 'all';
+
+        cards.forEach((card) => {
+          const src = card.getAttribute('data-source');
+          const cardSev = card.getAttribute('data-severity');
+          const haystack = card.getAttribute('data-search') || '';
+
+          const matchSource = activeSource === 'all' || src === activeSource;
+          const matchSev =
+            sev === 'all' ||
+            (sev === 'Critical' && cardSev === 'Critical') ||
+            (sev === 'High' && (cardSev === 'Critical' || cardSev === 'High'));
+          const matchQuery = !query || haystack.includes(query);
+
+          card.style.display = matchSource && matchSev && matchQuery ? '' : 'none';
+        });
+      }
+
+      sourceBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          activeSource = btn.getAttribute('data-source-filter') || 'all';
+          sourceBtns.forEach((b) => {
+            const isSelected = b.getAttribute('data-source-filter') === activeSource;
+            b.className = isSelected
+              ? 'source-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 transition cursor-pointer'
+              : 'source-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/70 text-slate-300 border border-slate-700/60 hover:text-white transition cursor-pointer';
+          });
+          applyFilters();
+        });
+      });
+
+      if (searchInput) searchInput.addEventListener('input', applyFilters);
+      if (severityFilter) severityFilter.addEventListener('change', applyFilters);
+
+      // Expand / Collapse Archive Weeks
+      const weekToggleBtns = document.querySelectorAll('.week-toggle-btn');
+      function setWeekExpanded(weekKey, expanded) {
+        const container =
+          document.getElementById(`week-body-${weekKey}`) ||
+          document.querySelector(`[data-week-body="${weekKey}"]`);
+        const btn =
+          document.querySelector(`[data-toggle-week="${weekKey}"]`) ||
+          document.querySelector(`[data-week-id="${weekKey}"].week-toggle-btn`);
+        if (!container || !btn) return;
+        container.style.display = expanded ? '' : 'none';
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        const label = btn.querySelector('.toggle-label');
+        const count = container.querySelectorAll('.newsletter-card').length;
+        if (label) {
+          label.textContent = expanded ? `Hide ${count} Stories` : `Show ${count} Stories`;
+        }
+      }
+
+      weekToggleBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const weekKey = btn.getAttribute('data-toggle-week');
+          const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+          setWeekExpanded(weekKey, !isExpanded);
+        });
+      });
+
+      const expandAllBtn = document.getElementById('expandAllWeeksBtn');
+      const collapseAllBtn = document.getElementById('collapseAllWeeksBtn');
+      if (expandAllBtn) {
+        expandAllBtn.addEventListener('click', () => {
+          weekToggleBtns.forEach((btn) => setWeekExpanded(btn.getAttribute('data-toggle-week'), true));
+        });
+      }
+      if (collapseAllBtn) {
+        collapseAllBtn.addEventListener('click', () => {
+          weekToggleBtns.forEach((btn) => setWeekExpanded(btn.getAttribute('data-toggle-week'), false));
+        });
+      }
+
+      // Auto-expand and scroll to archived week when landing with a URL hash (e.g. #issue-45 or #week-2026-W45)
+      function handleHashNavigation() {
+        const rawHash = (window.location.hash || '').replace(/^#/, '').trim();
+        if (!rawHash) return;
+        let block =
+          document.getElementById(rawHash)?.closest('.archive-week-block') ||
+          document.querySelector(`.archive-week-block[data-issue-anchor="${rawHash}"]`) ||
+          document.querySelector(`.archive-week-block[data-week-id="${rawHash.replace(/^week-/, '')}"]`) ||
+          document.getElementById(rawHash);
+        if (block && block.classList.contains('archive-week-block')) {
+          const toggleBtn = block.querySelector('.week-toggle-btn');
+          if (toggleBtn) {
+            setWeekExpanded(toggleBtn.getAttribute('data-toggle-week'), true);
+          }
+          block.style.borderColor = 'rgba(16, 185, 129, 0.7)';
+          setTimeout(() => {
+            block.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        }
+      }
+      window.addEventListener('hashchange', handleHashNavigation);
+      handleHashNavigation();
+
+      // Copy Current Week Team Summary to Clipboard
+      const copyBtn = document.getElementById('copyTeamBriefBtn');
+      const copyLabel = document.getElementById('copyTeamBriefLabel');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', async () => {
+          try {
+            const rawData = JSON.parse(document.getElementById('newsletter-data').textContent);
+            const current = rawData.weeks[0];
+            const lines = [
+              `🛡️ Gaga Security Intel — Weekly Cyber Brief (${current.date_range})`,
+              `Priority Action: ${current.priority_action}`,
+              ''
+            ];
+            current.items.forEach((item, idx) => {
+              lines.push(`${idx + 1}. [${item.source_name}] ${item.title} (${item.time_to_fix})`);
+              lines.push(`   ${item.summary}`);
+              lines.push(`   👉 To Do: ${item.action_step}`);
+              lines.push('');
+            });
+            await navigator.clipboard.writeText(lines.join('\n'));
+            if (copyLabel) {
+              const original = copyLabel.textContent;
+              copyLabel.textContent = 'Copied Team Brief to Clipboard!';
+              setTimeout(() => {
+                copyLabel.textContent = original;
+              }, 2500);
+            }
+          } catch (e) {}
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
