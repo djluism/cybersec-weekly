@@ -70,10 +70,10 @@ RSS_FEEDS = [
     },
 ]
 
-# Preferred Gemini model identifier (defaults to Gemini 4 Argon as requested,
-# with graceful fallback if the API endpoint aliases it to gemini-2.5-flash)
-DEFAULT_GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-4-argon")
-FALLBACK_GEMINI_MODELS = ["gemini-2.5-flash", "gemini-2.5-pro", "gemini-2.0-flash"]
+# Preferred Gemini model identifier (defaults to gemini-3.8-flash,
+# with fallback to gemini-3.8-pro)
+DEFAULT_GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
+FALLBACK_GEMINI_MODELS = ["gemini-3.8-pro"]
 
 USER_AGENT = (
     "SmallTeamShieldNewsletterBot/1.0 "
@@ -191,7 +191,10 @@ def curate_with_gemini(
     from google import genai
     from google.genai import types
 
-    client = genai.Client(api_key=api_key)
+    client = genai.Client(
+        api_key=api_key,
+        http_options=types.HttpOptions(api_version="v1beta"),
+    )
 
     start_date = reference_date - dt.timedelta(days=7)
     date_label = reference_date.strftime("Monday, %B %-d, %Y") if os.name != "nt" else reference_date.strftime("Monday, %B %d, %Y").replace(" 0", " ")
@@ -475,7 +478,7 @@ def main() -> int:
     site_data.setdefault("metadata", {})["last_updated"] = (
         dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     )
-    site_data["metadata"]["model"] = DEFAULT_GEMINI_MODEL
+    site_data["metadata"]["model"] = new_week.get("generated_by_model", DEFAULT_GEMINI_MODEL)
 
     save_site_data(site_data, latest_week=new_week)
     render_static_site(site_data)

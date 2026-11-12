@@ -27,7 +27,7 @@ concurrency:
 
 jobs:
   curate-and-build:
-    name: Scrape RSS, Filter with Gemini 4 Argon & Build Static Site
+    name: Scrape RSS, Filter with Gemini & Build Static Site
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -44,10 +44,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Scrape CISA, Krebs & BleepingComputer and curate with Gemini 4 Argon
+      - name: Scrape CISA, Krebs & BleepingComputer and curate with Gemini
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: gemini-4-argon
+          GEMINI_MODEL: gemini-3.8-flash
         run: |
           DAYS="${{ github.event.inputs.days_lookback || '7' }}"
           EXTRA_ARGS=""
