@@ -1,0 +1,111 @@
+{
+  "issue_number": 46,
+  "week_id": "2026-W46",
+  "date_label": "Monday, November 12, 2026",
+  "date_range": "Nov 5 – Nov 12, 2026",
+  "is_current": true,
+  "threat_level": "High",
+  "headline": "Zero-Day Flaws Strike Outlook and Chrome While Notion Discloses AI Data Leak",
+  "executive_brief": "This week's updates demand immediate attention as active exploits target everyday business tools including Outlook, Google Chrome, and Notion. We filtered out 17 complex enterprise notices regarding industrial refrigeration controllers, Linux rootkits, and telecom server vulnerabilities to focus on your day-to-day office tools.",
+  "priority_action": "Restart your computer and open both Windows Update and your web browser to install this month's critical security patches immediately.",
+  "stats": {
+    "raw_articles_scanned": 22,
+    "enterprise_noise_filtered": 17,
+    "micro_business_stories": 5,
+    "estimated_read_time": "2 min"
+  },
+  "filtered_noise_examples": [
+    "CISA advisory on industrial refrigeration and cold chain monitoring controllers",
+    "Underground threat actor discussions regarding Linux kernel eBPF rootkits",
+    "Cisco BroadWorks and SignalWire FreeSwitch telecom server injection flaws"
+  ],
+  "items": [
+    {
+      "id": "2026-w46-1",
+      "source_id": "krebs",
+      "source_name": "Krebs on Security",
+      "category": "Operating System Updates",
+      "severity": "Critical",
+      "time_to_fix": "5 mins",
+      "title": "Microsoft Issues Massive Update Addressing Active Outlook Flaws",
+      "summary": "Microsoft has released its monthly security update fixing over a thousand vulnerabilities across Windows, including an actively exploited email bug in Outlook. Attackers can trigger this Outlook flaw without requiring the victim to open an attachment or click a malicious link. Running Windows Update now protects your workstation from unauthorized background access.",
+      "action_step": "Click the Start button, go to Settings, select Windows Update, and click Check for updates to install all pending fixes.",
+      "affected_tools": [
+        "Windows 10",
+        "Windows 11",
+        "Microsoft Outlook"
+      ],
+      "url": "https://krebsonsecurity.com/2026/11/microsoft-fixes-nearly-1100-security-vulnerabilities/",
+      "published_at": "2026-11-10"
+    },
+    {
+      "id": "2026-w46-2",
+      "source_id": "cisa",
+      "source_name": "CISA",
+      "category": "Browser Security",
+      "severity": "Critical",
+      "time_to_fix": "2 mins",
+      "title": "Federal Warning Issued for Actively Exploited Web Browser Flaw",
+      "summary": "Cybersecurity authorities have officially added a high-priority web browser vulnerability to their emergency catalog due to confirmed real-world attacks. Criminals exploit this memory flaw through deceptive websites to execute harmful code directly on your computer. Keeping your browser software current shuts down the access route attackers use.",
+      "action_step": "Open your browser menu, navigate to Help, select About, and let the browser download and restart with the latest update.",
+      "affected_tools": [
+        "Google Chrome",
+        "Microsoft Edge",
+        "Brave"
+      ],
+      "url": "https://www.cisa.gov/news-events/alerts/2026/11/10/cisa-adds-six-known-exploited-vulnerabilities-catalog",
+      "published_at": "2026-11-10"
+    },
+    {
+      "id": "2026-w46-3",
+      "source_id": "bleeping",
+      "source_name": "BleepingComputer",
+      "category": "Cloud Work Suites",
+      "severity": "Medium",
+      "time_to_fix": "5 mins",
+      "title": "Notion AI Chat Logs Exposed Following Third-Party Vendor Breach",
+      "summary": "Notion disclosed that a cybersecurity intrusion at one of its artificial intelligence partners exposed customer conversation transcripts. If your small team used Notion AI to draft sensitive business proposals, client notes, or internal policies, those prompts may have been visible to unauthorized parties. The incident serves as a reminder to avoid pasting sensitive customer records or banking details into AI assistants.",
+      "action_step": "Remind your team never to enter client passwords, financial records, or confidential trade secrets into AI chat prompts or workspace assistants.",
+      "affected_tools": [
+        "Notion",
+        "Notion AI"
+      ],
+      "url": "https://www.bleepingcomputer.com/news/security/notion-says-fireworks-breach-exposed-customer-ai-chat-transcripts/",
+      "published_at": "2026-11-11"
+    },
+    {
+      "id": "2026-w46-4",
+      "source_id": "bleeping",
+      "source_name": "BleepingComputer",
+      "category": "Operating System Updates",
+      "severity": "High",
+      "time_to_fix": "5 mins",
+      "title": "Windows 11 Security Updates Failing to Install on Some Computers",
+      "summary": "Microsoft confirmed that this month's crucial security update is failing to install on select Windows 11 PCs, returning error messages instead. This glitch leaves affected business laptops without protection against newly disclosed zero-day security threats. Verifying that your update actually completed successfully ensures your devices are not quietly left exposed.",
+      "action_step": "Open Windows Update history on your PC to confirm that the November update shows as Successfully installed rather than Failed.",
+      "affected_tools": [
+        "Windows 11"
+      ],
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-kb5132061-installation-issues-0x80070306-0x800f0989-0x800f0993-errors/",
+      "published_at": "2026-11-12"
+    },
+    {
+      "id": "2026-w46-5",
+      "source_id": "bleeping",
+      "source_name": "BleepingComputer",
+      "category": "Remote Access & IT Support",
+      "severity": "High",
+      "time_to_fix": "5 mins",
+      "title": "Hackers Hijacking Remote Support Software to Access Client Computers",
+      "summary": "Attackers are actively compromising outsourced IT support providers and abusing remote access tools to push malicious software onto client computers. If your business works with an external computer technician who uses remote desktop software, an intruder who breaches their firm could gain instant entry to your office PCs. Reviewing and removing old remote-access software keeps your machines shielded from third-party break-ins.",
+      "action_step": "Check your computer's installed applications list and uninstall any unused remote support apps like ScreenConnect or AnyDesk.",
+      "affected_tools": [
+        "ConnectWise ScreenConnect",
+        "Windows Remote Management"
+      ],
+      "url": "https://www.bleepingcomputer.com/news/security/active-screenconnect-attacks-breach-msps-impact-dozens-of-organizations/",
+      "published_at": "2026-11-11"
+    }
+  ],
+  "generated_by_model": "gemini-3.8-flash"
+}
