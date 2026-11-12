@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ metadata.site_title }} — {{ metadata.tagline }}</title>
+  <meta name="description" content="Automated weekly cybersecurity newsletter tailored for micro-enterprises (1–5 employees). Curated by Gemini 4 Argon from CISA, Krebs on Security, and BleepingComputer every Monday at 6:00 AM." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            obsidian: {
+              950: '#050811',
+              900: '#090E1A',
+              800: '#0F172A',
+              700: '#1E293B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #050811;
+      background-image:
+        radial-gradient(circle at 15% 0%, rgba(16, 185, 129, 0.10), transparent 38%),
+        radial-gradient(circle at 85% 8%, rgba(6, 182, 212, 0.09), transparent 35%),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.35) 1px, transparent 1px),
+        linear-gradient(to right, rgba(15, 23, 42, 0.35) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    }
+    .hero-glow {
+      box-shadow: 0 0 60px -15px rgba(16, 185, 129, 0.16), 0 0 30px -10px rgba(6, 182, 212, 0.12);
+    }
+    .action-checked {
+      border-color: rgba(16, 185, 129, 0.5) !important;
+      background-color: rgba(6, 78, 59, 0.22) !important;
+    }
+  </style>
+</head>
+<body class="text-slate-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200 min-h-screen flex flex-col">
+
+  <!-- Top GAGA.COM Network Global Navigation & Header -->
+  <div class="border-b border-slate-800/80 bg-obsidian-950/95 backdrop-blur-md sticky top-0 z-50">
+    <!-- Top Telemetry & RSS Bar -->
+    <div class="border-b border-slate-800/60 bg-obsidian-950/90">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-2 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div class="flex items-center gap-2.5">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono font-medium">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            GEMINI 4 ARGON • AUTO-RUNS MONDAYS 06:00 AM
+          </span>
+          <span class="hidden md:inline-flex items-center gap-1.5 text-slate-400 font-mono">
+            <span>GAGA.COM MICRO-ENTERPRISE NETWORK</span>
+            <span class="text-slate-600">•</span>
+            <span>ZERO CORPORATE NOISE</span>
+          </span>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span class="text-slate-400 hidden sm:inline">Live RSS Sources:</span>
+          <a href="https://www.cisa.gov/cybersecurity-advisories/all" target="_blank" rel="noopener" class="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 font-mono hover:bg-emerald-500/20 transition">CISA</a>
+          <a href="https://krebsonsecurity.com/" target="_blank" rel="noopener" class="px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/25 text-amber-300 font-mono hover:bg-amber-500/20 transition">Krebs on Security</a>
+          <a href="https://www.bleepingcomputer.com/" target="_blank" rel="noopener" class="px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/25 text-cyan-300 font-mono hover:bg-cyan-500/20 transition">BleepingComputer</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Primary Gaga.com Extension Brand Header -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <!-- Brand Logo Block: Gaga Security Intel -->
+      <a href="https://gaga.com" class="group flex items-center gap-3.5 focus:outline-none">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-cyan-500 p-[1px] shadow-lg shadow-emerald-500/15">
+          <div class="w-full h-full bg-obsidian-950 rounded-[11px] flex items-center justify-center">
+            <svg class="w-5 h-5 text-emerald-400 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-lg sm:text-xl font-extrabold tracking-tight text-white">
+              Gaga <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Security Intel</span>
+            </span>
+            <span class="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded bg-slate-800/90 border border-slate-700 text-slate-300">
+              www.gaga.com
+            </span>
+          </div>
+          <p class="text-xs text-slate-400 font-medium">
+            Official Cybersecurity Intelligence Division • 1–5 Person Micro-Enterprises
+          </p>
+        </div>
+      </a>
+
+      <!-- Navigation Links & Prominent "Return to Home" CTA -->
+      <nav aria-label="Gaga Global Navigation" class="flex items-center gap-2.5 sm:gap-4">
+        <a href="#current-week-hero" class="hidden md:inline-block text-xs sm:text-sm font-medium text-slate-300 hover:text-emerald-400 transition">
+          Current Brief
+        </a>
+        <a href="#older-weeks-archive" class="hidden md:inline-block text-xs sm:text-sm font-medium text-slate-300 hover:text-emerald-400 transition">
+          Weekly Archive
+        </a>
+        <a
+          href="https://www.gaga.com"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold text-xs sm:text-sm shadow-lg shadow-emerald-500/20 transition"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span>Return to Home</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Header, AdSense Slot & Controls -->
+  <header class="max-w-6xl mx-auto w-full px-4 sm:px-6 pt-8 pb-6">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-slate-800/80">
+      <div>
+        <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-400 mb-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          Gaga.com Micro-Enterprise Security Digest (1–5 Employees)
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+          Gaga <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Security Intel</span>
+        </h1>
+        <p class="mt-2 text-slate-300 max-w-2xl text-sm sm:text-base leading-relaxed">
+          Every Monday at 6:00 AM, <span class="text-emerald-300 font-medium">Gemini 4 Argon</span> reads every advisory from CISA, Krebs on Security, and BleepingComputer, throws out the corporate enterprise noise, and translates what actually matters to a 1–5 person business into <span class="text-white font-medium">plain 2–3 sentence summaries</span>.
+        </p>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="flex flex-wrap items-center gap-2.5 shrink-0">
+        <button id="copyTeamBriefBtn" type="button" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-xs sm:text-sm transition shadow-lg shadow-emerald-500/15 cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+          </svg>
+          <span id="copyTeamBriefLabel">Copy This Week's Brief for Team</span>
+        </button>
+        <a href="#older-weeks-archive" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80 text-xs sm:text-sm font-medium transition">
+          <span>Past Weeks Archive ({{ older_weeks | length }})</span>
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Designated Google AdSense Leaderboard Container (Header Slot) -->
+    <aside aria-label="Sponsored Advertisement" class="mt-5 rounded-xl bg-obsidian-900/80 border border-slate-800/90 p-3 flex flex-col items-center justify-center">
+      <div class="w-full max-w-[728px] min-h-[90px] rounded-lg border border-dashed border-slate-800 bg-obsidian-950/70 flex flex-col items-center justify-center px-4 py-2 text-center relative overflow-hidden">
+        <span class="text-[10px] font-mono uppercase tracking-widest text-slate-500 mb-1">
+          Advertisement • Gaga Security Intel Sponsor Slot (Google AdSense Ready)
+        </span>
+        <!-- Standard Google AdSense Unit Container -->
+        <ins
+          class="adsbygoogle"
+          style="display:block; width:100%; min-height:70px;"
+          data-ad-client="ca-pub-0000000000000000"
+          data-ad-slot="1234567890"
+          data-ad-format="horizontal"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          try {
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+          } catch (e) {}
+        </script>
+      </div>
+    </aside>
+
+    <!-- Search & Filter Bar -->
+    <div class="mt-5 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 bg-slate-900/70 border border-slate-800/90 rounded-xl p-3">
+      <div class="flex flex-wrap items-center gap-1.5" role="group" aria-label="Filter by RSS feed source">
+        <span class="text-xs font-mono text-slate-400 mr-1.5 px-1">SOURCE:</span>
+        <button type="button" data-source-filter="all" class="source-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 transition cursor-pointer">All Feeds</button>
+        <button type="button" data-source-filter="cisa" class="source-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/70 text-slate-300 border border-slate-700/60 hover:text-white transition cursor-pointer">CISA</button>
+        <button type="button" data-source-filter="krebs" class="source-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/70 text-slate-300 border border-slate-700/60 hover:text-white transition cursor-pointer">Krebs on Security</button>
+        <button type="button" data-source-filter="bleeping" class="source-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/70 text-slate-300 border border-slate-700/60 hover:text-white transition cursor-pointer">BleepingComputer</button>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <div class="relative flex-1 md:w-72">
+          <svg class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <input id="searchInput" type="search" placeholder="Filter by Chrome, QuickBooks, Wi-Fi, ACH..." class="w-full pl-9 pr-3 py-1.5 bg-obsidian-950/90 border border-slate-700/80 rounded-lg text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500/70 font-sans" />
+        </div>
+        <select id="severityFilter" aria-label="Filter by threat severity" class="bg-obsidian-950/90 border border-slate-700/80 rounded-lg px-2.5 py-1.5 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-emerald-500/70">
+          <option value="all">All Severities</option>
+          <option value="Critical">Critical Only</option>
+          <option value="High">High &amp; Critical</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto w-full px-4 sm:px-6 pb-20 flex-1 space-y-14">
+
+    <!-- ===================================================================== -->
+    <!-- TOP HERO BLOCK: CURRENT WEEK FEATURED EDITION                         -->
+    <!-- ===================================================================== -->
+    <section id="current-week-hero" aria-labelledby="hero-week-heading" class="relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-500/50 via-cyan-500/30 to-slate-800 hero-glow">
+      <div class="rounded-2xl bg-obsidian-900/95 backdrop-blur-xl p-5 sm:p-8">
+
+        <!-- Hero Top Metadata Row -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-800">
+          <div class="flex flex-wrap items-center gap-2.5">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 font-mono text-xs font-semibold tracking-wide">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              FEATURED CURRENT WEEK • ISSUE #{{ current_week.issue_number }}
+            </span>
+            <span class="font-mono text-xs text-slate-300 bg-slate-800/90 border border-slate-700 px-2.5 py-1 rounded-md">
+              {{ current_week.date_label }} ({{ current_week.date_range }})
+            </span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono">
+              <span>SMALL-TEAM THREAT LEVEL:</span>
+              <strong class="uppercase">{{ current_week.threat_level }}</strong>
+            </div>
+            <div class="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-slate-300 text-xs font-mono">
+              <span id="heroProgressCount">0/{{ current_week['items'] | length }}</span>
+              <span>Actions Done</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Headline & Executive Brief -->
+        <div class="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-8 space-y-3">
+            <h2 id="hero-week-heading" class="text-2xl sm:text-3xl font-bold text-white leading-tight">
+              {{ current_week.headline }}
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              {{ current_week.executive_brief }}
+            </p>
+
+            <!-- Priority 5-Minute Action Banner -->
+            <div class="mt-4 p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/35 flex items-start gap-3.5">
+              <div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 shrink-0 mt-0.5">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-xs font-mono uppercase tracking-wider text-emerald-300 font-semibold">
+                  #1 Priority 5-Minute Team Action This Week
+                </div>
+                <p class="text-sm text-slate-100 mt-1 font-medium">
+                  {{ current_week.priority_action }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gemini 4 Argon Corporate Noise Filter Telemetry Box -->
+          <div class="lg:col-span-4 rounded-xl bg-obsidian-950/90 border border-slate-800 p-4 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-semibold">Noise Filter Telemetry</span>
+              <span class="text-[11px] font-mono text-slate-400">{{ current_week.stats.estimated_read_time }} read</span>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2 text-center">
+              <div class="p-2 rounded-lg bg-slate-900/90 border border-slate-800">
+                <div class="text-lg font-bold font-mono text-slate-200">{{ current_week.stats.raw_articles_scanned }}</div>
+                <div class="text-[11px] text-slate-400">RSS Scanned</div>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-900/90 border border-slate-800">
+                <div class="text-lg font-bold font-mono text-rose-400">-{{ current_week.stats.enterprise_noise_filtered }}</div>
+                <div class="text-[11px] text-slate-400">Corp Noise Cut</div>
+              </div>
+              <div class="p-2 rounded-lg bg-emerald-950/40 border border-emerald-500/30">
+                <div class="text-lg font-bold font-mono text-emerald-400">{{ current_week.stats.micro_business_stories }}</div>
+                <div class="text-[11px] text-emerald-300">Kept for You</div>
+              </div>
+            </div>
+
+            <div class="pt-1 border-t border-slate-800/80">
+              <div class="text-[11px] font-mono text-slate-400 mb-1.5">Examples of Enterprise Noise Filtered Out:</div>
+              <ul class="space-y-1 text-xs text-slate-400">
+                {% for noise in current_week.filtered_noise_examples %}
+                <li class="flex items-start gap-1.5 line-through decoration-slate-600 text-slate-500">
+                  <span class="text-rose-400/80 font-mono text-[10px] mt-0.5">✕</span>
+                  <span>{{ noise }}</span>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Current Week Curated Story Cards (2-3 Sentence Summaries) -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5" id="heroItemsGrid">
+          {% for item in current_week['items'] %}
+          <article
+            class="newsletter-card group rounded-xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 p-5 flex flex-col justify-between transition duration-200"
+            data-source="{{ item.source_id }}"
+            data-severity="{{ item.severity }}"
+            data-search="{{ (item.title ~ ' ' ~ item.summary ~ ' ' ~ item.action_step ~ ' ' ~ item.category ~ ' ' ~ (item.affected_tools | join(' '))) | lower }}"
+            data-card-id="{{ item.id }}"
+          >
+            <div>
+              <!-- Card Top Metadata -->
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <div class="flex items-center gap-2">
+                  {% if item.source_id == 'cisa' %}
+                  <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">CISA</span>
+                  {% elif item.source_id == 'krebs' %}
+                  <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">Krebs on Security</span>
+                  {% else %}
+                  <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">BleepingComputer</span>
+                  {% endif %}
+                  <span class="text-xs text-slate-400 font-medium">{{ item.category }}</span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <span class="text-[11px] font-mono text-slate-400 bg-obsidian-950 px-2 py-0.5 rounded border border-slate-800">
+                    ⏱ {{ item.time_to_fix }}
+                  </span>
+                  {% if item.severity == 'Critical' %}
+                  <span class="px-2 py-0.5 rounded text-xs font-mono font-semibold bg-rose-500/15 text-rose-300 border border-rose-500/30">Critical</span>
+                  {% elif item.severity == 'High' %}
+                  <span class="px-2 py-0.5 rounded text-xs font-mono font-semibold bg-orange-500/15 text-orange-300 border border-orange-500/30">High</span>
+                  {% else %}
+                  <span class="px-2 py-0.5 rounded text-xs font-mono font-semibold bg-sky-500/15 text-sky-300 border border-sky-500/30">Medium</span>
+                  {% endif %}
+                </div>
+              </div>
+
+              <!-- Story Title -->
+              <h3 class="text-lg font-bold text-white group-hover:text-emerald-300 transition leading-snug">
+                {{ item.title }}
+              </h3>
+
+              <!-- 2-3 Sentence Plain-English Summary -->
+              <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">
+                {{ item.summary }}
+              </p>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+              <!-- Interactive 1-Step Micro-Business Action Box -->
+              <label for="check-{{ item.id }}" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+                <input
+                  id="check-{{ item.id }}"
+                  type="checkbox"
+                  data-action-id="{{ item.id }}"
+                  data-hero-action="true"
+                  class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 focus:ring-emerald-500/40 cursor-pointer"
+                />
+                <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                  <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                  {{ item.action_step }}
+                </span>
+              </label>
+
+              <!-- Affected Tools & Original Advisory Link -->
+              <div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+                <div class="flex flex-wrap items-center gap-1.5">
+                  {% for tool in item.affected_tools %}
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800/90 text-slate-300 border border-slate-700/70">
+                    {{ tool }}
+                  </span>
+                  {% endfor %}
+                </div>
+
+                <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-mono text-emerald-400 hover:text-emerald-300 font-medium">
+                  <span>Source Advisory</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- OLDER WEEKS CHRONOLOGICAL ARCHIVE STACK                               -->
+    <!-- ===================================================================== -->
+    <section id="older-weeks-archive" aria-labelledby="archive-heading" class="space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-800 pb-4">
+        <div>
+          <div class="text-xs font-mono uppercase tracking-widest text-cyan-400">
+            Chronological Weekly Stack
+          </div>
+          <h2 id="archive-heading" class="text-2xl font-bold text-white mt-1">
+            Previous Weekly Editions
+          </h2>
+          <p class="text-sm text-slate-400 mt-1">
+            Older weeks stack chronologically below the current Hero Week so new hires or busy founders can catch up in minutes.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button id="expandAllWeeksBtn" type="button" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 cursor-pointer transition">
+            Expand All Weeks
+          </button>
+          <button id="collapseAllWeeksBtn" type="button" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 cursor-pointer transition">
+            Collapse All
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Issue Jump Pills -->
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs font-mono text-slate-400 mr-1">Jump to edition:</span>
+        {% for week in older_weeks %}
+        <a href="#issue-{{ week.issue_number }}" class="px-3 py-1 rounded-full bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-xs font-mono text-slate-300 transition">
+          Issue #{{ week.issue_number }} • {{ week.date_range }}
+        </a>
+        {% endfor %}
+      </div>
+
+      <!-- Stacked Chronological Container -->
+      <div class="relative pl-4 sm:pl-8 border-l-2 border-slate-800 space-y-8">
+        {% for week in older_weeks %}
+        <div id="week-{{ week.week_id }}" data-issue-anchor="issue-{{ week.issue_number }}" data-week-id="{{ week.week_id }}" class="archive-week-block relative rounded-2xl bg-obsidian-900/90 border border-slate-800/90 p-5 sm:p-6 transition">
+          <span id="issue-{{ week.issue_number }}" class="absolute -top-24"></span>
+          <!-- Timeline Node Dot -->
+          <span class="absolute -left-[25px] sm:-left-[41px] top-7 w-4 h-4 rounded-full bg-obsidian-950 border-2 border-cyan-400"></span>
+
+          <!-- Week Header (Clickable Toggle) -->
+          <div class="flex flex-wrap items-start justify-between gap-4">
+            <div class="space-y-1.5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-200 font-mono text-xs font-semibold">
+                  ISSUE #{{ week.issue_number }} • {{ week.week_id }}
+                </span>
+                <span class="text-xs font-mono text-slate-400">
+                  {{ week.date_label }} ({{ week.date_range }})
+                </span>
+                <span class="px-2 py-0.5 rounded bg-slate-800/70 text-slate-300 font-mono text-xs">
+                  {{ week.stats.enterprise_noise_filtered }} enterprise alerts filtered out
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-white">
+                {{ week.headline }}
+              </h3>
+              <p class="text-sm text-slate-300 max-w-3xl">
+                {{ week.executive_brief }}
+              </p>
+            </div>
+
+            <button
+              type="button"
+              data-toggle-week="{{ week.issue_number }}"
+              data-week-id="{{ week.week_id }}"
+              aria-expanded="true"
+              class="week-toggle-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-200 shrink-0 cursor-pointer"
+            >
+              <span class="toggle-label">Hide {{ week['items'] | length }} Stories</span>
+              <svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Week Priority Action Callout -->
+          <div class="mt-4 px-3.5 py-2.5 rounded-lg bg-slate-950/80 border border-slate-800/90 flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
+            <span class="font-mono text-cyan-400 font-semibold uppercase shrink-0">Week #{{ week.issue_number }} Key Fix:</span>
+            <span>{{ week.priority_action }}</span>
+          </div>
+
+          <!-- Stacked Week Story Cards -->
+          <div id="week-body-{{ week.issue_number }}" data-week-body="{{ week.week_id }}" class="week-stories-container mt-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+            {% for item in week['items'] %}
+            <article
+              class="newsletter-card rounded-xl bg-slate-900/70 border border-slate-800/90 p-4 flex flex-col justify-between"
+              data-source="{{ item.source_id }}"
+              data-severity="{{ item.severity }}"
+              data-search="{{ (item.title ~ ' ' ~ item.summary ~ ' ' ~ item.action_step ~ ' ' ~ item.category ~ ' ' ~ (item.affected_tools | join(' '))) | lower }}"
+              data-card-id="{{ item.id }}"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  {% if item.source_id == 'cisa' %}
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">CISA</span>
+                  {% elif item.source_id == 'krebs' %}
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">Krebs on Security</span>
+                  {% else %}
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">BleepingComputer</span>
+                  {% endif %}
+
+                  <span class="text-[11px] font-mono text-slate-400">{{ item.severity }} • {{ item.time_to_fix }}</span>
+                </div>
+
+                <h4 class="text-base font-bold text-white leading-snug">
+                  {{ item.title }}
+                </h4>
+
+                <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  {{ item.summary }}
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2.5">
+                <label for="check-{{ item.id }}" class="action-box flex items-start gap-2.5 p-2.5 rounded-lg bg-obsidian-950/80 border border-slate-800/90 cursor-pointer">
+                  <input
+                    id="check-{{ item.id }}"
+                    type="checkbox"
+                    data-action-id="{{ item.id }}"
+                    class="action-checkbox mt-0.5 h-3.5 w-3.5 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer"
+                  />
+                  <span class="text-xs text-slate-200 leading-snug">
+                    <strong class="text-cyan-400 font-mono uppercase text-[10px] block">Action:</strong>
+                    {{ item.action_step }}
+                  </span>
+                </label>
+
+                <div class="flex items-center justify-between text-[11px] font-mono pt-0.5">
+                  <span class="text-slate-400 truncate max-w-[65%]">{{ item.affected_tools | join(', ') }}</span>
+                  <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">
+                    Read Source →
+                  </a>
+                </div>
+              </div>
+            </article>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- AUTOMATION PIPELINE ARCHITECTURE & GITHUB ACTIONS INFO                -->
+    <!-- ===================================================================== -->
+    <section class="rounded-2xl bg-slate-900/60 border border-slate-800 p-6 sm:p-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">Zero-Touch Weekly Pipeline</span>
+          <h2 class="text-xl font-bold text-white mt-1">How This Automated Agent Works Every Monday at 6:00 AM</h2>
+        </div>
+        <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian-950 border border-slate-800 text-slate-300">
+          Schedule: <code class="text-emerald-400">cron: '0 6 * * 1'</code> (.github/workflows/weekly-newsletter.yml)
+        </span>
+      </div>
+
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-4 gap-4 text-sm">
+        <div class="p-4 rounded-xl bg-obsidian-950/80 border border-slate-800/90">
+          <div class="font-mono text-xs text-emerald-400 mb-1">STEP 01 • 06:00 AM MON</div>
+          <div class="font-bold text-white">RSS Feed Ingestion</div>
+          <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+            GitHub Actions triggers <code class="text-slate-200">scripts/generate_newsletter.py</code> to pull the past 7 days of advisories from CISA, Krebs on Security, and BleepingComputer.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl bg-obsidian-950/80 border border-slate-800/90">
+          <div class="font-mono text-xs text-cyan-400 mb-1">STEP 02 • NOISE FILTER</div>
+          <div class="font-bold text-white">Gemini 4 Argon Triage</div>
+          <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+            Gemini 4 Argon strips out enterprise-only noise (SCADA, Kubernetes, BGP, data-center appliances) and isolates threats that hit 1–5 person businesses.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl bg-obsidian-950/80 border border-slate-800/90">
+          <div class="font-mono text-xs text-amber-400 mb-1">STEP 03 • PLAIN ENGLISH</div>
+          <div class="font-bold text-white">2–3 Sentence Summaries</div>
+          <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+            Each story is distilled into a strict 2–3 sentence non-technical explanation plus a single 5-minute action item your team can check off.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl bg-obsidian-950/80 border border-slate-800/90">
+          <div class="font-mono text-xs text-purple-400 mb-1">STEP 04 • STATIC DEPLOY</div>
+          <div class="font-bold text-white">Hero Promotion &amp; Stack</div>
+          <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+            The new issue becomes the top Hero Block, last week's issue moves into the chronological archive stack below, and GitHub Pages auto-publishes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Premium Gaga.com Extension Footer -->
+  <footer class="border-t border-slate-800/90 bg-obsidian-950 pt-12 pb-10 text-xs text-slate-400">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-slate-800/80">
+        <!-- Brand Column -->
+        <div class="md:col-span-5 space-y-3">
+          <a href="https://gaga.com" class="inline-flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-cyan-500 p-[1px]">
+              <div class="w-full h-full bg-obsidian-950 rounded-[7px] flex items-center justify-center">
+                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+            </div>
+            <span class="text-base font-extrabold tracking-tight text-white">
+              Gaga <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Security Intel</span>
+            </span>
+          </a>
+          <p class="text-slate-400 leading-relaxed max-w-sm">
+            An official <a href="https://gaga.com" class="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">www.gaga.com</a> intelligence publication. Automated weekly cybersecurity protection tailored for micro-enterprises (1–5 employees).
+          </p>
+        </div>
+
+        <!-- Gaga.com Network Links -->
+        <div class="md:col-span-4 space-y-2.5">
+          <div class="font-mono uppercase tracking-wider text-slate-200 font-semibold">Gaga.com Ecosystem</div>
+          <ul class="space-y-2 text-slate-400">
+            <li>
+              <a href="https://gaga.com" class="hover:text-emerald-400 transition inline-flex items-center gap-1.5">
+                <span>Return to Home (www.gaga.com)</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              </a>
+            </li>
+            <li><a href="#current-week-hero" class="hover:text-emerald-400 transition">Current Week Featured Brief</a></li>
+            <li><a href="#older-weeks-archive" class="hover:text-emerald-400 transition">Chronological Weekly Archive</a></li>
+          </ul>
+        </div>
+
+        <!-- Intelligence Feeds & Schedule -->
+        <div class="md:col-span-3 space-y-2.5">
+          <div class="font-mono uppercase tracking-wider text-slate-200 font-semibold">Automated Telemetry</div>
+          <ul class="space-y-1.5 font-mono text-[11px] text-slate-400">
+            <li>Engine: <span class="text-emerald-300">{{ metadata.model }}</span></li>
+            <li>Schedule: <span class="text-slate-200">Mondays @ 06:00 AM</span></li>
+            <li>Updated: <span class="text-slate-200">{{ metadata.last_updated }}</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500">
+        <div>
+          © 2026 <a href="https://gaga.com" class="text-slate-300 hover:text-emerald-400 transition font-semibold">Gaga.com</a> • <strong class="text-slate-300">{{ metadata.site_title }}</strong>. All rights reserved.
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="https://gaga.com" class="hover:text-slate-300 transition">www.gaga.com</a>
+          <span>•</span>
+          <span>1–5 Employee Micro-Enterprise Edition</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Embedded Newsletter JSON Data for Client-Side Copy & Interactive Filtering -->
+  <script id="newsletter-data" type="application/json">{{ site_data_json | safe }}</script>
+
+  <script>
+    (function () {
+      const STORAGE_KEY = 'smallteam_shield_checked_actions_v1';
+      let checkedState = {};
+      try {
+        checkedState = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      } catch (e) {
+        checkedState = {};
+      }
+
+      const checkboxes = document.querySelectorAll('.action-checkbox');
+      const heroProgressCount = document.getElementById('heroProgressCount');
+
+      function updateProgressUI() {
+        let heroTotal = 0;
+        let heroDone = 0;
+        checkboxes.forEach((cb) => {
+          const id = cb.getAttribute('data-action-id');
+          const isChecked = Boolean(checkedState[id]);
+          cb.checked = isChecked;
+          const labelBox = cb.closest('.action-box');
+          if (labelBox) {
+            labelBox.classList.toggle('action-checked', isChecked);
+          }
+          if (cb.getAttribute('data-hero-action') === 'true') {
+            heroTotal += 1;
+            if (isChecked) heroDone += 1;
+          }
+        });
+        if (heroProgressCount) {
+          heroProgressCount.textContent = `${heroDone}/${heroTotal}`;
+        }
+      }
+
+      checkboxes.forEach((cb) => {
+        cb.addEventListener('change', (e) => {
+          const id = e.target.getAttribute('data-action-id');
+          if (e.target.checked) {
+            checkedState[id] = true;
+          } else {
+            delete checkedState[id];
+          }
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedState));
+          } catch (err) {}
+          updateProgressUI();
+        });
+      });
+
+      updateProgressUI();
+
+      // Filtering by Source, Severity, and Search Query
+      let activeSource = 'all';
+      const sourceBtns = document.querySelectorAll('.source-filter-btn');
+      const searchInput = document.getElementById('searchInput');
+      const severityFilter = document.getElementById('severityFilter');
+      const cards = document.querySelectorAll('.newsletter-card');
+
+      function applyFilters() {
+        const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
+        const sev = severityFilter ? severityFilter.value : 'all';
+
+        cards.forEach((card) => {
+          const src = card.getAttribute('data-source');
+          const cardSev = card.getAttribute('data-severity');
+          const haystack = card.getAttribute('data-search') || '';
+
+          const matchSource = activeSource === 'all' || src === activeSource;
+          const matchSev =
+            sev === 'all' ||
+            (sev === 'Critical' && cardSev === 'Critical') ||
+            (sev === 'High' && (cardSev === 'Critical' || cardSev === 'High'));
+          const matchQuery = !query || haystack.includes(query);
+
+          card.style.display = matchSource && matchSev && matchQuery ? '' : 'none';
+        });
+      }
+
+      sourceBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          activeSource = btn.getAttribute('data-source-filter') || 'all';
+          sourceBtns.forEach((b) => {
+            const isSelected = b.getAttribute('data-source-filter') === activeSource;
+            b.className = isSelected
+              ? 'source-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 transition cursor-pointer'
+              : 'source-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/70 text-slate-300 border border-slate-700/60 hover:text-white transition cursor-pointer';
+          });
+          applyFilters();
+        });
+      });
+
+      if (searchInput) searchInput.addEventListener('input', applyFilters);
+      if (severityFilter) severityFilter.addEventListener('change', applyFilters);
+
+      // Expand / Collapse Archive Weeks
+      const weekToggleBtns = document.querySelectorAll('.week-toggle-btn');
+      function setWeekExpanded(weekKey, expanded) {
+        const container =
+          document.getElementById(`week-body-${weekKey}`) ||
+          document.querySelector(`[data-week-body="${weekKey}"]`);
+        const btn =
+          document.querySelector(`[data-toggle-week="${weekKey}"]`) ||
+          document.querySelector(`[data-week-id="${weekKey}"].week-toggle-btn`);
+        if (!container || !btn) return;
+        container.style.display = expanded ? '' : 'none';
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        const label = btn.querySelector('.toggle-label');
+        const count = container.querySelectorAll('.newsletter-card').length;
+        if (label) {
+          label.textContent = expanded ? `Hide ${count} Stories` : `Show ${count} Stories`;
+        }
+      }
+
+      weekToggleBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const weekKey = btn.getAttribute('data-toggle-week');
+          const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+          setWeekExpanded(weekKey, !isExpanded);
+        });
+      });
+
+      const expandAllBtn = document.getElementById('expandAllWeeksBtn');
+      const collapseAllBtn = document.getElementById('collapseAllWeeksBtn');
+      if (expandAllBtn) {
+        expandAllBtn.addEventListener('click', () => {
+          weekToggleBtns.forEach((btn) => setWeekExpanded(btn.getAttribute('data-toggle-week'), true));
+        });
+      }
+      if (collapseAllBtn) {
+        collapseAllBtn.addEventListener('click', () => {
+          weekToggleBtns.forEach((btn) => setWeekExpanded(btn.getAttribute('data-toggle-week'), false));
+        });
+      }
+
+      // Auto-expand and scroll to archived week when landing with a URL hash (e.g. #issue-45 or #week-2026-W45)
+      function handleHashNavigation() {
+        const rawHash = (window.location.hash || '').replace(/^#/, '').trim();
+        if (!rawHash) return;
+        let block =
+          document.getElementById(rawHash)?.closest('.archive-week-block') ||
+          document.querySelector(`.archive-week-block[data-issue-anchor="${rawHash}"]`) ||
+          document.querySelector(`.archive-week-block[data-week-id="${rawHash.replace(/^week-/, '')}"]`) ||
+          document.getElementById(rawHash);
+        if (block && block.classList.contains('archive-week-block')) {
+          const toggleBtn = block.querySelector('.week-toggle-btn');
+          if (toggleBtn) {
+            setWeekExpanded(toggleBtn.getAttribute('data-toggle-week'), true);
+          }
+          block.style.borderColor = 'rgba(16, 185, 129, 0.7)';
+          setTimeout(() => {
+            block.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        }
+      }
+      window.addEventListener('hashchange', handleHashNavigation);
+      handleHashNavigation();
+
+      // Copy Current Week Team Summary to Clipboard
+      const copyBtn = document.getElementById('copyTeamBriefBtn');
+      const copyLabel = document.getElementById('copyTeamBriefLabel');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', async () => {
+          try {
+            const rawData = JSON.parse(document.getElementById('newsletter-data').textContent);
+            const current = rawData.weeks[0];
+            const lines = [
+              `🛡️ Gaga Security Intel — Weekly Cyber Brief (${current.date_range})`,
+              `Priority Action: ${current.priority_action}`,
+              ''
+            ];
+            current.items.forEach((item, idx) => {
+              lines.push(`${idx + 1}. [${item.source_name}] ${item.title} (${item.time_to_fix})`);
+              lines.push(`   ${item.summary}`);
+              lines.push(`   👉 To Do: ${item.action_step}`);
+              lines.push('');
+            });
+            await navigator.clipboard.writeText(lines.join('\n'));
+            if (copyLabel) {
+              const original = copyLabel.textContent;
+              copyLabel.textContent = 'Copied Team Brief to Clipboard!';
+              setTimeout(() => {
+                copyLabel.textContent = original;
+              }, 2500);
+            }
+          } catch (e) {}
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
