@@ -3,7 +3,7 @@ name: Weekly Micro-Enterprise Cybersecurity Newsletter
 on:
   schedule:
     # Runs automatically every Monday at 6:00 AM
-    - cron: '0 6 * * 1'
+    - cron: '0 6 * * 2,3'
   workflow_dispatch:
     inputs:
       days_lookback:
