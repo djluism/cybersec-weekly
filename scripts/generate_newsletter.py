@@ -1,4 +1,14 @@
 #!/usr/bin/env python3
+# ==========================================
+# FILE: generate_newsletter.py
+# VERSION: v1.2 (Gemini 4 Argon Primary + Verified Fallback Chain)
+#
+# - Set primary model to 'gemini-4-argon' (Gemini 4 Argon).
+# - Updated fallback chain to verified Gemini 4 and Gemini 3 models:
+#   'gemini-4-hydrogen', 'gemini-3.8-flash', 'gemini-3.6-flash', 'gemini-3.5-flash-lite'.
+# - Retained exponential backoff retries (up to 3 attempts per model) for
+#   transient 503/429/5xx errors and safe JSON fence stripping from v1.1.
+# ==========================================
 """
 Gaga Security Intel — Automated Weekly Cybersecurity Newsletter Generator
 Tailored for Micro-Enterprises (1–5 Employees).
@@ -27,6 +37,7 @@ import logging
 import os
 import re
 import sys
+import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -70,10 +81,16 @@ RSS_FEEDS = [
     },
 ]
 
-# Preferred Gemini model identifier (defaults to gemini-3.8-flash,
-# with fallback to gemini-3.8-pro)
-DEFAULT_GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
-FALLBACK_GEMINI_MODELS = ["gemini-3.8-pro"]
+# Preferred Gemini model identifier (Gemini 4 Argon) and verified fallback chain
+DEFAULT_GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-4-argon")
+FALLBACK_GEMINI_MODELS = [
+    "gemini-4-hydrogen",
+    "gemini-3.8-flash",
+    "gemini-3.6-flash",
+    "gemini-3.5-flash-lite",
+]
+MAX_RETRIES_PER_MODEL = 3
+RETRY_BACKOFF_SECONDS = [15, 30]
 
 USER_AGENT = (
     "SmallTeamShieldNewsletterBot/1.0 "
@@ -89,6 +106,33 @@ def strip_html_tags(raw_html: str) -> str:
     clean = html.unescape(clean)
     clean = re.sub(r"\s+", " ", clean).strip()
     return clean[:1200]
+
+
+def strip_json_fences(raw_text: str) -> str:
+    """Strip optional markdown code fences around JSON output."""
+    cleaned = raw_text.strip()
+    if cleaned.startswith("```"):
+        cleaned = re.sub(r"^```(?:json)?\s*", "", cleaned)
+        cleaned = re.sub(r"\s*```$", "", cleaned)
+    return cleaned.strip()
+
+
+def is_transient_api_error(exc: Exception) -> bool:
+    """Return True if the exception looks like a temporary capacity/rate-limit error."""
+    msg = str(exc).upper()
+    transient_markers = (
+        "503",
+        "UNAVAILABLE",
+        "429",
+        "RESOURCE_EXHAUSTED",
+        "500",
+        "502",
+        "504",
+        "INTERNAL",
+        "TIMEOUT",
+        "TIMED OUT",
+    )
+    return any(marker in msg for marker in transient_markers)
 
 
 def parse_entry_date(entry: Any) -> Optional[dt.datetime]:
@@ -265,32 +309,51 @@ Your job:
         m for m in FALLBACK_GEMINI_MODELS if m != DEFAULT_GEMINI_MODEL
     ]
 
-    response_text = None
+    parsed: Optional[Dict[str, Any]] = None
     used_model = DEFAULT_GEMINI_MODEL
 
     for model_name in models_to_try:
-        try:
-            logger.info("Invoking Gemini model: %s", model_name)
-            response = client.models.generate_content(
-                model=model_name,
-                contents=json.dumps(prompt_payload, ensure_ascii=False),
-                config=types.GenerateContentConfig(
-                    system_instruction=system_instruction,
-                    temperature=0.25,
-                    response_mime_type="application/json",
-                ),
-            )
-            if response and response.text:
-                response_text = response.text
-                used_model = model_name
+        for attempt in range(1, MAX_RETRIES_PER_MODEL + 1):
+            try:
+                logger.info("Invoking Gemini model: %s (attempt %d/%d)", model_name, attempt, MAX_RETRIES_PER_MODEL)
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=json.dumps(prompt_payload, ensure_ascii=False),
+                    config=types.GenerateContentConfig(
+                        system_instruction=system_instruction,
+                        temperature=0.25,
+                        response_mime_type="application/json",
+                    ),
+                )
+                if response and response.text:
+                    parsed = json.loads(strip_json_fences(response.text))
+                    used_model = model_name
+                    break
+                logger.warning("Model '%s' returned an empty response.", model_name)
+            except Exception as exc:
+                if is_transient_api_error(exc) and attempt < MAX_RETRIES_PER_MODEL:
+                    delay = RETRY_BACKOFF_SECONDS[min(attempt - 1, len(RETRY_BACKOFF_SECONDS) - 1)]
+                    logger.warning(
+                        "Model '%s' hit transient error (%s); retrying in %ds...",
+                        model_name,
+                        exc,
+                        delay,
+                    )
+                    time.sleep(delay)
+                    continue
+                logger.warning(
+                    "Model '%s' failed (%s); moving to next candidate...",
+                    model_name,
+                    exc,
+                )
                 break
-        except Exception as exc:
-            logger.warning("Model '%s' returned error (%s); trying next candidate...", model_name, exc)
 
-    if not response_text:
-        raise RuntimeError("All configured Gemini models failed to return a response.")
+        if parsed is not None:
+            break
 
-    parsed = json.loads(response_text)
+    if parsed is None:
+        raise RuntimeError("All configured Gemini models failed to return a valid JSON response.")
+
     curated_items = parsed.get("items", [])
 
     # Normalize and enforce 2-3 sentence constraint
