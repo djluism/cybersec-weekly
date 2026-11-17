@@ -1,93 +1,92 @@
 {
   "issue_number": 47,
   "week_id": "2026-W47",
-  "date_label": "Monday, November 16, 2026",
-  "date_range": "Nov 9 – Nov 16, 2026",
+  "date_label": "Monday, November 17, 2026",
+  "date_range": "Nov 10 – Nov 17, 2026",
   "is_current": true,
-  "threat_level": "Elevated",
-  "headline": "Update Chrome, Outlook, and Windows Now as Automated Attacks Target Cloud Accounts",
-  "executive_brief": "This week brings urgent browser and email updates alongside a massive wave of monthly security fixes for Windows, Mac, and everyday work software. Out of 24 raw security alerts, we filtered out 18 enterprise and industrial stories so your team can focus strictly on practical steps that protect a small business.",
-  "priority_action": "Restart your web browsers to install the latest updates, run Windows or Mac system updates on every work computer, and confirm two-factor authentication is active on your Microsoft 365 accounts.",
+  "threat_level": "High",
+  "headline": "Urgent Outlook & Device Updates, Microsoft 365 Session Scams, and Popular Website Risks",
+  "executive_brief": "This week brings urgent software updates for Windows, Outlook, Apple, and major browsers, alongside clever Microsoft 365 email scams and sneaky code found on popular everyday websites. Out of 23 security alerts tracked this week, we filtered out 18 complex enterprise, federal, and industrial factory warnings so you can focus strictly on the 5 items that protect your small business.",
+  "priority_action": "Run software updates on your Windows PCs, Macs, iPhones, and web browsers today to block an active Microsoft Outlook flaw and website malware.",
   "stats": {
-    "raw_articles_scanned": 24,
+    "raw_articles_scanned": 23,
     "enterprise_noise_filtered": 18,
-    "micro_business_stories": 6,
+    "micro_business_stories": 5,
     "estimated_read_time": "2 min"
   },
   "filtered_noise_examples": [
-    "Siemens industrial building automation and energy controller advisories",
-    "Linux kernel server bug affecting enterprise Apache and Nginx infrastructure",
-    "German military drone manufacturer cyberattack investigation"
+    "Siemens industrial building automation and energy grid software flaws",
+    "CISA federal agency directives for enterprise firewalls and chat servers",
+    "Windows Server 2016 end-of-support reminders for corporate IT teams"
   ],
   "items": [
     {
       "id": "2026-w47-1",
-      "source_id": "cisa",
-      "source_name": "CISA",
-      "category": "Browser & Email Security",
-      "severity": "Critical",
-      "time_to_fix": "2 mins",
-      "title": "Update Chrome, Edge, and Outlook Now to Block Active Attacks",
-      "summary": "Federal cybersecurity officials warned that criminals are actively exploiting security flaws in Google Chrome-based web browsers and Microsoft Outlook right now. If someone on your team opens a rigged email or visits a compromised website on an unpatched computer, attackers could silently take control of the device or steal business logins. Restarting your browser and installing the latest updates immediately closes these entry points.",
-      "action_step": "Open Chrome, Edge, or Brave, click the menu to install any waiting update, and restart both your browser and Outlook right away.",
-      "affected_tools": [
-        "Google Chrome",
-        "Microsoft Edge",
-        "Brave",
-        "Microsoft Outlook"
-      ],
-      "url": "https://www.cisa.gov/news-events/alerts/2026/11/10/cisa-adds-six-known-exploited-vulnerabilities-catalog",
-      "published_at": "2026-11-10"
-    },
-    {
-      "id": "2026-w47-2",
       "source_id": "krebs",
       "source_name": "Krebs on Security",
-      "category": "System Updates",
-      "severity": "High",
+      "category": "Device & Software Updates",
+      "severity": "Critical",
       "time_to_fix": "5 mins",
-      "title": "Major Monthly Security Updates Released for Windows, Apple, and Adobe",
-      "summary": "Microsoft just released fixes for nearly 1,100 security flaws across Windows and Office, alongside important updates from Apple, Google, Adobe, and Mozilla. Leaving work laptops or phones unpatched exposes a small team to ransomware and data theft while opening everyday documents, PDFs, and emails. Running your built-in system updates locks down all of these weak spots at once.",
-      "action_step": "Run Windows Update or macOS Software Update on every office device and ask your team to restart their computers before the end of the day.",
+      "title": "Urgent Monthly Updates Fix Nearly 1,100 Flaws in Windows, Outlook, Apple, and Chrome",
+      "summary": "Microsoft just released major monthly security updates fixing nearly 1,100 bugs across Windows and Microsoft Outlook—including one active flaw hackers are already targeting—alongside fresh updates from Apple, Google, Adobe, and Mozilla. Because almost every small team relies on these everyday apps for email, browsing, and documents, leaving devices unpatched leaves your business wide open to break-ins. Installing these updates right away closes the doors before criminals can walk through them.",
+      "action_step": "Open Settings on your Windows PCs and Apple devices, click Check for Updates, and restart your web browsers to install the latest fixes.",
       "affected_tools": [
-        "Windows 10",
-        "Windows 11",
-        "macOS",
-        "Adobe Acrobat"
+        "Windows",
+        "Microsoft Outlook",
+        "Apple Devices",
+        "Google Chrome"
       ],
       "url": "https://krebsonsecurity.com/2026/11/microsoft-fixes-nearly-1100-security-vulnerabilities/",
       "published_at": "2026-11-10"
     },
     {
+      "id": "2026-w47-2",
+      "source_id": "bleeping",
+      "source_name": "BleepingComputer",
+      "category": "Email & Phishing",
+      "severity": "High",
+      "time_to_fix": "5 mins",
+      "title": "New Phishing Kits Trick Small Teams to Hijack Microsoft 365 Accounts",
+      "summary": "Security researchers are warning about new phishing kits designed specifically to steal active Microsoft 365 login sessions, allowing scammers to slip past standard login prompts. If anyone on your small team falls for a fake Microsoft sign-in email, attackers can quietly read company emails, impersonate you to clients, or redirect invoice payments. Using stronger sign-in methods like passkeys or an authenticator app, and never clicking login links in unexpected emails, keeps your account locked down.",
+      "action_step": "Remind your team to always open Microsoft 365 from a saved browser bookmark rather than clicking links inside emails, and switch from text-message codes to an authenticator app or passkey.",
+      "affected_tools": [
+        "Microsoft 365",
+        "Microsoft Outlook"
+      ],
+      "url": "https://www.bleepingcomputer.com/news/security/inside-modern-phishing-kits-built-to-steal-microsoft-365-sessions/",
+      "published_at": "2026-11-17"
+    },
+    {
       "id": "2026-w47-3",
       "source_id": "bleeping",
       "source_name": "BleepingComputer",
-      "category": "Windows Maintenance",
-      "severity": "Medium",
+      "category": "Browser & Mobile Security",
+      "severity": "High",
       "time_to_fix": "3 mins",
-      "title": "Emergency Windows Update Fixes Accidental License Errors",
-      "summary": "Microsoft issued an urgent follow-up patch after this month's security updates accidentally triggered Windows activation and licensing errors on some computers. If an office computer suddenly complains that Windows is not activated, it is a known Microsoft glitch rather than a scam or expired license. Installing the emergency update restores normal activation without needing to buy anything or call support.",
-      "action_step": "If any work computer shows a Windows activation warning after updating, open Windows Update and install the latest emergency patch.",
+      "title": "Hackers Slipped Malicious Code onto Zoom, Salesforce, and Major News Sites",
+      "summary": "Hackers compromised a popular website testing tool, briefly slipping hidden malicious code onto major everyday websites including Zoom, Salesforce, CNN, and BBC. Visiting an infected page could quietly expose payment details or take advantage of unpatched iPhones and iPads used by your team. Keeping your phone and web browser updated stops these hidden website tricks from working on your devices.",
+      "action_step": "Check your iPhone and iPad settings right now to make sure the latest iOS update is installed, and close any old browser tabs left open on those sites.",
       "affected_tools": [
-        "Windows 10",
-        "Windows 11"
+        "Zoom",
+        "Salesforce",
+        "iPhone & iPad (iOS)",
+        "Web Browsers"
       ],
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-new-windows-emergency-updates-fix-activation-licensing-failures/",
-      "published_at": "2026-11-16"
+      "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-delivers-malware-to-cnn-fox-news-bbc-salesforce-sites/",
+      "published_at": "2026-11-17"
     },
     {
       "id": "2026-w47-4",
       "source_id": "bleeping",
       "source_name": "BleepingComputer",
-      "category": "Payment & Card Safety",
-      "severity": "High",
+      "category": "Payments & Fraud",
+      "severity": "Medium",
       "time_to_fix": "5 mins",
-      "title": "Hackers Stole Payment Card Details From Fandango Checkout Pages",
-      "summary": "Ticket seller Fandango confirmed that attackers compromised its checkout pages and stole payment card details entered by customers. Any small business owner or team member who used a company or personal card on Fandango recently could face fraudulent charges. Checking your recent statements and replacing any affected card stops unauthorized spending before it drains your account.",
-      "action_step": "Review your business and personal card statements for recent Fandango purchases and request a replacement card from your bank if you bought tickets there.",
+      "title": "Fandango Checkout Breach Exposed Customer Payment Card Details",
+      "summary": "Online ticket seller Fandango confirmed that hackers breached its checkout pages and stole customer payment card details. If you or your employees bought event or movie tickets using a company debit or credit card, those card numbers may now be in the wrong hands. Checking your recent business card statements and using Apple Pay, Google Pay, or virtual cards instead of typing card numbers directly into websites protects your cash flow.",
+      "action_step": "Review your recent business credit or debit card statements for unfamiliar charges if anyone on your team used Fandango, and request a replacement card if you used one there recently.",
       "affected_tools": [
-        "Company Credit Cards",
-        "Debit Cards",
+        "Business Credit & Debit Cards",
         "Fandango"
       ],
       "url": "https://www.bleepingcomputer.com/news/security/fandango-says-hackers-stole-payment-card-details-from-checkout-pages/",
@@ -97,34 +96,16 @@
       "id": "2026-w47-5",
       "source_id": "bleeping",
       "source_name": "BleepingComputer",
-      "category": "Cloud & Account Security",
-      "severity": "High",
-      "time_to_fix": "5 mins",
-      "title": "FBI Warns Automated Hacking Tools Are Targeting Microsoft 365 Accounts",
-      "summary": "The FBI warned that criminals are using automated artificial intelligence hacking tools to break into company networks and Microsoft 365 accounts at high speed. Small businesses that rely on outside technology helpers or weak passwords are prime targets because attackers can test logins around the clock. Turning on two-factor authentication blocks automated break-ins even if a password is guessed or leaked.",
-      "action_step": "Confirm that two-factor authentication is turned on for every Microsoft 365 user and remove any former employee or unused vendor logins.",
-      "affected_tools": [
-        "Microsoft 365",
-        "Remote Support Tools"
-      ],
-      "url": "https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/",
-      "published_at": "2026-11-15"
-    },
-    {
-      "id": "2026-w47-6",
-      "source_id": "bleeping",
-      "source_name": "BleepingComputer",
-      "category": "Cloud Suite Reliability",
+      "category": "Cloud Work Suites",
       "severity": "Medium",
       "time_to_fix": "Awareness",
-      "title": "Last Week's Microsoft 365 Outage Was a Software Bug, Not a Hack",
-      "summary": "Microsoft confirmed that last week's global outage across Microsoft 365 services was caused by an internal software bug rather than a cyberattack. If your team lost access to email or files during the disruption, your accounts were not hacked, though keeping offline copies of critical invoices and schedules is always smart.",
-      "action_step": "Let your team know last week's Microsoft 365 disruption was an internal outage and confirm your most important client files are backed up in a second location.",
+      "title": "Months-Old Software Glitch Triggered Global Microsoft 365 Outage",
+      "summary": "Microsoft revealed that a months-old software bug caused last week's worldwide Microsoft 365 outage, knocking email and cloud tools offline for many businesses. Even though this was a technical glitch rather than a cyberattack, losing access to your shared inbox and files for hours can bring a small shop to a standstill. Keeping a simple backup plan—like offline copies of urgent client contacts and an alternate way to reach your team—ensures a cloud hiccup never stops your workday.",
+      "action_step": "Export a copy of your key client phone numbers and email addresses to a secure local folder on your computer so you are never stuck if your cloud inbox goes down.",
       "affected_tools": [
         "Microsoft 365",
-        "Outlook",
-        "OneDrive",
-        "Microsoft Teams"
+        "Microsoft Teams",
+        "Microsoft Outlook"
       ],
       "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-says-months-old-bug-caused-global-microsoft-365-outage/",
       "published_at": "2026-11-16"
