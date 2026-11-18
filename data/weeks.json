@@ -3,7 +3,7 @@
     "site_title": "Gaga Security Intel",
     "tagline": "Zero-Jargon Weekly Cybersecurity Brief for 1–5 Person Businesses",
     "model": "gemini-4-hydrogen",
-    "last_updated": "2026-11-17T15:58:16Z",
+    "last_updated": "2026-11-18T15:31:07Z",
     "sources": [
       {
         "id": "cisa",
@@ -29,114 +29,96 @@
     {
       "issue_number": 47,
       "week_id": "2026-W47",
-      "date_label": "Monday, November 17, 2026",
-      "date_range": "Nov 10 – Nov 17, 2026",
+      "date_label": "Monday, November 18, 2026",
+      "date_range": "Nov 11 – Nov 18, 2026",
       "is_current": true,
       "threat_level": "High",
-      "headline": "Urgent Outlook & Device Updates, Microsoft 365 Session Scams, and Popular Website Risks",
-      "executive_brief": "This week brings urgent software updates for Windows, Outlook, Apple, and major browsers, alongside clever Microsoft 365 email scams and sneaky code found on popular everyday websites. Out of 23 security alerts tracked this week, we filtered out 18 complex enterprise, federal, and industrial factory warnings so you can focus strictly on the 5 items that protect your small business.",
-      "priority_action": "Run software updates on your Windows PCs, Macs, iPhones, and web browsers today to block an active Microsoft Outlook flaw and website malware.",
+      "headline": "Microsoft 365 Login Traps, Hijacked Major Websites, and AI Voice Scams",
+      "executive_brief": "This week's biggest risks for small teams come from sneaky Microsoft 365 login traps, compromised popular websites, and scammers using realistic fake voices to impersonate tech support. We filtered out 32 industrial factory alerts, developer server flaws, and corporate-only warnings so you can focus strictly on what protects your small business.",
+      "priority_action": "Switch your Microsoft 365 and key business logins to a passwordless passkey or an authenticator app, and tell your team never to approve unexpected login prompts.",
       "stats": {
-        "raw_articles_scanned": 23,
-        "enterprise_noise_filtered": 18,
-        "micro_business_stories": 5,
-        "estimated_read_time": "2 min"
+        "raw_articles_scanned": 36,
+        "enterprise_noise_filtered": 32,
+        "micro_business_stories": 4,
+        "estimated_read_time": "1 min"
       },
       "filtered_noise_examples": [
-        "Siemens industrial building automation and energy grid software flaws",
-        "CISA federal agency directives for enterprise firewalls and chat servers",
-        "Windows Server 2016 end-of-support reminders for corporate IT teams"
+        "Siemens industrial factory and automation software advisories (17 alerts)",
+        "Critical Java4Shell server flaw affecting enterprise tools like Jenkins and Jira",
+        "Windows Server 2028 announcement and Fugaku supercomputer breach"
       ],
       "items": [
         {
           "id": "2026-w47-1",
-          "source_id": "krebs",
-          "source_name": "Krebs on Security",
-          "category": "Device & Software Updates",
-          "severity": "Critical",
-          "time_to_fix": "5 mins",
-          "title": "Urgent Monthly Updates Fix Nearly 1,100 Flaws in Windows, Outlook, Apple, and Chrome",
-          "summary": "Microsoft just released major monthly security updates fixing nearly 1,100 bugs across Windows and Microsoft Outlook—including one active flaw hackers are already targeting—alongside fresh updates from Apple, Google, Adobe, and Mozilla. Because almost every small team relies on these everyday apps for email, browsing, and documents, leaving devices unpatched leaves your business wide open to break-ins. Installing these updates right away closes the doors before criminals can walk through them.",
-          "action_step": "Open Settings on your Windows PCs and Apple devices, click Check for Updates, and restart your web browsers to install the latest fixes.",
-          "affected_tools": [
-            "Windows",
-            "Microsoft Outlook",
-            "Apple Devices",
-            "Google Chrome"
-          ],
-          "url": "https://krebsonsecurity.com/2026/11/microsoft-fixes-nearly-1100-security-vulnerabilities/",
-          "published_at": "2026-11-10"
-        },
-        {
-          "id": "2026-w47-2",
           "source_id": "bleeping",
           "source_name": "BleepingComputer",
           "category": "Email & Phishing",
-          "severity": "High",
+          "severity": "Critical",
           "time_to_fix": "5 mins",
-          "title": "New Phishing Kits Trick Small Teams to Hijack Microsoft 365 Accounts",
-          "summary": "Security researchers are warning about new phishing kits designed specifically to steal active Microsoft 365 login sessions, allowing scammers to slip past standard login prompts. If anyone on your small team falls for a fake Microsoft sign-in email, attackers can quietly read company emails, impersonate you to clients, or redirect invoice payments. Using stronger sign-in methods like passkeys or an authenticator app, and never clicking login links in unexpected emails, keeps your account locked down.",
-          "action_step": "Remind your team to always open Microsoft 365 from a saved browser bookmark rather than clicking links inside emails, and switch from text-message codes to an authenticator app or passkey.",
+          "title": "New Phishing Kits Steal Microsoft 365 Logins Even With Text-Message Codes",
+          "summary": "Criminals are using off-the-shelf fake login pages to intercept Microsoft 365 passwords and steal active session tokens as soon as someone signs in. Because these fake pages capture your unlocked session right after you enter a text or email code, hackers can slip straight into your business inbox and send fraudulent invoices to clients. Turning on phishing-resistant passkeys or using an authenticator app with number matching stops these fake login pages from reusing your session.",
+          "action_step": "Open your Microsoft 365 security settings today, turn on an authenticator app or passkey sign-in, and remind your team never to log in through links inside unexpected emails.",
           "affected_tools": [
             "Microsoft 365",
-            "Microsoft Outlook"
+            "Outlook"
           ],
           "url": "https://www.bleepingcomputer.com/news/security/inside-modern-phishing-kits-built-to-steal-microsoft-365-sessions/",
           "published_at": "2026-11-17"
         },
         {
+          "id": "2026-w47-2",
+          "source_id": "krebs",
+          "source_name": "Krebs on Security",
+          "category": "Browser Security",
+          "severity": "High",
+          "time_to_fix": "3 mins",
+          "title": "Hackers Used a Popular Website Tool to Slip Malware Onto Major Sites",
+          "summary": "Attackers exploited a security flaw in Optimizely, a widely used website testing service, to silently load data-stealing scripts onto at least 178 major sites including Zoom, CNN, and the BBC. Even when you only visit trusted, well-known websites during your workday, hidden third-party scripts can still try to grab saved browser data or trick you into downloading malware. Keeping your web browser updated and using a reputable ad or script blocker prevents most of these sneaky background scripts from running.",
+          "action_step": "Restart Chrome, Edge, or Safari right now to install any waiting updates, and turn on Enhanced Protection or a trusted ad blocker to block suspicious third-party scripts.",
+          "affected_tools": [
+            "Chrome",
+            "Safari",
+            "Edge",
+            "Zoom"
+          ],
+          "url": "https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/",
+          "published_at": "2026-11-18"
+        },
+        {
           "id": "2026-w47-3",
           "source_id": "bleeping",
           "source_name": "BleepingComputer",
-          "category": "Browser & Mobile Security",
+          "category": "Scams & Impersonation",
           "severity": "High",
-          "time_to_fix": "3 mins",
-          "title": "Hackers Slipped Malicious Code onto Zoom, Salesforce, and Major News Sites",
-          "summary": "Hackers compromised a popular website testing tool, briefly slipping hidden malicious code onto major everyday websites including Zoom, Salesforce, CNN, and BBC. Visiting an infected page could quietly expose payment details or take advantage of unpatched iPhones and iPads used by your team. Keeping your phone and web browser updated stops these hidden website tricks from working on your devices.",
-          "action_step": "Check your iPhone and iPad settings right now to make sure the latest iOS update is installed, and close any old browser tabs left open on those sites.",
+          "time_to_fix": "5 mins",
+          "title": "Scammers Are Using AI Voices and Fake Support Calls to Trick Small Teams",
+          "summary": "Cybercriminals are increasingly using AI-generated voice clones and fake tech support calls to impersonate coworkers, vendors, or software helpdesks. In a small 1-to-5 person business, one convincing phone call asking a teammate to reset a password or approve a payment can quickly drain an account or lock you out of your tools. Setting a simple rule to always verify urgent requests by calling back on a saved phone number stops these impersonation tricks cold.",
+          "action_step": "Agree on a quick 1-minute team rule today: never share login codes, change bank details, or install remote-support tools from an incoming call without calling the person back on a known number.",
           "affected_tools": [
-            "Zoom",
-            "Salesforce",
-            "iPhone & iPad (iOS)",
-            "Web Browsers"
+            "Phone & SMS",
+            "Email",
+            "Accounting & Banking"
           ],
-          "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-delivers-malware-to-cnn-fox-news-bbc-salesforce-sites/",
-          "published_at": "2026-11-17"
+          "url": "https://www.bleepingcomputer.com/news/security/from-deepfakes-to-helpdesk-impersonation-why-stronger-verification-matters/",
+          "published_at": "2026-11-18"
         },
         {
           "id": "2026-w47-4",
           "source_id": "bleeping",
           "source_name": "BleepingComputer",
-          "category": "Payments & Fraud",
+          "category": "Cloud Services",
           "severity": "Medium",
-          "time_to_fix": "5 mins",
-          "title": "Fandango Checkout Breach Exposed Customer Payment Card Details",
-          "summary": "Online ticket seller Fandango confirmed that hackers breached its checkout pages and stole customer payment card details. If you or your employees bought event or movie tickets using a company debit or credit card, those card numbers may now be in the wrong hands. Checking your recent business card statements and using Apple Pay, Google Pay, or virtual cards instead of typing card numbers directly into websites protects your cash flow.",
-          "action_step": "Review your recent business credit or debit card statements for unfamiliar charges if anyone on your team used Fandango, and request a replacement card if you used one there recently.",
+          "time_to_fix": "2 mins",
+          "title": "Apple Outages Disrupt iCloud Mail and Account Sign-Ins",
+          "summary": "Apple experienced service disruptions affecting iCloud Mail, account sign-ins, and several connected Apple services. If your business uses an iCloud email address or Apple devices for daily work, sudden login errors or missing emails can look like a hack and tempt someone into clicking fake Apple Support links. Checking Apple's official status page first helps you confirm an outage safely without handing your password to opportunistic scammers.",
+          "action_step": "Bookmark Apple's official System Status page so your team checks there first during login hiccups instead of searching online for tech support phone numbers.",
           "affected_tools": [
-            "Business Credit & Debit Cards",
-            "Fandango"
+            "iCloud Mail",
+            "Apple Account",
+            "macOS & iOS"
           ],
-          "url": "https://www.bleepingcomputer.com/news/security/fandango-says-hackers-stole-payment-card-details-from-checkout-pages/",
-          "published_at": "2026-11-16"
-        },
-        {
-          "id": "2026-w47-5",
-          "source_id": "bleeping",
-          "source_name": "BleepingComputer",
-          "category": "Cloud Work Suites",
-          "severity": "Medium",
-          "time_to_fix": "Awareness",
-          "title": "Months-Old Software Glitch Triggered Global Microsoft 365 Outage",
-          "summary": "Microsoft revealed that a months-old software bug caused last week's worldwide Microsoft 365 outage, knocking email and cloud tools offline for many businesses. Even though this was a technical glitch rather than a cyberattack, losing access to your shared inbox and files for hours can bring a small shop to a standstill. Keeping a simple backup plan—like offline copies of urgent client contacts and an alternate way to reach your team—ensures a cloud hiccup never stops your workday.",
-          "action_step": "Export a copy of your key client phone numbers and email addresses to a secure local folder on your computer so you are never stuck if your cloud inbox goes down.",
-          "affected_tools": [
-            "Microsoft 365",
-            "Microsoft Teams",
-            "Microsoft Outlook"
-          ],
-          "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-says-months-old-bug-caused-global-microsoft-365-outage/",
-          "published_at": "2026-11-16"
+          "url": "https://www.bleepingcomputer.com/news/apple/apple-reports-outages-affecting-icloud-mail-applecare-and-more/",
+          "published_at": "2026-11-17"
         }
       ],
       "generated_by_model": "gemini-4-hydrogen"
