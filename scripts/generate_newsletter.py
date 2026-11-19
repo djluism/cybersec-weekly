@@ -1,30 +1,17 @@
 #!/usr/bin/env python3
 # ==========================================
 # FILE: generate_newsletter.py
-# VERSION: v1.2 (Gemini 4 Argon Primary + Verified Fallback Chain)
+# VERSION: v1.3 (Multi-Page Issue Archive + Sitemap.xml + Dynamic Weekday)
 #
-# - Set primary model to 'gemini-4-argon' (Gemini 4 Argon).
-# - Updated fallback chain to verified Gemini 4 and Gemini 3 models:
-#   'gemini-4-hydrogen', 'gemini-3.8-flash', 'gemini-3.6-flash', 'gemini-3.5-flash-lite'.
-# - Retained exponential backoff retries (up to 3 attempts per model) for
-#   transient 503/429/5xx errors and safe JSON fence stripping from v1.1.
+# - Renders dedicated standalone static HTML pages for every issue at
+#   `issues/issue-<issue_number>.html` using `templates/issue.html.j2`.
+# - Auto-generates `sitemap.xml` and `robots.txt` at repo root for Googlebot.
+# - Fixed hardcoded "Monday," date_label bug -> now uses dynamic "%A,".
+# - Retains v1.2 Gemini 4 Argon primary + verified fallback chain + retries.
 # ==========================================
 """
 Gaga Security Intel — Automated Weekly Cybersecurity Newsletter Generator
 Tailored for Micro-Enterprises (1–5 Employees).
-
-Scrapes RSS feeds weekly from:
-  1. CISA Cybersecurity Advisories (https://www.cisa.gov/cybersecurity-advisories/all.xml)
-  2. Krebs on Security (https://krebsonsecurity.com/feed/)
-  3. BleepingComputer (https://www.bleepingcomputer.com/feed/)
-
-Uses Gemini 4 Argon (via google-genai SDK) to:
-  - Filter out enterprise/corporate-only cybersecurity noise (SCADA/ICS, BGP, Kubernetes,
-    data-center appliances, mainframe/Active Directory forest administration).
-  - Select the most relevant threats for a 1–5 person business (phishing, banking/ACH fraud,
-    browsers, laptops/phones, small-office Wi-Fi routers, WordPress/Shopify, Google Workspace/M365).
-  - Generate strict 2–3 sentence plain-English summaries and a single concrete action item.
-  - Prepend the new weekly issue to `data/weeks.json` and build the static `index.html`.
 """
 
 from __future__ import annotations
@@ -55,9 +42,15 @@ logger = logging.getLogger("cybersec-weekly")
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DATA_FILE = ROOT_DIR / "data" / "weeks.json"
-ISSUES_DIR = ROOT_DIR / "data" / "issues"
-TEMPLATE_FILE = ROOT_DIR / "templates" / "index.html.j2"
+ISSUES_DATA_DIR = ROOT_DIR / "data" / "issues"
+ISSUES_HTML_DIR = ROOT_DIR / "issues"
+TEMPLATE_DIR = ROOT_DIR / "templates"
+INDEX_TEMPLATE = "index.html.j2"
+ISSUE_TEMPLATE = "issue.html.j2"
 OUTPUT_HTML = ROOT_DIR / "index.html"
+SITEMAP_FILE = ROOT_DIR / "sitemap.xml"
+ROBOTS_FILE = ROOT_DIR / "robots.txt"
+SITE_BASE_URL = "https://cybersec.gaga.com"
 
 # Target RSS Feeds
 RSS_FEEDS = [
@@ -221,10 +214,7 @@ def curate_with_gemini(
     issue_number: int,
     reference_date: dt.date,
 ) -> Dict[str, Any]:
-    """
-    Use Gemini 4 Argon (via google-genai SDK) to filter out enterprise corporate noise
-    and generate a micro-enterprise weekly cybersecurity edition with 2-3 sentence summaries.
-    """
+    """Use Gemini 4 Argon to filter enterprise noise and curate micro-enterprise security stories."""
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         raise RuntimeError(
@@ -241,7 +231,11 @@ def curate_with_gemini(
     )
 
     start_date = reference_date - dt.timedelta(days=7)
-    date_label = reference_date.strftime("Monday, %B %-d, %Y") if os.name != "nt" else reference_date.strftime("Monday, %B %d, %Y").replace(" 0", " ")
+    date_label = (
+        reference_date.strftime("%A, %B %-d, %Y")
+        if os.name != "nt"
+        else reference_date.strftime("%A, %B %d, %Y").replace(" 0", " ")
+    )
     date_range = f"{start_date.strftime('%b %d').replace(' 0', ' ')} – {reference_date.strftime('%b %d, %Y').replace(' 0', ' ')}"
     iso_year, iso_week, _ = reference_date.isocalendar()
     week_id = f"{iso_year}-W{iso_week:02d}"
@@ -356,7 +350,6 @@ Your job:
 
     curated_items = parsed.get("items", [])
 
-    # Normalize and enforce 2-3 sentence constraint
     normalized_items = []
     for idx, item in enumerate(curated_items, start=1):
         normalized_items.append(
@@ -371,7 +364,7 @@ Your job:
                 "summary": enforce_two_to_three_sentences(item.get("summary", "")),
                 "action_step": item.get("action_step", "Check your software updates today."),
                 "affected_tools": item.get("affected_tools", ["Workstations"])[:4],
-                "url": item.get("url", "https://www.cisa.gov/"),
+                "url": item.get("url", "[https://www.cisa.gov/](https://www.cisa.gov/)"),
                 "published_at": item.get("published_at", reference_date.strftime("%Y-%m-%d")),
             }
         )
@@ -426,51 +419,142 @@ def load_site_data() -> Dict[str, Any]:
 
 
 def save_site_data(site_data: Dict[str, Any], latest_week: Optional[Dict[str, Any]] = None) -> None:
-    """Persist updated data/weeks.json and archive the individual issue file."""
+    """Persist updated data/weeks.json and archive the individual issue JSON."""
     DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
-    ISSUES_DIR.mkdir(parents=True, exist_ok=True)
+    ISSUES_DATA_DIR.mkdir(parents=True, exist_ok=True)
 
     with DATA_FILE.open("w", encoding="utf-8") as f:
         json.dump(site_data, f, indent=2, ensure_ascii=False)
         f.write("\n")
 
     if latest_week:
-        issue_path = ISSUES_DIR / f"{latest_week['week_id']}.json"
+        issue_path = ISSUES_DATA_DIR / f"{latest_week['week_id']}.json"
         with issue_path.open("w", encoding="utf-8") as f:
             json.dump(latest_week, f, indent=2, ensure_ascii=False)
             f.write("\n")
         logger.info("Saved issue snapshot to %s", issue_path)
 
 
+def extract_lastmod_date(week: Dict[str, Any], fallback_date: str) -> str:
+    """Extract YYYY-MM-DD lastmod date for sitemap entries."""
+    items = week.get("items", [])
+    dates = [i.get("published_at") for i in items if i.get("published_at")]
+    if dates:
+        return max(dates)
+    return fallback_date
+
+
+def generate_sitemap_and_robots(site_data: Dict[str, Any]) -> None:
+    """Generate sitemap.xml and robots.txt for search engine discovery."""
+    weeks = site_data.get("weeks", [])
+    last_updated_raw = site_data.get("metadata", {}).get("last_updated", "")
+    today_str = (
+        last_updated_raw[:10]
+        if len(last_updated_raw) >= 10
+        else dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
+    )
+
+    url_entries = [
+        f"""  <url>
+    <loc>{SITE_BASE_URL}/</loc>
+    <lastmod>{today_str}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>"""
+    ]
+
+    for idx, week in enumerate(weeks):
+        issue_num = week.get("issue_number")
+        if issue_num is None:
+            continue
+        lastmod = extract_lastmod_date(week, today_str)
+        priority = "0.9" if idx == 0 else "0.7"
+        url_entries.append(
+            f"""  <url>
+    <loc>{SITE_BASE_URL}/issues/issue-{issue_num}.html</loc>
+    <lastmod>{lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>{priority}</priority>
+  </url>"""
+        )
+
+    sitemap_xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="[http://www.sitemaps.org/schemas/sitemap/0.9](http://www.sitemaps.org/schemas/sitemap/0.9)">\n'
+        + "\n".join(url_entries)
+        + "\n</urlset>\n"
+    )
+    with SITEMAP_FILE.open("w", encoding="utf-8") as f:
+        f.write(sitemap_xml)
+    logger.info("Generated %s with %d URLs", SITEMAP_FILE, len(url_entries))
+
+    robots_txt = (
+        "User-agent: *\n"
+        "Allow: /\n\n"
+        f"Sitemap: {SITE_BASE_URL}/sitemap.xml\n"
+    )
+    with ROBOTS_FILE.open("w", encoding="utf-8") as f:
+        f.write(robots_txt)
+    logger.info("Generated %s", ROBOTS_FILE)
+
+
 def render_static_site(site_data: Dict[str, Any]) -> None:
-    """Render the static index.html using the Jinja2 template and weeks.json data."""
+    """Render index.html, individual per-issue pages, sitemap.xml, and robots.txt."""
     from jinja2 import Environment, FileSystemLoader, select_autoescape
 
     env = Environment(
-        loader=FileSystemLoader(str(TEMPLATE_FILE.parent)),
+        loader=FileSystemLoader(str(TEMPLATE_DIR)),
         autoescape=select_autoescape(["html", "xml"]),
     )
-    template = env.get_template(TEMPLATE_FILE.name)
 
     weeks = site_data.get("weeks", [])
     if not weeks:
         raise ValueError("No weekly issues found in data/weeks.json")
 
+    metadata = site_data.get("metadata", {})
     current_week = weeks[0]
     older_weeks = weeks[1:]
 
-    rendered_html = template.render(
-        metadata=site_data.get("metadata", {}),
+    # 1. Render main index.html
+    index_tmpl = env.get_template(INDEX_TEMPLATE)
+    rendered_html = index_tmpl.render(
+        metadata=metadata,
         current_week=current_week,
         older_weeks=older_weeks,
         all_weeks=weeks,
         site_data_json=json.dumps(site_data, ensure_ascii=False),
     )
-
     with OUTPUT_HTML.open("w", encoding="utf-8") as f:
         f.write(rendered_html)
-
     logger.info("Rendered static website to %s (%d bytes)", OUTPUT_HTML, len(rendered_html))
+
+    # 2. Render standalone HTML page for every issue
+    issue_tmpl_path = TEMPLATE_DIR / ISSUE_TEMPLATE
+    if issue_tmpl_path.exists():
+        ISSUES_HTML_DIR.mkdir(parents=True, exist_ok=True)
+        issue_tmpl = env.get_template(ISSUE_TEMPLATE)
+        for idx, week in enumerate(weeks):
+            issue_num = week.get("issue_number")
+            if issue_num is None:
+                continue
+            newer_week = weeks[idx - 1] if idx > 0 else None
+            older_week = weeks[idx + 1] if idx + 1 < len(weeks) else None
+            issue_html = issue_tmpl.render(
+                metadata=metadata,
+                week=week,
+                newer_week=newer_week,
+                older_week=older_week,
+                all_weeks=weeks,
+            )
+            out_path = ISSUES_HTML_DIR / f"issue-{issue_num}.html"
+            with out_path.open("w", encoding="utf-8") as f:
+                f.write(issue_html)
+        logger.info("Rendered %d standalone issue pages in %s", len(weeks), ISSUES_HTML_DIR)
+    else:
+        logger.warning("Template %s not found; skipping per-issue HTML pages.", issue_tmpl_path)
+
+    # 3. Generate sitemap.xml and robots.txt
+    generate_sitemap_and_robots(site_data)
 
 
 def main() -> int:
@@ -480,7 +564,7 @@ def main() -> int:
     parser.add_argument(
         "--render-only",
         action="store_true",
-        help="Skip RSS scraping and Gemini API call; render index.html from existing data/weeks.json.",
+        help="Skip RSS scraping and Gemini API call; render static site from existing data/weeks.json.",
     )
     parser.add_argument(
         "--days",
@@ -514,7 +598,6 @@ def main() -> int:
     iso_year, iso_week, _ = today.isocalendar()
     target_week_id = f"{iso_year}-W{iso_week:02d}"
 
-    # Determine whether we update the current week in-place or prepend a new week
     if existing_weeks and existing_weeks[0].get("week_id") == target_week_id and not args.force_new_week:
         next_issue_number = existing_weeks[0].get("issue_number", latest_issue_num)
         replace_top = True
@@ -528,7 +611,6 @@ def main() -> int:
         reference_date=today,
     )
 
-    # Demote previous weeks from is_current
     for w in existing_weeks:
         w["is_current"] = False
 
