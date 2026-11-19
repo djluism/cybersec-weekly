@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="apple-touch-icon" href="../favicon.png" />
+  <link rel="canonical" href="[https://cybersec.gaga.com/issues/issue-](https://cybersec.gaga.com/issues/issue-)45.html" />
+  <title>Issue #45: Fake QuickBooks Invoices, Chrome Zero-Day Patch & Small Office Wi-Fi Router Attacks | Gaga Security Intel</title>
+  <meta name="description" content="This week, scammers are targeting 1–5 person shops with convincing QuickBooks and Stripe payment failed emails while attackers actively exploit outdated Chrome browsers and home-office routers. We filtered out 38 enterprise data-center alerts so your team can focus on three 5-minute fixes." />
+  <script async src="[https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9612351412237829](https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9612351412237829)" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+  <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+  <link href="[https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap)" rel="stylesheet">
+  <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            obsidian: {
+              950: '#050811',
+              900: '#090E1A',
+              800: '#0F172A',
+              700: '#1E293B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #050811;
+      background-image:
+        radial-gradient(circle at 15% 0%, rgba(16, 185, 129, 0.10), transparent 38%),
+        radial-gradient(circle at 85% 8%, rgba(6, 182, 212, 0.09), transparent 35%),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.35) 1px, transparent 1px),
+        linear-gradient(to right, rgba(15, 23, 42, 0.35) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    }
+    .action-checked {
+      border-color: rgba(16, 185, 129, 0.5) !important;
+      background-color: rgba(6, 78, 59, 0.22) !important;
+    }
+  </style>
+</head>
+<body class="text-slate-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200 min-h-screen flex flex-col">
+
+  <!-- Global Navigation -->
+  <div class="border-b border-slate-800/80 bg-obsidian-950/95 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <a href="../index.html" class="group flex items-center gap-3.5 focus:outline-none">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-cyan-500 p-[1px] shadow-lg shadow-emerald-500/15">
+          <div class="w-full h-full bg-obsidian-950 rounded-[11px] flex items-center justify-center">
+            <svg class="w-5 h-5 text-emerald-400 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+        </div>
+        <div>
+          <span class="text-lg sm:text-xl font-extrabold tracking-tight text-white">
+            Gaga <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Security Intel</span>
+          </span>
+          <p class="text-xs text-slate-400 font-medium">Issue #45 • Nov 2 – Nov 9, 2026</p>
+        </div>
+      </a>
+
+      <nav aria-label="Issue Navigation" class="flex items-center gap-3">
+        <a href="../index.html" class="px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-xs sm:text-sm font-medium transition">
+          All Weekly Editions
+        </a>
+        <a href="[https://gaga.com](https://gaga.com)" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold text-xs sm:text-sm shadow-lg shadow-emerald-500/20 transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span>Return to Home</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="max-w-6xl mx-auto w-full px-4 sm:px-6 py-10 flex-1 space-y-8">
+    <article class="rounded-2xl bg-obsidian-900/95 border border-slate-800 p-6 sm:p-8 space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-800">
+        <div class="flex flex-wrap items-center gap-2.5">
+          <span class="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 font-mono text-xs font-semibold">
+            ISSUE #45 • 2026-W46
+          </span>
+          <span class="font-mono text-xs text-slate-300 bg-slate-800/90 border border-slate-700 px-2.5 py-1 rounded-md">
+            Monday, November 9, 2026 (Nov 2 – Nov 9, 2026)
+          </span>
+        </div>
+        <span class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono">
+          THREAT LEVEL: <strong class="uppercase">Elevated</strong>
+        </span>
+      </div>
+
+      <div class="space-y-3">
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">Fake QuickBooks Invoices, Chrome Zero-Day Patch & Small Office Wi-Fi Router Attacks</h1>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">This week, scammers are targeting 1–5 person shops with convincing QuickBooks and Stripe payment failed emails while attackers actively exploit outdated Chrome browsers and home-office routers. We filtered out 38 enterprise data-center alerts so your team can focus on three 5-minute fixes.</p>
+      </div>
+
+      <div class="p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/35">
+        <div class="text-xs font-mono uppercase tracking-wider text-emerald-300 font-semibold">
+          #1 Priority 5-Minute Team Action (Week #45)
+        </div>
+        <p class="text-sm text-slate-100 mt-1 font-medium">Update Google Chrome on all team laptops today and verify any unexpected invoice or banking change via a quick phone call before clicking.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
+        
+        <section class="rounded-xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">CISA</span>
+                
+                <span class="text-xs text-slate-400 font-medium">Browser & Workstations</span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">Critical • ⏱ 2 mins</span>
+            </div>
+
+            <h2 class="text-lg font-bold text-white leading-snug">Urgent Google Chrome & Edge Update Fixes Active Web Exploit</h2>
+            <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">CISA ordered federal agencies to patch a critical flaw in Google Chrome and Microsoft Edge after hackers began using booby-trapped websites to steal login cookies. If anyone on your team visits a compromised webpage without this update, attackers can hijack active email or banking sessions without needing your password. Restart your browser right now so the automatic security patch finishes installing.</p>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+            <label for="check-2026-w46-1" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+              <input id="check-2026-w46-1" type="checkbox" data-action-id="2026-w46-1" class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer" />
+              <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                Click the three dots in the top-right corner of Chrome or Edge, select 'Help > About', and click 'Relaunch' to complete the update.
+              </span>
+            </label>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs font-mono">
+              <span class="text-slate-400">Google Chrome, Microsoft Edge, Brave</span>
+              <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 font-medium">
+                Source Advisory ↗
+              </a>
+            </div>
+          </div>
+        </section>
+        
+        <section class="rounded-xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">Krebs on Security</span>
+                
+                <span class="text-xs text-slate-400 font-medium">Email & Phishing</span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">High • ⏱ Zero cost / Awareness</span>
+            </div>
+
+            <h2 class="text-lg font-bold text-white leading-snug">Tax & Bookkeeping Phishing Wave Spoofs Intuit QuickBooks Reminders</h2>
+            <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">Cybercriminals are sending realistic 'Account Suspended' and 'Unpaid Invoice' alerts that appear to come directly from QuickBooks and Stripe. Clicking the link opens a lookalike login page that captures both your password and your six-digit text message security code in real time. Never log in through an email button—always open your browser bookmark to check billing alerts.</p>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+            <label for="check-2026-w46-2" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+              <input id="check-2026-w46-2" type="checkbox" data-action-id="2026-w46-2" class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer" />
+              <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                Warn whoever handles bookkeeping this week to ignore 'urgent billing' email links and log into QuickBooks or Stripe directly from a saved bookmark.
+              </span>
+            </label>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs font-mono">
+              <span class="text-slate-400">QuickBooks Online, Stripe, Business Email</span>
+              <a href="https://krebsonsecurity.com/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 font-medium">
+                Source Advisory ↗
+              </a>
+            </div>
+          </div>
+        </section>
+        
+        <section class="rounded-xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">BleepingComputer</span>
+                
+                <span class="text-xs text-slate-400 font-medium">Home & Small Office Wi-Fi</span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">High • ⏱ 5 mins</span>
+            </div>
+
+            <h2 class="text-lg font-bold text-white leading-snug">Botnet Targets Unpatched Asus, TP-Link, and Netgear Small-Office Routers</h2>
+            <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">A newly discovered wave of automated attacks is hijacking small-office and home Wi-Fi routers that still have 'Remote Management' turned on or run outdated firmware. Once inside a router, criminals can quietly slow down your internet and intercept unencrypted office traffic. Rebooting your router alone does not fix the issue unless you install the latest firmware update in the router app.</p>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+            <label for="check-2026-w46-3" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+              <input id="check-2026-w46-3" type="checkbox" data-action-id="2026-w46-3" class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer" />
+              <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                Open your Wi-Fi router's mobile app (TP-Link Tether, Asus Router, or Netgear Nighthawk), install any pending firmware update, and disable 'Remote Web Management'.
+              </span>
+            </label>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs font-mono">
+              <span class="text-slate-400">TP-Link, Asus Routers, Netgear SOHO</span>
+              <a href="https://www.bleepingcomputer.com/news/security/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 font-medium">
+                Source Advisory ↗
+              </a>
+            </div>
+          </div>
+        </section>
+        
+        <section class="rounded-xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">BleepingComputer</span>
+                
+                <span class="text-xs text-slate-400 font-medium">Cloud & File Sharing</span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">Medium • ⏱ 3 mins</span>
+            </div>
+
+            <h2 class="text-lg font-bold text-white leading-snug">Fake Google Drive & DocuSign Collaboration Invites Spread Info-Stealers</h2>
+            <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">Attackers are abusing legitimate Google Drive and DocuSign notification emails to send small business owners links to fake PDF contract previews. Instead of opening a contract, the page asks you to download a '.zip' or '.msi' file that quietly steals saved passwords from your computer. Real Google Docs and DocuSign agreements view directly in your browser and never ask you to install software to read a document.</p>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+            <label for="check-2026-w46-4" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+              <input id="check-2026-w46-4" type="checkbox" data-action-id="2026-w46-4" class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer" />
+              <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                Remind your team that legitimate DocuSign or Google Drive links never require downloading an `.exe`, `.msi`, or password-protected `.zip` file.
+              </span>
+            </label>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs font-mono">
+              <span class="text-slate-400">Google Workspace, DocuSign, Windows PCs</span>
+              <a href="https://www.bleepingcomputer.com/news/security/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 font-medium">
+                Source Advisory ↗
+              </a>
+            </div>
+          </div>
+        </section>
+        
+        <section class="rounded-xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">CISA</span>
+                
+                <span class="text-xs text-slate-400 font-medium">Apple Devices</span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">High • ⏱ 5 mins</span>
+            </div>
+
+            <h2 class="text-lg font-bold text-white leading-snug">Apple Security Update Protects iPhones and Macs From Malicious Image Files</h2>
+            <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">CISA added a recent Apple macOS and iOS security flaw to its must-patch list after attackers used specially crafted image files to compromise Apple devices. Because so many small teams handle customer texts, iMessages, and email attachments on personal iPhones and MacBooks, unpatched devices are easy targets. Updating to the latest iOS and macOS release completely blocks this attack.</p>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+            <label for="check-2026-w46-5" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+              <input id="check-2026-w46-5" type="checkbox" data-action-id="2026-w46-5" class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer" />
+              <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                On all work iPhones and Macs, open 'Settings > General > Software Update' and turn on Automatic Updates.
+              </span>
+            </label>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs font-mono">
+              <span class="text-slate-400">iPhone (iOS), MacBook (macOS), iPad</span>
+              <a href="https://www.cisa.gov/cybersecurity-advisories/all" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 font-medium">
+                Source Advisory ↗
+              </a>
+            </div>
+          </div>
+        </section>
+        
+        <section class="rounded-xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">Krebs on Security</span>
+                
+                <span class="text-xs text-slate-400 font-medium">Banking & Payroll</span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">Medium • ⏱ 3 mins</span>
+            </div>
+
+            <h2 class="text-lg font-bold text-white leading-snug">Fake 'Sponsored' Google Search Ads Impersonate Small Business Banks</h2>
+            <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">Scammers are buying top Google Search ad slots for regional banks and payroll platforms like Gusto and ADP to trick busy owners into logging into fake websites. These spoofed portals look identical to your real bank login and immediately trigger a wire transfer while you think your page is loading. Never use a search engine to visit your bank or payroll login page.</p>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+            <label for="check-2026-w46-6" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+              <input id="check-2026-w46-6" type="checkbox" data-action-id="2026-w46-6" class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer" />
+              <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                Save your business bank and payroll login pages to your browser bookmarks bar today and install an ad-blocker like uBlock Origin Lite.
+              </span>
+            </label>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs font-mono">
+              <span class="text-slate-400">Business Banking, Gusto / ADP, Google Search</span>
+              <a href="https://krebsonsecurity.com/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 font-medium">
+                Source Advisory ↗
+              </a>
+            </div>
+          </div>
+        </section>
+        
+      </div>
+    </article>
+
+    <!-- Previous / Next Issue Navigation -->
+    <nav aria-label="Adjacent Editions" class="flex flex-wrap items-center justify-between gap-4">
+      <div>
+        
+        <a href="issue-44.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-sm text-slate-200 transition">
+          ← Issue #44 (Oct 26 – Nov 2, 2026)
+        </a>
+        
+      </div>
+      <div>
+        
+        <a href="issue-46.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-sm text-slate-200 transition">
+          Issue #46 (Nov 5 – Nov 12, 2026) →
+        </a>
+        
+      </div>
+    </nav>
+  </main>
+
+  <footer class="border-t border-slate-800/90 bg-obsidian-950 py-8 text-xs text-slate-400">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>© 2026 <a href="[https://gaga.com](https://gaga.com)" class="text-slate-300 hover:text-emerald-400 font-semibold">Gaga.com</a> • Gaga Security Intel</div>
+      <div class="flex items-center gap-4">
+        <a href="../index.html" class="hover:text-emerald-400">All Issues</a>
+        <span>•</span>
+        <a href="[https://gaga.com](https://gaga.com)" class="hover:text-emerald-400">Return to GAGA.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const STORAGE_KEY = 'smallteam_shield_checked_actions_v1';
+      let checkedState = {};
+      try { checkedState = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch (e) {}
+      document.querySelectorAll('.action-checkbox').forEach((cb) => {
+        const id = cb.getAttribute('data-action-id');
+        cb.checked = Boolean(checkedState[id]);
+        cb.closest('.action-box')?.classList.toggle('action-checked', cb.checked);
+        cb.addEventListener('change', (e) => {
+          if (e.target.checked) checkedState[id] = true; else delete checkedState[id];
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedState)); } catch (err) {}
+          cb.closest('.action-box')?.classList.toggle('action-checked', e.target.checked);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -47,7 +47,7 @@ jobs:
       - name: Scrape CISA, Krebs & BleepingComputer and curate with Gemini
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: gemini-3.8-flash
+          GEMINI_MODEL: gemini-4-argon
         run: |
           DAYS="${{ github.event.inputs.days_lookback || '7' }}"
           EXTRA_ARGS=""

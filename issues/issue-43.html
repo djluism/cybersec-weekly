@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="apple-touch-icon" href="../favicon.png" />
+  <link rel="canonical" href="[https://cybersec.gaga.com/issues/issue-](https://cybersec.gaga.com/issues/issue-)43.html" />
+  <title>Issue #43: Vendor ACH Bank Change Scams, WinRAR/7-Zip Flaws & Fake Geek Squad Invoices | Gaga Security Intel</title>
+  <meta name="description" content="Business Email Compromise (BEC) targeting small contractors and agencies surged last week alongside a file-archiver security update. We filtered 36 corporate IT stories down to 3 essential items." />
+  <script async src="[https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9612351412237829](https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9612351412237829)" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+  <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+  <link href="[https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap)" rel="stylesheet">
+  <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            obsidian: {
+              950: '#050811',
+              900: '#090E1A',
+              800: '#0F172A',
+              700: '#1E293B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #050811;
+      background-image:
+        radial-gradient(circle at 15% 0%, rgba(16, 185, 129, 0.10), transparent 38%),
+        radial-gradient(circle at 85% 8%, rgba(6, 182, 212, 0.09), transparent 35%),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.35) 1px, transparent 1px),
+        linear-gradient(to right, rgba(15, 23, 42, 0.35) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    }
+    .action-checked {
+      border-color: rgba(16, 185, 129, 0.5) !important;
+      background-color: rgba(6, 78, 59, 0.22) !important;
+    }
+  </style>
+</head>
+<body class="text-slate-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200 min-h-screen flex flex-col">
+
+  <!-- Global Navigation -->
+  <div class="border-b border-slate-800/80 bg-obsidian-950/95 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <a href="../index.html" class="group flex items-center gap-3.5 focus:outline-none">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-cyan-500 p-[1px] shadow-lg shadow-emerald-500/15">
+          <div class="w-full h-full bg-obsidian-950 rounded-[11px] flex items-center justify-center">
+            <svg class="w-5 h-5 text-emerald-400 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+        </div>
+        <div>
+          <span class="text-lg sm:text-xl font-extrabold tracking-tight text-white">
+            Gaga <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Security Intel</span>
+          </span>
+          <p class="text-xs text-slate-400 font-medium">Issue #43 • Oct 19 – Oct 26, 2026</p>
+        </div>
+      </a>
+
+      <nav aria-label="Issue Navigation" class="flex items-center gap-3">
+        <a href="../index.html" class="px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-xs sm:text-sm font-medium transition">
+          All Weekly Editions
+        </a>
+        <a href="[https://gaga.com](https://gaga.com)" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold text-xs sm:text-sm shadow-lg shadow-emerald-500/20 transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span>Return to Home</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="max-w-6xl mx-auto w-full px-4 sm:px-6 py-10 flex-1 space-y-8">
+    <article class="rounded-2xl bg-obsidian-900/95 border border-slate-800 p-6 sm:p-8 space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-800">
+        <div class="flex flex-wrap items-center gap-2.5">
+          <span class="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 font-mono text-xs font-semibold">
+            ISSUE #43 • 2026-W44
+          </span>
+          <span class="font-mono text-xs text-slate-300 bg-slate-800/90 border border-slate-700 px-2.5 py-1 rounded-md">
+            Monday, October 26, 2026 (Oct 19 – Oct 26, 2026)
+          </span>
+        </div>
+        <span class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono">
+          THREAT LEVEL: <strong class="uppercase">Elevated</strong>
+        </span>
+      </div>
+
+      <div class="space-y-3">
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">Vendor ACH Bank Change Scams, WinRAR/7-Zip Flaws & Fake Geek Squad Invoices</h1>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">Business Email Compromise (BEC) targeting small contractors and agencies surged last week alongside a file-archiver security update. We filtered 36 corporate IT stories down to 3 essential items.</p>
+      </div>
+
+      <div class="p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/35">
+        <div class="text-xs font-mono uppercase tracking-wider text-emerald-300 font-semibold">
+          #1 Priority 5-Minute Team Action (Week #43)
+        </div>
+        <p class="text-sm text-slate-100 mt-1 font-medium">Establish a strict rule: never update a vendor or contractor's ACH bank routing details based solely on an email request.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
+        
+        <section class="rounded-xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">Krebs on Security</span>
+                
+                <span class="text-xs text-slate-400 font-medium">Wire & ACH Fraud</span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">Critical • ⏱ 2 mins</span>
+            </div>
+
+            <h2 class="text-lg font-bold text-white leading-snug">Scammers Hijack Contractor Email Threads to Reroute ACH Payments</h2>
+            <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">Attackers who break into a supplier or freelancer's email account wait quietly until an invoice is due, then reply inside the real email thread asking you to send payment to a 'new bank account.' Because the message comes from the vendor's actual email address and quotes your real project details, spam filters cannot catch it. Once an ACH or wire payment leaves your business checking account, banks rarely recover the funds.</p>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+            <label for="check-2026-w44-1" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+              <input id="check-2026-w44-1" type="checkbox" data-action-id="2026-w44-1" class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer" />
+              <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                Adopt a firm rule with your team: any email asking to change bank routing numbers or payment methods must be verified by calling the vendor on a phone number you already had on file.
+              </span>
+            </label>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs font-mono">
+              <span class="text-slate-400">ACH / Wire Transfers, Bill.com, Business Email</span>
+              <a href="https://krebsonsecurity.com/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 font-medium">
+                Source Advisory ↗
+              </a>
+            </div>
+          </div>
+        </section>
+        
+        <section class="rounded-xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">CISA</span>
+                
+                <span class="text-xs text-slate-400 font-medium">Windows Software</span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">High • ⏱ 4 mins</span>
+            </div>
+
+            <h2 class="text-lg font-bold text-white leading-snug">Outdated 7-Zip and WinRAR File Extraction Tools Exploited via Email Attachments</h2>
+            <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">CISA alerted organizations that hackers are hiding malware inside compressed `.zip` and `.rar` archives that trigger automatically on computers running old versions of WinRAR or 7-Zip. Because Windows 11 now opens `.zip` and `.rar` files natively, most small teams no longer even need third-party archive tools installed. Removing or updating these old utilities closes an easy door for attackers.</p>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+            <label for="check-2026-w44-2" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+              <input id="check-2026-w44-2" type="checkbox" data-action-id="2026-w44-2" class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer" />
+              <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                Open Windows 'Installed Apps', uninstall old versions of WinRAR or 7-Zip if you don't need them, or download the latest release from their official site.
+              </span>
+            </label>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs font-mono">
+              <span class="text-slate-400">Windows 10/11, 7-Zip, WinRAR</span>
+              <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 font-medium">
+                Source Advisory ↗
+              </a>
+            </div>
+          </div>
+        </section>
+        
+        <section class="rounded-xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">BleepingComputer</span>
+                
+                <span class="text-xs text-slate-400 font-medium">Phone Scams</span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">Medium • ⏱ 1 min</span>
+            </div>
+
+            <h2 class="text-lg font-bold text-white leading-snug">Fake 'Norton / Geek Squad' $499 Renewal Emails Trick Staff Into Installing Remote Control Tools</h2>
+            <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">Scammers are blasting small business inboxes with fake receipts claiming your company card was just billed $499 for an annual computer support plan. When a worried employee calls the phone number on the receipt to cancel the charge, the scammer asks them to install remote-desktop software like AnyDesk or ScreenConnect to 'process the refund' and steals bank logins. There is no charge on your card—the email is pure bait to get you on the phone.</p>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+            <label for="check-2026-w44-3" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+              <input id="check-2026-w44-3" type="checkbox" data-action-id="2026-w44-3" class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer" />
+              <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                Tell your team to delete fake $400+ renewal receipts without calling the phone number printed on the PDF; check actual credit card statements instead.
+              </span>
+            </label>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs font-mono">
+              <span class="text-slate-400">Business Email, AnyDesk / TeamViewer</span>
+              <a href="https://www.bleepingcomputer.com/news/security/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 font-medium">
+                Source Advisory ↗
+              </a>
+            </div>
+          </div>
+        </section>
+        
+      </div>
+    </article>
+
+    <!-- Previous / Next Issue Navigation -->
+    <nav aria-label="Adjacent Editions" class="flex flex-wrap items-center justify-between gap-4">
+      <div>
+        
+        <a href="issue-42.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-sm text-slate-200 transition">
+          ← Issue #42 (Oct 12 – Oct 19, 2026)
+        </a>
+        
+      </div>
+      <div>
+        
+        <a href="issue-44.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-sm text-slate-200 transition">
+          Issue #44 (Oct 26 – Nov 2, 2026) →
+        </a>
+        
+      </div>
+    </nav>
+  </main>
+
+  <footer class="border-t border-slate-800/90 bg-obsidian-950 py-8 text-xs text-slate-400">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>© 2026 <a href="[https://gaga.com](https://gaga.com)" class="text-slate-300 hover:text-emerald-400 font-semibold">Gaga.com</a> • Gaga Security Intel</div>
+      <div class="flex items-center gap-4">
+        <a href="../index.html" class="hover:text-emerald-400">All Issues</a>
+        <span>•</span>
+        <a href="[https://gaga.com](https://gaga.com)" class="hover:text-emerald-400">Return to GAGA.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const STORAGE_KEY = 'smallteam_shield_checked_actions_v1';
+      let checkedState = {};
+      try { checkedState = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch (e) {}
+      document.querySelectorAll('.action-checkbox').forEach((cb) => {
+        const id = cb.getAttribute('data-action-id');
+        cb.checked = Boolean(checkedState[id]);
+        cb.closest('.action-box')?.classList.toggle('action-checked', cb.checked);
+        cb.addEventListener('change', (e) => {
+          if (e.target.checked) checkedState[id] = true; else delete checkedState[id];
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedState)); } catch (err) {}
+          cb.closest('.action-box')?.classList.toggle('action-checked', e.target.checked);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
