@@ -364,7 +364,7 @@ Your job:
                 "summary": enforce_two_to_three_sentences(item.get("summary", "")),
                 "action_step": item.get("action_step", "Check your software updates today."),
                 "affected_tools": item.get("affected_tools", ["Workstations"])[:4],
-                "url": item.get("url", "[https://www.cisa.gov/](https://www.cisa.gov/)"),
+                "url": item.get("url", "https://www.cisa.gov/"),
                 "published_at": item.get("published_at", reference_date.strftime("%Y-%m-%d")),
             }
         )
@@ -480,7 +480,7 @@ def generate_sitemap_and_robots(site_data: Dict[str, Any]) -> None:
 
     sitemap_xml = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
-        '<urlset xmlns="[http://www.sitemaps.org/schemas/sitemap/0.9](http://www.sitemaps.org/schemas/sitemap/0.9)">\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "\n".join(url_entries)
         + "\n</urlset>\n"
     )
