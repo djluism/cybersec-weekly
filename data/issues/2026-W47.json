@@ -1,57 +1,56 @@
 {
-  "issue_number": 47,
+  "issue_number": 48,
   "week_id": "2026-W47",
-  "date_label": "Monday, November 18, 2026",
-  "date_range": "Nov 11 – Nov 18, 2026",
+  "date_label": "Thursday, November 19, 2026",
+  "date_range": "Nov 12 – Nov 19, 2026",
   "is_current": true,
-  "threat_level": "High",
-  "headline": "Microsoft 365 Login Traps, Hijacked Major Websites, and AI Voice Scams",
-  "executive_brief": "This week's biggest risks for small teams come from sneaky Microsoft 365 login traps, compromised popular websites, and scammers using realistic fake voices to impersonate tech support. We filtered out 32 industrial factory alerts, developer server flaws, and corporate-only warnings so you can focus strictly on what protects your small business.",
-  "priority_action": "Switch your Microsoft 365 and key business logins to a passwordless passkey or an authenticator app, and tell your team never to approve unexpected login prompts.",
+  "threat_level": "Elevated",
+  "headline": "Synology Backup Attacks, Compromised Major Websites, and AI Impersonation Scams",
+  "executive_brief": "This week's biggest risks for small teams involve actively targeted Synology backup drives, data-stealing code hidden on major websites like Zoom, and convincing impersonation scams. We filtered out 26 enterprise-only alerts—such as industrial factory software flaws and supercomputer breaches—so you can focus strictly on what protects your business.",
+  "priority_action": "Log into your Synology backup box today to install any pending software updates, and make sure automatic updates are turned on in your web browser.",
   "stats": {
-    "raw_articles_scanned": 36,
-    "enterprise_noise_filtered": 32,
-    "micro_business_stories": 4,
-    "estimated_read_time": "1 min"
+    "raw_articles_scanned": 31,
+    "enterprise_noise_filtered": 26,
+    "micro_business_stories": 5,
+    "estimated_read_time": "2 min"
   },
   "filtered_noise_examples": [
-    "Siemens industrial factory and automation software advisories (17 alerts)",
-    "Critical Java4Shell server flaw affecting enterprise tools like Jenkins and Jira",
-    "Windows Server 2028 announcement and Fugaku supercomputer breach"
+    "Multiple Siemens industrial factory and automation software advisories",
+    "Breach investigation at Japan's Fugaku supercomputer research center",
+    "Microsoft's announcement of Windows Server 2028 for enterprise data centers"
   ],
   "items": [
     {
       "id": "2026-w47-1",
-      "source_id": "bleeping",
-      "source_name": "BleepingComputer",
-      "category": "Email & Phishing",
+      "source_id": "cisa",
+      "source_name": "CISA",
+      "category": "Backups & Storage",
       "severity": "Critical",
       "time_to_fix": "5 mins",
-      "title": "New Phishing Kits Steal Microsoft 365 Logins Even With Text-Message Codes",
-      "summary": "Criminals are using off-the-shelf fake login pages to intercept Microsoft 365 passwords and steal active session tokens as soon as someone signs in. Because these fake pages capture your unlocked session right after you enter a text or email code, hackers can slip straight into your business inbox and send fraudulent invoices to clients. Turning on phishing-resistant passkeys or using an authenticator app with number matching stops these fake login pages from reusing your session.",
-      "action_step": "Open your Microsoft 365 security settings today, turn on an authenticator app or passkey sign-in, and remind your team never to log in through links inside unexpected emails.",
+      "title": "Urgent Update Needed for Synology Office Backup Drives",
+      "summary": "Federal security officials warned this week that hackers are actively breaking into Synology office backup boxes through a software flaw. If your small business uses a Synology drive to store client records, invoices, or shared files, attackers could hijack it or lock you out of your backups. Installing the latest software update closes this gap right away and keeps your backup box protected.",
+      "action_step": "Sign in to your Synology control panel, open the Update & Restore section, and install the latest system update right away.",
       "affected_tools": [
-        "Microsoft 365",
-        "Outlook"
+        "Synology NAS",
+        "Synology DiskStation Manager"
       ],
-      "url": "https://www.bleepingcomputer.com/news/security/inside-modern-phishing-kits-built-to-steal-microsoft-365-sessions/",
-      "published_at": "2026-11-17"
+      "url": "https://www.cisa.gov/news-events/alerts/2026/11/18/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+      "published_at": "2026-11-18"
     },
     {
       "id": "2026-w47-2",
       "source_id": "krebs",
       "source_name": "Krebs on Security",
-      "category": "Browser Security",
+      "category": "Browser & Website Security",
       "severity": "High",
       "time_to_fix": "3 mins",
-      "title": "Hackers Used a Popular Website Tool to Slip Malware Onto Major Sites",
-      "summary": "Attackers exploited a security flaw in Optimizely, a widely used website testing service, to silently load data-stealing scripts onto at least 178 major sites including Zoom, CNN, and the BBC. Even when you only visit trusted, well-known websites during your workday, hidden third-party scripts can still try to grab saved browser data or trick you into downloading malware. Keeping your web browser updated and using a reputable ad or script blocker prevents most of these sneaky background scripts from running.",
-      "action_step": "Restart Chrome, Edge, or Safari right now to install any waiting updates, and turn on Enhanced Protection or a trusted ad blocker to block suspicious third-party scripts.",
+      "title": "Major Websites Including Zoom Exposed Visitors to Hidden Data-Stealing Code",
+      "summary": "Cybercriminals slipped data-stealing software onto more than 170 major websites—including Zoom—by exploiting a popular website customization tool called Optimizely. Simply visiting an affected site or running unmonitored third-party marketing scripts on your own business website can quietly expose passwords and sensitive customer data. Keeping your web browser updated and reviewing any third-party plugins on your company site blocks these hidden traps.",
+      "action_step": "Restart your web browser today to apply pending security updates, and remove any unused marketing plugins or scripts from your business website.",
       "affected_tools": [
-        "Chrome",
-        "Safari",
-        "Edge",
-        "Zoom"
+        "Zoom",
+        "Web Browsers",
+        "Business Websites"
       ],
       "url": "https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/",
       "published_at": "2026-11-18"
@@ -60,37 +59,52 @@
       "id": "2026-w47-3",
       "source_id": "bleeping",
       "source_name": "BleepingComputer",
-      "category": "Scams & Impersonation",
-      "severity": "High",
+      "category": "Operating Systems",
+      "severity": "Medium",
       "time_to_fix": "5 mins",
-      "title": "Scammers Are Using AI Voices and Fake Support Calls to Trick Small Teams",
-      "summary": "Cybercriminals are increasingly using AI-generated voice clones and fake tech support calls to impersonate coworkers, vendors, or software helpdesks. In a small 1-to-5 person business, one convincing phone call asking a teammate to reset a password or approve a payment can quickly drain an account or lock you out of your tools. Setting a simple rule to always verify urgent requests by calling back on a saved phone number stops these impersonation tricks cold.",
-      "action_step": "Agree on a quick 1-minute team rule today: never share login codes, change bank details, or install remote-support tools from an incoming call without calling the person back on a known number.",
+      "title": "Windows 11 Update Causing Microsoft Office App Launch Glitches",
+      "summary": "Microsoft confirmed that this month's Windows 11 update is causing Microsoft Office and other everyday apps to fail when installing or opening. For a small team trying to send invoices or edit documents, this glitch can bring daily work to a frustrating halt until you apply Microsoft's official workaround. Restarting affected devices and checking for the latest follow-up fix restores normal app access without risking your security protection.",
+      "action_step": "Open Windows Update in your PC settings to check for Microsoft's follow-up fix if Office or other work apps refuse to open.",
       "affected_tools": [
-        "Phone & SMS",
-        "Email",
-        "Accounting & Banking"
+        "Windows 11",
+        "Microsoft Office"
       ],
-      "url": "https://www.bleepingcomputer.com/news/security/from-deepfakes-to-helpdesk-impersonation-why-stronger-verification-matters/",
-      "published_at": "2026-11-18"
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-app-installation-launch-issues-after-hotpatch/",
+      "published_at": "2026-11-19"
     },
     {
       "id": "2026-w47-4",
       "source_id": "bleeping",
       "source_name": "BleepingComputer",
-      "category": "Cloud Services",
+      "category": "Scams & Social Engineering",
+      "severity": "High",
+      "time_to_fix": "2 mins",
+      "title": "Scammers Using Fake Voice Clones and Tech Support Calls to Steal Logins",
+      "summary": "Scammers are increasingly using realistic artificial intelligence voice clones and fake tech-support calls to trick employees into sharing passwords and account codes. In a small business of one to five people, a convincing call pretending to be your software vendor or a co-worker can quickly lead to hijacked email or bank accounts. Setting up a simple rule to verify any urgent login or payment request through a second channel stops these impersonators cold.",
+      "action_step": "Tell your team today that no one should ever share a password or two-factor code over the phone without calling the requester back on a known trusted number.",
+      "affected_tools": [
+        "Business Email",
+        "Phone & SMS",
+        "Cloud Accounts"
+      ],
+      "url": "https://www.bleepingcomputer.com/news/security/from-deepfakes-to-helpdesk-impersonation-why-stronger-verification-matters/",
+      "published_at": "2026-11-18"
+    },
+    {
+      "id": "2026-w47-5",
+      "source_id": "bleeping",
+      "source_name": "BleepingComputer",
+      "category": "Browser Security",
       "severity": "Medium",
       "time_to_fix": "2 mins",
-      "title": "Apple Outages Disrupt iCloud Mail and Account Sign-Ins",
-      "summary": "Apple experienced service disruptions affecting iCloud Mail, account sign-ins, and several connected Apple services. If your business uses an iCloud email address or Apple devices for daily work, sudden login errors or missing emails can look like a hack and tempt someone into clicking fake Apple Support links. Checking Apple's official status page first helps you confirm an outage safely without handing your password to opportunistic scammers.",
-      "action_step": "Bookmark Apple's official System Status page so your team checks there first during login hiccups instead of searching online for tech support phone numbers.",
+      "title": "Microsoft Edge Adds Stronger Lockdown Defenses Against Sketchy Websites",
+      "summary": "Microsoft is testing a stricter lockdown setting for its Edge web browser that turns off unnecessary graphics features often targeted by malicious websites. Since small teams spend most of their workday inside a browser handling email, banking, and cloud tools, tightening browser defenses cuts down the risk of drive-by infections. Turning on Edge's existing built-in security mode gives you strong everyday protection right now while this new feature rolls out.",
+      "action_step": "Open Microsoft Edge Settings, go to Privacy, search, and services, and switch Enhance your security on the web to Balanced or Strict.",
       "affected_tools": [
-        "iCloud Mail",
-        "Apple Account",
-        "macOS & iOS"
+        "Microsoft Edge"
       ],
-      "url": "https://www.bleepingcomputer.com/news/apple/apple-reports-outages-affecting-icloud-mail-applecare-and-more/",
-      "published_at": "2026-11-17"
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-tests-new-edge-lockdown-mode-that-disables-gpu-apis/",
+      "published_at": "2026-11-19"
     }
   ],
   "generated_by_model": "gemini-4-hydrogen"

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="apple-touch-icon" href="../favicon.png" />
+  <link rel="canonical" href="https://cybersec.gaga.com/issues/issue-48.html" />
+  <title>Issue #48: Synology Backup Attacks, Compromised Major Websites, and AI Impersonation Scams | Gaga Security Intel</title>
+  <meta name="description" content="This week's biggest risks for small teams involve actively targeted Synology backup drives, data-stealing code hidden on major websites like Zoom, and convincing impersonation scams. We filtered out 26 enterprise-only alerts—such as industrial factory software flaws and supercomputer breaches—so you can focus strictly on what protects your business." />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9612351412237829" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            obsidian: {
+              950: '#050811',
+              900: '#090E1A',
+              800: '#0F172A',
+              700: '#1E293B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #050811;
+      background-image:
+        radial-gradient(circle at 15% 0%, rgba(16, 185, 129, 0.10), transparent 38%),
+        radial-gradient(circle at 85% 8%, rgba(6, 182, 212, 0.09), transparent 35%),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.35) 1px, transparent 1px),
+        linear-gradient(to right, rgba(15, 23, 42, 0.35) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    }
+    .action-checked {
+      border-color: rgba(16, 185, 129, 0.5) !important;
+      background-color: rgba(6, 78, 59, 0.22) !important;
+    }
+  </style>
+</head>
+<body class="text-slate-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200 min-h-screen flex flex-col">
+
+  <!-- Global Navigation -->
+  <div class="border-b border-slate-800/80 bg-obsidian-950/95 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <a href="../index.html" class="group flex items-center gap-3.5 focus:outline-none">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-cyan-500 p-[1px] shadow-lg shadow-emerald-500/15">
+          <div class="w-full h-full bg-obsidian-950 rounded-[11px] flex items-center justify-center">
+            <svg class="w-5 h-5 text-emerald-400 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+        </div>
+        <div>
+          <span class="text-lg sm:text-xl font-extrabold tracking-tight text-white">
+            Gaga <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Security Intel</span>
+          </span>
+          <p class="text-xs text-slate-400 font-medium">Issue #48 • Nov 12 – Nov 19, 2026</p>
+        </div>
+      </a>
+
+      <nav aria-label="Issue Navigation" class="flex items-center gap-3">
+        <a href="../index.html" class="px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-xs sm:text-sm font-medium transition">
+          All Weekly Editions
+        </a>
+        <a href="https://gaga.com" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold text-xs sm:text-sm shadow-lg shadow-emerald-500/20 transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span>Return to Home</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="max-w-6xl mx-auto w-full px-4 sm:px-6 py-10 flex-1 space-y-8">
+    <article class="rounded-2xl bg-obsidian-900/95 border border-slate-800 p-6 sm:p-8 space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-800">
+        <div class="flex flex-wrap items-center gap-2.5">
+          <span class="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 font-mono text-xs font-semibold">
+            ISSUE #48 • 2026-W47
+          </span>
+          <span class="font-mono text-xs text-slate-300 bg-slate-800/90 border border-slate-700 px-2.5 py-1 rounded-md">
+            Thursday, November 19, 2026 (Nov 12 – Nov 19, 2026)
+          </span>
+        </div>
+        <span class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono">
+          THREAT LEVEL: <strong class="uppercase">Elevated</strong>
+        </span>
+      </div>
+
+      <div class="space-y-3">
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">Synology Backup Attacks, Compromised Major Websites, and AI Impersonation Scams</h1>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">This week's biggest risks for small teams involve actively targeted Synology backup drives, data-stealing code hidden on major websites like Zoom, and convincing impersonation scams. We filtered out 26 enterprise-only alerts—such as industrial factory software flaws and supercomputer breaches—so you can focus strictly on what protects your business.</p>
+      </div>
+
+      <div class="p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/35">
+        <div class="text-xs font-mono uppercase tracking-wider text-emerald-300 font-semibold">
+          #1 Priority 5-Minute Team Action (Week #48)
+        </div>
+        <p class="text-sm text-slate-100 mt-1 font-medium">Log into your Synology backup box today to install any pending software updates, and make sure automatic updates are turned on in your web browser.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
+        
+        <section class="rounded-xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">CISA</span>
+                
+                <span class="text-xs text-slate-400 font-medium">Backups & Storage</span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">Critical • ⏱ 5 mins</span>
+            </div>
+
+            <h2 class="text-lg font-bold text-white leading-snug">Urgent Update Needed for Synology Office Backup Drives</h2>
+            <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">Federal security officials warned this week that hackers are actively breaking into Synology office backup boxes through a software flaw. If your small business uses a Synology drive to store client records, invoices, or shared files, attackers could hijack it or lock you out of your backups. Installing the latest software update closes this gap right away and keeps your backup box protected.</p>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+            <label for="check-2026-w47-1" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+              <input id="check-2026-w47-1" type="checkbox" data-action-id="2026-w47-1" class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer" />
+              <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                Sign in to your Synology control panel, open the Update & Restore section, and install the latest system update right away.
+              </span>
+            </label>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs font-mono">
+              <span class="text-slate-400">Synology NAS, Synology DiskStation Manager</span>
+              <a href="https://www.cisa.gov/news-events/alerts/2026/11/18/cisa-adds-four-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 font-medium">
+                Source Advisory ↗
+              </a>
+            </div>
+          </div>
+        </section>
+        
+        <section class="rounded-xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">Krebs on Security</span>
+                
+                <span class="text-xs text-slate-400 font-medium">Browser & Website Security</span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">High • ⏱ 3 mins</span>
+            </div>
+
+            <h2 class="text-lg font-bold text-white leading-snug">Major Websites Including Zoom Exposed Visitors to Hidden Data-Stealing Code</h2>
+            <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">Cybercriminals slipped data-stealing software onto more than 170 major websites—including Zoom—by exploiting a popular website customization tool called Optimizely. Simply visiting an affected site or running unmonitored third-party marketing scripts on your own business website can quietly expose passwords and sensitive customer data. Keeping your web browser updated and reviewing any third-party plugins on your company site blocks these hidden traps.</p>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+            <label for="check-2026-w47-2" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+              <input id="check-2026-w47-2" type="checkbox" data-action-id="2026-w47-2" class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer" />
+              <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                Restart your web browser today to apply pending security updates, and remove any unused marketing plugins or scripts from your business website.
+              </span>
+            </label>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs font-mono">
+              <span class="text-slate-400">Zoom, Web Browsers, Business Websites</span>
+              <a href="https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 font-medium">
+                Source Advisory ↗
+              </a>
+            </div>
+          </div>
+        </section>
+        
+        <section class="rounded-xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">BleepingComputer</span>
+                
+                <span class="text-xs text-slate-400 font-medium">Operating Systems</span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">Medium • ⏱ 5 mins</span>
+            </div>
+
+            <h2 class="text-lg font-bold text-white leading-snug">Windows 11 Update Causing Microsoft Office App Launch Glitches</h2>
+            <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">Microsoft confirmed that this month's Windows 11 update is causing Microsoft Office and other everyday apps to fail when installing or opening. For a small team trying to send invoices or edit documents, this glitch can bring daily work to a frustrating halt until you apply Microsoft's official workaround. Restarting affected devices and checking for the latest follow-up fix restores normal app access without risking your security protection.</p>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+            <label for="check-2026-w47-3" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+              <input id="check-2026-w47-3" type="checkbox" data-action-id="2026-w47-3" class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer" />
+              <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                Open Windows Update in your PC settings to check for Microsoft's follow-up fix if Office or other work apps refuse to open.
+              </span>
+            </label>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs font-mono">
+              <span class="text-slate-400">Windows 11, Microsoft Office</span>
+              <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-app-installation-launch-issues-after-hotpatch/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 font-medium">
+                Source Advisory ↗
+              </a>
+            </div>
+          </div>
+        </section>
+        
+        <section class="rounded-xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">BleepingComputer</span>
+                
+                <span class="text-xs text-slate-400 font-medium">Scams & Social Engineering</span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">High • ⏱ 2 mins</span>
+            </div>
+
+            <h2 class="text-lg font-bold text-white leading-snug">Scammers Using Fake Voice Clones and Tech Support Calls to Steal Logins</h2>
+            <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">Scammers are increasingly using realistic artificial intelligence voice clones and fake tech-support calls to trick employees into sharing passwords and account codes. In a small business of one to five people, a convincing call pretending to be your software vendor or a co-worker can quickly lead to hijacked email or bank accounts. Setting up a simple rule to verify any urgent login or payment request through a second channel stops these impersonators cold.</p>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+            <label for="check-2026-w47-4" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+              <input id="check-2026-w47-4" type="checkbox" data-action-id="2026-w47-4" class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer" />
+              <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                Tell your team today that no one should ever share a password or two-factor code over the phone without calling the requester back on a known trusted number.
+              </span>
+            </label>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs font-mono">
+              <span class="text-slate-400">Business Email, Phone & SMS, Cloud Accounts</span>
+              <a href="https://www.bleepingcomputer.com/news/security/from-deepfakes-to-helpdesk-impersonation-why-stronger-verification-matters/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 font-medium">
+                Source Advisory ↗
+              </a>
+            </div>
+          </div>
+        </section>
+        
+        <section class="rounded-xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">BleepingComputer</span>
+                
+                <span class="text-xs text-slate-400 font-medium">Browser Security</span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">Medium • ⏱ 2 mins</span>
+            </div>
+
+            <h2 class="text-lg font-bold text-white leading-snug">Microsoft Edge Adds Stronger Lockdown Defenses Against Sketchy Websites</h2>
+            <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">Microsoft is testing a stricter lockdown setting for its Edge web browser that turns off unnecessary graphics features often targeted by malicious websites. Since small teams spend most of their workday inside a browser handling email, banking, and cloud tools, tightening browser defenses cuts down the risk of drive-by infections. Turning on Edge's existing built-in security mode gives you strong everyday protection right now while this new feature rolls out.</p>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800/90 space-y-3">
+            <label for="check-2026-w47-5" class="action-box flex items-start gap-3 p-3 rounded-lg bg-obsidian-950/90 border border-slate-800 hover:border-emerald-500/40 cursor-pointer transition">
+              <input id="check-2026-w47-5" type="checkbox" data-action-id="2026-w47-5" class="action-checkbox mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 cursor-pointer" />
+              <span class="text-xs sm:text-sm text-slate-200 leading-snug">
+                <strong class="text-emerald-400 font-mono uppercase text-[11px] block mb-0.5">1-Step Action for Your Team:</strong>
+                Open Microsoft Edge Settings, go to Privacy, search, and services, and switch Enhance your security on the web to Balanced or Strict.
+              </span>
+            </label>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs font-mono">
+              <span class="text-slate-400">Microsoft Edge</span>
+              <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-tests-new-edge-lockdown-mode-that-disables-gpu-apis/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 font-medium">
+                Source Advisory ↗
+              </a>
+            </div>
+          </div>
+        </section>
+        
+      </div>
+    </article>
+
+    <!-- Previous / Next Issue Navigation -->
+    <nav aria-label="Adjacent Editions" class="flex flex-wrap items-center justify-between gap-4">
+      <div>
+        
+        <a href="issue-47.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-sm text-slate-200 transition">
+          ← Issue #47 (Nov 11 – Nov 18, 2026)
+        </a>
+        
+      </div>
+      <div>
+        
+      </div>
+    </nav>
+  </main>
+
+  <footer class="border-t border-slate-800/90 bg-obsidian-950 py-8 text-xs text-slate-400">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>© 2026 <a href="https://gaga.com" class="text-slate-300 hover:text-emerald-400 font-semibold">Gaga.com</a> • Gaga Security Intel</div>
+      <div class="flex items-center gap-4">
+        <a href="../index.html" class="hover:text-emerald-400">All Issues</a>
+        <span>•</span>
+        <a href="https://gaga.com" class="hover:text-emerald-400">Return to GAGA.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const STORAGE_KEY = 'smallteam_shield_checked_actions_v1';
+      let checkedState = {};
+      try { checkedState = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch (e) {}
+      document.querySelectorAll('.action-checkbox').forEach((cb) => {
+        const id = cb.getAttribute('data-action-id');
+        cb.checked = Boolean(checkedState[id]);
+        cb.closest('.action-box')?.classList.toggle('action-checked', cb.checked);
+        cb.addEventListener('change', (e) => {
+          if (e.target.checked) checkedState[id] = true; else delete checkedState[id];
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedState)); } catch (err) {}
+          cb.closest('.action-box')?.classList.toggle('action-checked', e.target.checked);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
