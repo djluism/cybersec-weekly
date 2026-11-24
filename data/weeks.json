@@ -3,7 +3,7 @@
     "site_title": "Gaga Security Intel",
     "tagline": "Zero-Jargon Weekly Cybersecurity Brief for 1–5 Person Businesses",
     "model": "gemini-4-hydrogen",
-    "last_updated": "2026-11-19T13:00:14Z",
+    "last_updated": "2026-11-24T21:55:38Z",
     "sources": [
       {
         "id": "cisa",
@@ -27,11 +27,124 @@
   },
   "weeks": [
     {
+      "issue_number": 49,
+      "week_id": "2026-W48",
+      "date_label": "Tuesday, November 24, 2026",
+      "date_range": "Nov 17 – Nov 24, 2026",
+      "is_current": true,
+      "threat_level": "Elevated",
+      "headline": "Active Attacks Hit Synology Backup Drives, Mainstream Websites, and Phone Scams",
+      "executive_brief": "This week's threats focus on everyday small-business risks, including active attacks on Synology office backup drives, hidden malware on popular websites, and phone scammers targeting work logins. We reviewed 26 raw security alerts and filtered out 21 corporate, industrial, and data-center stories that do not affect a 1-to-5 person team.",
+      "priority_action": "Spend five minutes updating any Synology backup drives and office web browsers today, and remind your team never to share passwords or login codes over the phone.",
+      "stats": {
+        "raw_articles_scanned": 26,
+        "enterprise_noise_filtered": 21,
+        "micro_business_stories": 5,
+        "estimated_read_time": "2 min"
+      },
+      "filtered_noise_examples": [
+        "Schneider Electric industrial switchboard and Danfoss commercial controller flaws",
+        "Rackspace cloud platform breach impacting enterprise Kubernetes clusters",
+        "Check Point enterprise firewall server compromises and VMware vCenter alerts"
+      ],
+      "items": [
+        {
+          "id": "2026-w48-1",
+          "source_id": "cisa",
+          "source_name": "CISA",
+          "category": "Backups & Storage",
+          "severity": "Critical",
+          "time_to_fix": "5 mins",
+          "title": "Hackers Are Actively Targeting Unpatched Synology Backup Drives",
+          "summary": "Government cybersecurity officials confirmed this week that hackers are actively breaking into Synology office backup drives using a known software flaw. If your small business stores client files or daily backups on a Synology box connected to the internet, attackers could steal or lock up your data. Installing the latest software update closes this doorway immediately.",
+          "action_step": "Log into your Synology backup drive's web dashboard, open Control Panel, click Update & Restore, and install any pending software updates.",
+          "affected_tools": [
+            "Synology NAS",
+            "Synology DiskStation"
+          ],
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/18/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+          "published_at": "2026-11-18"
+        },
+        {
+          "id": "2026-w48-2",
+          "source_id": "krebs",
+          "source_name": "Krebs on Security",
+          "category": "Browser Security",
+          "severity": "High",
+          "time_to_fix": "3 mins",
+          "title": "Malware Sneaks Onto Major Websites Through Popular Marketing Tool",
+          "summary": "Hackers hijacked a widely used website testing service to silently slip data-stealing software onto nearly two hundred popular sites, including Zoom and major news outlets. Simply visiting an affected page on your office computer could expose saved passwords or login sessions without you ever clicking a suspicious download. Keeping your web browser updated and using a reputable tracker blocker stops most of these sneaky scripts before they load.",
+          "action_step": "Open your Chrome, Safari, or Edge settings to confirm your web browser is fully up to date, and clear saved cookies for sites where you handle banking or client logins.",
+          "affected_tools": [
+            "Google Chrome",
+            "Microsoft Edge",
+            "Safari",
+            "Zoom"
+          ],
+          "url": "https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/",
+          "published_at": "2026-11-18"
+        },
+        {
+          "id": "2026-w48-3",
+          "source_id": "bleeping",
+          "source_name": "BleepingComputer",
+          "category": "Phone & Login Scams",
+          "severity": "High",
+          "time_to_fix": "2 mins",
+          "title": "New Extortion Gang Uses Fake Support Phone Calls to Steal Logins",
+          "summary": "A new cybercrime group is calling employees while pretending to be tech support to trick them into handing over their main work account passwords and login codes. For a small team, one fooled coworker on the phone can give criminals access to your shared email, cloud files, and customer records. Reminding your staff to hang up and verify any unexpected support request stops this scam cold.",
+          "action_step": "Send a quick message to your team today stating that nobody should ever read a password or two-factor verification code to someone who calls them on the phone.",
+          "affected_tools": [
+            "Google Workspace",
+            "Microsoft 365",
+            "Business Phone"
+          ],
+          "url": "https://www.bleepingcomputer.com/news/security/new-inception-extortion-gang-launches-large-scale-vishing-campaign/",
+          "published_at": "2026-11-24"
+        },
+        {
+          "id": "2026-w48-4",
+          "source_id": "bleeping",
+          "source_name": "BleepingComputer",
+          "category": "AI & Data Privacy",
+          "severity": "Medium",
+          "time_to_fix": "5 mins",
+          "title": "AI Service Drops Providers Caught Leaking User Prompts and Secrets",
+          "summary": "A popular platform that connects apps to different artificial intelligence models removed three providers after discovering they broke privacy promises and exposed user prompts and secret keys. If your business uses third-party AI writing or coding tools, anything you paste into a chat box—including client names, invoices, or passwords—could accidentally become visible to outsiders. Switching to trusted business AI plans with clear privacy guarantees and scrubbing sensitive details first keeps your company data safe.",
+          "action_step": "Remind your team never to paste customer details, financial figures, or passwords into free or unfamiliar AI tools, and review which AI apps have access to your work accounts.",
+          "affected_tools": [
+            "OpenRouter",
+            "AI Writing & Coding Tools"
+          ],
+          "url": "https://www.bleepingcomputer.com/news/security/openrouter-drops-ai-providers-over-leaked-prompts-and-secrets/",
+          "published_at": "2026-11-23"
+        },
+        {
+          "id": "2026-w48-5",
+          "source_id": "krebs",
+          "source_name": "Krebs on Security",
+          "category": "Fraud & Scam Awareness",
+          "severity": "Medium",
+          "time_to_fix": "Awareness",
+          "title": "Tech Executive Charged After Fake Ransomware Rescue Firm Paid Hackers",
+          "summary": "Federal prosecutors charged a co-founder of RansomwareHelp with wire fraud after discovering the company lied about using special recovery software and instead just secretly paid hackers and charged victims a markup. Small businesses panicking after a file-locking attack are prime targets for shady rescue firms promising fast miracles. Keeping an offline backup on a disconnected drive ensures you never have to trust a middleman or pay a ransom.",
+          "action_step": "Verify that at least one copy of your critical accounting and client files is backed up to an external drive or cloud service that criminals cannot delete from your main computer.",
+          "affected_tools": [
+            "External Backup Drives",
+            "Cloud Backups"
+          ],
+          "url": "https://krebsonsecurity.com/2026/11/cto-of-ransomwarehelp-indicted-for-wire-fraud/",
+          "published_at": "2026-11-21"
+        }
+      ],
+      "generated_by_model": "gemini-4-hydrogen"
+    },
+    {
       "issue_number": 48,
       "week_id": "2026-W47",
       "date_label": "Thursday, November 19, 2026",
       "date_range": "Nov 12 – Nov 19, 2026",
-      "is_current": true,
+      "is_current": false,
       "threat_level": "Elevated",
       "headline": "Synology Backup Attacks, Compromised Major Websites, and AI Impersonation Scams",
       "executive_brief": "This week's biggest risks for small teams involve actively targeted Synology backup drives, data-stealing code hidden on major websites like Zoom, and convincing impersonation scams. We filtered out 26 enterprise-only alerts—such as industrial factory software flaws and supercomputer breaches—so you can focus strictly on what protects your business.",
